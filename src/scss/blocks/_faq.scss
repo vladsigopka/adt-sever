@@ -1,0 +1,80 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.faq {
+  border-top: 1px solid $color-border;
+
+  &__item {
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(32px);
+    padding-block: rem(28px);
+    text-align: left;
+    cursor: pointer;
+    color: $color-text;
+  }
+
+  &__q {
+    font-size: rem(18px);
+    font-weight: 600;
+  }
+
+  &__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: rem(28px);
+    height: rem(28px);
+    color: $color-text;
+  }
+
+  &__icon-bar {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.35s ease;
+
+    &--v {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  &__body-inner {
+    overflow: hidden;
+  }
+
+  &__content {
+    padding-bottom: rem(28px);
+    max-width: rem(920px);
+  }
+
+  &__text {
+    color: $color-muted;
+    font-size: rem(14px);
+    line-height: 1.6;
+
+    & + & {
+      margin-top: rem(16px);
+    }
+  }
+
+  &__item.is-open &__body {
+    grid-template-rows: 1fr;
+  }
+
+  &__item.is-open &__icon-bar--v {
+    transform: rotate(0deg);
+  }
+}

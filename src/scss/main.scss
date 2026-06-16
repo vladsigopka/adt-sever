@@ -1,0 +1,22 @@
+@use 'base/variables';
+@use 'base/functions';
+@use 'base/mixins';
+@use 'base/fonts';
+@use 'base/reset';
+@use 'base/base';
+
+@use 'blocks/header';
+@use 'blocks/footer';
+@use 'blocks/button';
+@use 'blocks/tag';
+@use 'blocks/breadcrumbs';
+@use 'blocks/promo-card';
+@use 'blocks/doc-card';
+@use 'blocks/field';
+@use 'blocks/auth';
+@use 'blocks/mobile-menu';
+@use 'blocks/faq';
+@use 'blocks/article';
+@use 'blocks/promo-detail';
+@use 'blocks/doc-text';
+@use 'blocks/startlinks';

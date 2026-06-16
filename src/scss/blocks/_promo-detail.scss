@@ -1,0 +1,16 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.promo-detail {
+  &__media {
+    margin-bottom: rem(80px);
+    border-radius: rem(24px);
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 21 / 10;
+    object-fit: cover;
+  }
+}

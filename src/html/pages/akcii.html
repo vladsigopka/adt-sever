@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Акции — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Акции</span>
+      </nav>
+
+      <h1 class="page-title">Актуальные акционные предложения</h1>
+
+      <div class="promo-list">
+
+        <article class="promo-card">
+          <div class="promo-card__media">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Акция «Лёгкое дыхание» — обслуживание кондиционера TENET", "class": "promo-card__image" })
+          </div>
+          <div class="promo-card__body">
+            <div class="promo-card__tags">
+              <span class="tag">Новинка</span>
+              <span class="tag">от 2 345 000 ₽</span>
+            </div>
+            <h2 class="promo-card__title">
+              Акция «Лёгкое дыхание»: антибактериальное обслуживание кондиционера для вашего TENET
+            </h2>
+            <p class="promo-card__text">
+              Весна и лето — долгожданное время семейных путешествий и поездок на природу. Мы хотим,
+              чтобы в дороге Вас сопровождали только приятные эмоции, а каждый вдох приносил
+              удовольствие. Для Вашего комфорта разработан комп…
+            </p>
+            <a class="btn btn--outline" href="akciya-detail.html">Читать полностью</a>
+            <time class="promo-card__date" datetime="2026-05-06">06.05.2026</time>
+          </div>
+        </article>
+
+        <article class="promo-card promo-card--reverse">
+          <div class="promo-card__media">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Акция «Лёгкое дыхание» — обслуживание кондиционера TENET", "class": "promo-card__image" })
+          </div>
+          <div class="promo-card__body">
+            <div class="promo-card__tags">
+              <span class="tag">Новинка</span>
+              <span class="tag">от 2 345 000 ₽</span>
+            </div>
+            <h2 class="promo-card__title">
+              Акция «Лёгкое дыхание»: антибактериальное обслуживание кондиционера для вашего TENET
+            </h2>
+            <p class="promo-card__text">
+              Весна и лето — долгожданное время семейных путешествий и поездок на природу. Мы хотим,
+              чтобы в дороге Вас сопровождали только приятные эмоции, а каждый вдох приносил
+              удовольствие. Для Вашего комфорта разработан комп…
+            </p>
+            <a class="btn btn--outline" href="akciya-detail.html">Читать полностью</a>
+            <time class="promo-card__date" datetime="2026-05-06">06.05.2026</time>
+          </div>
+        </article>
+
+        <article class="promo-card">
+          <div class="promo-card__media">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Акция «Лёгкое дыхание» — обслуживание кондиционера TENET", "class": "promo-card__image" })
+          </div>
+          <div class="promo-card__body">
+            <div class="promo-card__tags">
+              <span class="tag">Новинка</span>
+              <span class="tag">от 2 345 000 ₽</span>
+            </div>
+            <h2 class="promo-card__title">
+              Акция «Лёгкое дыхание»: антибактериальное обслуживание кондиционера для вашего TENET
+            </h2>
+            <p class="promo-card__text">
+              Весна и лето — долгожданное время семейных путешествий и поездок на природу. Мы хотим,
+              чтобы в дороге Вас сопровождали только приятные эмоции, а каждый вдох приносил
+              удовольствие. Для Вашего комфорта разработан комп…
+            </p>
+            <a class="btn btn--outline" href="akciya-detail.html">Читать полностью</a>
+            <time class="promo-card__date" datetime="2026-05-06">06.05.2026</time>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="list-end">Конец списка</p>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

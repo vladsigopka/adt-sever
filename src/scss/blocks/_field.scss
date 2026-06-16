@@ -1,0 +1,43 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.field {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: rem(14px) 0;
+    border: none;
+    border-bottom: 1px solid $color-border;
+    background: transparent;
+    font-size: rem(16px);
+    outline: none;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: $color-muted;
+    }
+
+    &:focus {
+      border-color: $color-text;
+    }
+  }
+
+  &--password &__input {
+    padding-right: rem(40px);
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: $color-muted;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+}

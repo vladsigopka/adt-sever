@@ -1,0 +1,89 @@
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo" href="index.html" aria-label="АДТ Север — на главную">
+      <svg class="header__logo-img" aria-hidden="true"><use href="#logo"></use></svg>
+    </a>
+
+    <span class="header__divider" aria-hidden="true"></span>
+
+    <nav class="header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="catalog.html">Каталог</a></li>
+        <li class="nav__item"><a class="nav__link" href="about.html">О компании</a></li>
+        <li class="nav__item"><a class="nav__link nav__link--active" href="akcii.html">Акции</a></li>
+        <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+        <li class="nav__item"><a class="nav__link" href="reviews.html">Отзывы</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <div class="header__group">
+        <a class="header__icon" href="compare.html" aria-label="Сравнение">
+          <svg class="header__icon-svg" aria-hidden="true"><use href="#icon-comparison"></use></svg>
+        </a>
+        <a class="header__icon" href="favorites.html" aria-label="Избранное">
+          <svg class="header__icon-svg" aria-hidden="true"><use href="#icon-heart"></use></svg>
+        </a>
+        <a class="header__icon header__icon--badge" href="cart.html" aria-label="Корзина">
+          <svg class="header__icon-svg" aria-hidden="true"><use href="#icon-bag"></use></svg>
+          <span class="header__badge">2</span>
+        </a>
+      </div>
+      <a class="header__account" href="login.html">
+        <span class="header__account-icon">
+        <svg class="header__account-icon__svg" aria-hidden="true"><use href="#icon-user"></use></svg>
+          </span>
+        <span>Личный кабинет</span>
+        <svg class="header__account-arrow" width="14" height="14" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+      </a>
+    </div>
+
+    <button class="header__burger burger js-menu-open" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop js-menu-close"></div>
+  <aside class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Меню">
+    <div class="mobile-menu__head">
+      <a class="mobile-menu__logo" href="index.html" aria-label="АДТ Север — на главную">
+        <svg class="mobile-menu__logo-img" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+      <button class="mobile-menu__close js-menu-close" type="button" aria-label="Закрыть меню">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu__nav">
+      <a class="mobile-menu__link" href="catalog.html">Каталог</a>
+      <a class="mobile-menu__link" href="about.html">О компании</a>
+      <a class="mobile-menu__link mobile-menu__link--active" href="akcii.html">Акции</a>
+      <a class="mobile-menu__link" href="contacts.html">Контакты</a>
+      <a class="mobile-menu__link" href="reviews.html">Отзывы</a>
+    </nav>
+
+    <div class="mobile-menu__foot">
+      <div class="mobile-menu__icons">
+        <a class="mobile-menu__icon" href="compare.html" aria-label="Сравнение">
+          <svg aria-hidden="true"><use href="#icon-comparison"></use></svg>
+        </a>
+        <a class="mobile-menu__icon" href="favorites.html" aria-label="Избранное">
+          <svg aria-hidden="true"><use href="#icon-heart"></use></svg>
+        </a>
+        <a class="mobile-menu__icon mobile-menu__icon--badge" href="cart.html" aria-label="Корзина">
+          <svg aria-hidden="true"><use href="#icon-bag"></use></svg>
+          <span class="mobile-menu__badge">2</span>
+        </a>
+      </div>
+      <a class="mobile-menu__account" href="login.html">
+        <svg class="mobile-menu__account-icon" aria-hidden="true"><use href="#icon-user"></use></svg>
+        <span>Личный кабинет</span>
+      </a>
+    </div>
+  </aside>
+</div>

@@ -1,0 +1,23 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: rem(8px);
+  font-size: rem(14px);
+  color: $color-muted;
+  padding-block: rem(80px) rem(60px);
+
+  &--center {
+    justify-content: center;
+  }
+
+  &__link:hover {
+    color: $color-text;
+  }
+
+  &__current {
+    color: $color-text;
+  }
+}

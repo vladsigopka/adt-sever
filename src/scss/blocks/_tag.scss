@@ -1,0 +1,13 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: rem(6px) rem(24px);
+  border-radius: rem(24px);
+  background: $color-black;
+  color: $color-white;
+  font-size: rem(13px);
+  white-space: nowrap;
+}

@@ -1,0 +1,74 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(32px);
+
+  @include upto($bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: rem(24px);
+  padding: rem(28px) rem(32px);
+  border-radius: rem(4px);
+  background: $color-bg;
+  transition: background-color 0.2s, color 0.2s;
+
+  &__title {
+    font-size: rem(18px);
+    margin-bottom: rem(24px);
+    font-weight: 600;
+  }
+
+  &__date {
+    font-size: rem(14px);
+    color: $color-muted;
+    margin-top: auto;
+  }
+  &__body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: $color-black;
+    opacity: .1;
+    svg{
+      width: rem(48px);
+      height: rem(48px);
+    }
+  }
+
+  &:hover {
+    background: color.adjust($color-bg, $lightness: -3%);
+  }
+
+  &--active {
+    background: $color-black;
+    color: $color-white;
+
+    .doc-card__date {
+      color: rgba(#fff, 0.6);
+    }
+
+    .doc-card__icon {
+      color: $color-white;
+      opacity: 1;
+    }
+
+    &:hover {
+      background: $color-dark;
+    }
+  }
+}

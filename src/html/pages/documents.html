@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Документы — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Документы</span>
+      </nav>
+
+      <h1 class="page-title">Документы</h1>
+
+      <div class="doc-grid">
+        <a class="doc-card doc-card--active" href="document.html">
+          <div class="doc-card__body">
+            <h2 class="doc-card__title">Политика в отношении обработки персональных данных</h2>
+            <p class="doc-card__date">Дата редакции: 03.03.2023</p>
+          </div>
+          <span class="doc-card__icon" aria-hidden="true">
+            <svg aria-hidden="true"><use href="#icon-document"></use></svg>
+          </span>
+        </a>
+
+        <a class="doc-card" href="document.html">
+          <div class="doc-card__body">
+            <h2 class="doc-card__title">Политика в отношении обработки Cookie-файлов</h2>
+            <p class="doc-card__date">Дата редакции: 03.03.2023</p>
+          </div>
+          <span class="doc-card__icon" aria-hidden="true">
+            <svg width="24" height="24" aria-hidden="true"><use href="#icon-document"></use></svg>
+          </span>
+        </a>
+
+        <a class="doc-card" href="document.html">
+          <div class="doc-card__body">
+            <h2 class="doc-card__title">Публичная оферта для физических лиц</h2>
+            <p class="doc-card__date">Дата редакции: 03.03.2023</p>
+          </div>
+          <span class="doc-card__icon" aria-hidden="true">
+            <svg width="24" height="24" aria-hidden="true"><use href="#icon-document"></use></svg>
+          </span>
+        </a>
+
+        <a class="doc-card" href="document.html">
+          <div class="doc-card__body">
+            <h2 class="doc-card__title">Пользовательское соглашение</h2>
+            <p class="doc-card__date">Дата редакции: 03.03.2023</p>
+          </div>
+          <span class="doc-card__icon" aria-hidden="true">
+            <svg width="24" height="24" aria-hidden="true"><use href="#icon-document"></use></svg>
+          </span>
+        </a>
+
+        <a class="doc-card" href="document.html">
+          <div class="doc-card__body">
+            <h2 class="doc-card__title">Публичная оферта для юридических лиц</h2>
+            <p class="doc-card__date">Дата редакции: 03.03.2023</p>
+          </div>
+          <span class="doc-card__icon" aria-hidden="true">
+            <svg width="24" height="24" aria-hidden="true"><use href="#icon-document"></use></svg>
+          </span>
+        </a>
+
+        <a class="doc-card" href="document.html">
+          <div class="doc-card__body">
+            <h2 class="doc-card__title">Согласие на обработку персональных данных</h2>
+            <p class="doc-card__date">Дата редакции: 03.03.2023</p>
+          </div>
+          <span class="doc-card__icon" aria-hidden="true">
+            <svg width="24" height="24" aria-hidden="true"><use href="#icon-document"></use></svg>
+          </span>
+        </a>
+      </div>
+
+      <p class="list-end">Конец списка</p>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.startlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(16px);
+}

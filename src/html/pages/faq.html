@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Ответы на вопросы — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container container--narrow">
+      <nav class="breadcrumbs breadcrumbs--center" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Ответы на вопросы</span>
+      </nav>
+
+      <h1 class="page-title page-title--center">Ответы на вопросы</h1>
+
+      <div class="faq">
+        @@include('partials/faq-item.html', { "num": "01", "open": "is-open", "expanded": "true" })
+        @@include('partials/faq-item.html', { "num": "02", "open": "", "expanded": "false" })
+        @@include('partials/faq-item.html', { "num": "03", "open": "", "expanded": "false" })
+        @@include('partials/faq-item.html', { "num": "04", "open": "", "expanded": "false" })
+        @@include('partials/faq-item.html', { "num": "05", "open": "", "expanded": "false" })
+        @@include('partials/faq-item.html', { "num": "06", "open": "", "expanded": "false" })
+        @@include('partials/faq-item.html', { "num": "07", "open": "", "expanded": "false" })
+      </div>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

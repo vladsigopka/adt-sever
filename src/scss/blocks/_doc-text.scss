@@ -1,0 +1,45 @@
+@use 'sass:color';
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.doc-text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(64px);
+
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) 1fr;
+    column-gap: rem(56px);
+    align-items: start;
+  }
+
+  &__heading {
+    font-size: rem(16px);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16px);
+
+    p {
+      font-size: rem(14px);
+      line-height: 1.6;
+      color: color.adjust($color-text, $lightness: 25%);
+      text-align: justify;
+    }
+  }
+
+  @include upto($bp-mobile) {
+    gap: rem(40px);
+
+    &__row {
+      grid-template-columns: 1fr;
+      row-gap: rem(20px);
+    }
+  }
+}

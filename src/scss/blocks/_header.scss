@@ -1,0 +1,222 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.header {
+  border-bottom: 1px solid $color-border;
+  background: $color-white;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: rem(32px);
+    min-height: rem(72px);
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: $color-text;
+  }
+
+  &__logo-img {
+    height: rem(36px);
+    aspect-ratio: 146 / 36;
+  }
+
+  &__divider {
+    flex-shrink: 0;
+    width: rem(24px);
+    height: 1px;
+    border-radius: 2px;
+    background: $color-text;
+    opacity: .1;
+  }
+
+  &__nav {
+    flex-shrink: 0;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: rem(12px);
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    gap: rem(4px);
+    padding: rem(6px);
+    border-radius: rem(40px);
+    background: $color-bg;
+  }
+
+  &__icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: rem(48px);
+    height: rem(28px);
+    border-radius: rem(24px);
+    color: $color-text;
+    transition: background-color 0.2s;
+    background: $color-white;
+
+    &:hover {
+      background: $color-border;
+    }
+  }
+
+  &__icon-svg {
+    width: rem(16px);
+    height: rem(16px);
+  }
+
+  &__account-icon {
+    width: rem(48px);
+    height: rem(28px);
+    background: $color-white;
+    border-radius: rem(24px);
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+  &__account-icon__svg{
+    width: rem(16px);
+    height: rem(16px);
+  }
+
+  &__badge {
+    position: absolute;
+    top: rem(7px);
+    right: rem(7px);
+    min-width: rem(14px);
+    height: rem(14px);
+    padding: 0 rem(4px);
+    border-radius: rem(9px);
+    background: $color-accent;
+    color: #fff;
+    font-size: rem(8px);
+    line-height: rem(14px);
+    text-align: center;
+  }
+
+  &__account {
+    display: flex;
+    align-items: center;
+    gap: rem(10px);
+    height: rem(40px);
+    padding-inline: rem(6px) rem(12px);
+    padding-block: rem(6px);
+    border-radius: rem(40px);
+    background: $color-bg;
+    font-size: rem(12px);
+    white-space: nowrap;
+  }
+
+  &__account-arrow {
+    color: $color-text;
+  }
+
+  &__burger {
+    display: none;
+    margin-left: auto;
+  }
+
+  @include upto($bp-mobile) {
+    &__divider,
+    &__nav,
+    &__actions {
+      display: none;
+    }
+
+    &__burger {
+      display: block;
+    }
+  }
+}
+
+.burger {
+  position: relative;
+  width: rem(48px);
+  height: rem(48px);
+  border-radius: 50%;
+  color: $color-text;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: $color-bg;
+  }
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem(22px);
+    height: 2px;
+    margin: -1px 0 0 rem(-11px);
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+
+  &__line:nth-child(1) {
+    transform: translateY(rem(-6px));
+  }
+
+  &__line:nth-child(3) {
+    transform: translateY(rem(6px));
+  }
+}
+
+.menu-open .burger {
+  &__line:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  &__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  &__line:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    gap: clamp(32px, calc(32px + (96 - 32) * (100vw - 1024px) / (1920 - 1024)), 96px);
+  }
+
+  &__link {
+    position: relative;
+    color: $color-muted;
+    font-size: rem(15px);
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-text;
+    }
+
+    &--active {
+      color: $color-text;
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: rem(-6px);
+        height: 2px;
+        border-radius: 2px;
+        background: $color-text;
+      }
+    }
+  }
+}

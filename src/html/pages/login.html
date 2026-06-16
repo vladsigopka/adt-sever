@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Вход в личный кабинет — АДТ Север" })
+</head>
+<body class="body--auth">
+  @@include('partials/sprite.html')
+  <div class="auth">
+    <div class="auth__panel">
+      <a class="auth__logo" href="index.html" aria-label="АДТ Север — на главную">
+        <svg class="auth__logo-img" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <div class="auth__form-wrap">
+        <p class="auth__switch">
+          Еще нет аккаунта?
+          <a class="auth__switch-link" href="register.html">Регистрация</a>
+        </p>
+
+        <h1 class="auth__title">Вход в личный кабинет клиента</h1>
+        <p class="auth__subtitle">
+          Войдите в единую систему, чтобы получить доступ ко всей информации в системе
+        </p>
+
+        <form class="auth__form" action="#" method="post" novalidate>
+          <div class="field">
+            <input class="field__input" type="text" name="USER_LOGIN" id="USER_LOGIN" placeholder="Введите логин *" required />
+          </div>
+
+          <div class="field field--password">
+            <input class="field__input" type="password" name="USER_PASSWORD" id="USER_PASSWORD" placeholder="Введите пароль *" required />
+            <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
+              <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
+            </button>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">Авторизоваться</button>
+          <a class="auth__recover" href="recover.html">Восстановить пароль</a>
+        </form>
+      </div>
+
+      <p class="auth__agreement">
+        Продолжая авторизацию, вы соглашаетесь
+        с <a href="#">Политикой конфиденциальности</a>, <a href="#">условиями сервиса</a>
+        и <a href="#">условиями продажи товаров</a>
+      </p>
+    </div>
+
+    <div class="auth__media">
+      @@include('partials/picture.html', { "webp": "img/login-bg.webp", "img": "img/login-bg.png", "alt": "Автомобиль TENET T7", "class": "auth__image" })
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
