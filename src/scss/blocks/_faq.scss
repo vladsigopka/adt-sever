@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     gap: rem(32px);
-    padding-block: rem(28px);
+    padding: rem(28px);
     font-weight: 600;
     font-size: rem(16px);
     text-align: left;
@@ -23,7 +23,7 @@
   }
 
   &__q {
-    font-size: rem(18px);
+    font-size: rem(16px);
     font-weight: 600;
   }
 
@@ -49,6 +49,7 @@
 
   &__body {
     display: grid;
+    padding-inline: rem(32px);
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.35s ease;
   }

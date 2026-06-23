@@ -27,9 +27,12 @@
 
     p {
       font-size: rem(14px);
-      line-height: 1.6;
+      line-height: 1;
+      letter-spacing: 0;
       opacity: 0.8;
       text-align: justify;
+      text-box-trim: trim-both;
+      text-box-edge: cap alphabetic;
     }
   }
 

@@ -10,7 +10,7 @@
 
 .promo-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1001fr 738fr;
   gap: rem(54px);
   align-items: center;
   padding: rem(32px);
@@ -18,6 +18,8 @@
   background: $color-bg;
 
   &--reverse {
+    grid-template-columns: 738fr 1001fr;
+
     .promo-card__media {
       order: 2;
     }
@@ -32,7 +34,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 1001 / 536;
   }
 
   &__body {

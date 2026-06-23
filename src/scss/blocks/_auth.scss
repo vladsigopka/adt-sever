@@ -47,7 +47,7 @@
     justify-content: space-between;
     align-items: center;
     color: $color-black;
-    font-size: rem(14px);
+    font-size: rem(12px);
     margin-bottom: rem(72px);
   }
 
@@ -68,7 +68,8 @@
   &__title {
     font-size: rem(24px);
     font-weight: 700;
-    margin-bottom: rem(32px);
+    margin-bottom: rem(24px);
+    line-height: 120%;
     width: 75%;
   }
 
@@ -78,7 +79,7 @@
     font-weight: 600;
 
     font-size: rem(12px);
-    margin-bottom: rem(32px);
+    margin-bottom: rem(24px);
   }
 
   &__form {
@@ -92,7 +93,7 @@
     text-decoration: underline;
     font-weight: 600;
     opacity: .7;
-    font-size: rem(14px);
+    font-size: rem(12px);
 
     transition: all 0.2s;
     margin-top: rem(8px);
@@ -103,7 +104,7 @@
 
   &__agreement {
     margin-top: auto;
-    font-size: rem(13px);
+    font-size: rem(12px);
     font-weight: 600;
     color: rgba($color-black, 0.5);
 

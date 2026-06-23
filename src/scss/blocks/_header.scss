@@ -197,7 +197,8 @@
   &__link {
     position: relative;
     color: $color-black;
-    font-size: rem(15px);
+    font-size: rem(12px);
+    font-weight: 600;
 
     &::after {
       content: '';

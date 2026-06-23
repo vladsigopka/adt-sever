@@ -42,7 +42,8 @@
     color: $color-black;
 
     &:hover {
-      border-color: $color-text;
+      background-color: $color-black;
+      color: $color-white;
     }
   }
 

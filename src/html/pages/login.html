@@ -19,13 +19,17 @@
 
         <h1 class="auth__title">Вход в личный кабинет клиента</h1>
         <p class="auth__subtitle">
-          Войдите в единую систему, чтобы получить доступ ко всей информации в системе
+          Войдите в единую систему, чтобы получить доступ ко всей информации
         </p>
 
         <form class="auth__form" action="#" method="post" novalidate>
-          <div class="field">
+          <div class="field field--clearable" data-validate="email">
             <input class="field__input" type="text" name="USER_LOGIN" id="USER_LOGIN" placeholder=" " aria-label="Введите логин" required />
             <span class="field__label">Введите логин<span class="field__star">*</span></span>
+            <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+              <svg class="field__clear-icon" width="20" height="20" aria-hidden="true"><use href="#icon-close"></use></svg>
+            </button>
+            <span class="field__error">Неверный формат электронной почты</span>
           </div>
 
           <div class="field field--password">
