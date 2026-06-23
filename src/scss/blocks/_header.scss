@@ -114,6 +114,7 @@
     padding-block: rem(6px);
     border-radius: rem(40px);
     background: $color-bg;
+    font-weight: 600;
     font-size: rem(12px);
     white-space: nowrap;
   }
@@ -195,27 +196,32 @@
 
   &__link {
     position: relative;
-    color: $color-muted;
+    color: $color-black;
     font-size: rem(15px);
-    transition: color 0.2s;
 
-    &:hover {
-      color: $color-text;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: rem(-6px);
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
     }
 
     &--active {
-      color: $color-text;
       font-weight: 600;
 
       &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: rem(-6px);
-        height: 2px;
-        border-radius: 2px;
-        background: $color-text;
+        transform: scaleX(1);
       }
     }
   }

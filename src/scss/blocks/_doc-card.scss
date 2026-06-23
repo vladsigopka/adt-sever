@@ -15,7 +15,7 @@
 
 .doc-card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: rem(24px);
   padding: rem(28px) rem(32px);
@@ -31,8 +31,9 @@
 
   &__date {
     font-size: rem(14px);
-    color: $color-muted;
+    color: $color-black;
     margin-top: auto;
+    opacity: .5;
   }
   &__body{
     height: 100%;
@@ -51,7 +52,15 @@
   }
 
   &:hover {
-    background: color.adjust($color-bg, $lightness: -3%);
+    background: $color-black;
+    color: $color-white;
+    .doc-card__icon {
+      color: $color-white;
+      opacity: 1;
+    }
+    .doc-card__date {
+      color: $color-white;
+    }
   }
 
   &--active {
@@ -59,7 +68,7 @@
     color: $color-white;
 
     .doc-card__date {
-      color: rgba(#fff, 0.6);
+      opacity: .5;
     }
 
     .doc-card__icon {

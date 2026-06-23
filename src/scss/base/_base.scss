@@ -17,7 +17,7 @@ body {
   font-family: $font-base;
   font-size: rem(16px);
   line-height: $lh-base;
-  color: $color-text;
+  color: $color-black;
   background-color: $color-white;
   padding-inline: 24px;
   padding-bottom: 24px;
@@ -71,6 +71,7 @@ body {
 
 .list-end {
   text-align: center;
-  color: $color-muted;
+  color: $color-black;
+  opacity: .5;
   padding-block: rem(120px) 0;
 }

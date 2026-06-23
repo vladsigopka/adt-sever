@@ -6,18 +6,24 @@
   align-items: center;
   gap: rem(8px);
   font-size: rem(14px);
-  color: $color-muted;
+  color: $color-black;
+
   padding-block: rem(80px) rem(60px);
 
   &--center {
     justify-content: center;
   }
+  &__link{
+    opacity: .5;
+  }
 
   &__link:hover {
-    color: $color-text;
+    color: $color-black;
+    opacity: 1;
   }
 
   &__current {
-    color: $color-text;
+    color: $color-black;
+    opacity: 1;
   }
 }

@@ -13,7 +13,7 @@
 
       <div class="auth__form-wrap">
         <p class="auth__switch">
-          Еще нет аккаунта?
+          <span class="auth__switch-text">Еще нет аккаунта?</span>
           <a class="auth__switch-link" href="register.html">Регистрация</a>
         </p>
 
@@ -24,11 +24,13 @@
 
         <form class="auth__form" action="#" method="post" novalidate>
           <div class="field">
-            <input class="field__input" type="text" name="USER_LOGIN" id="USER_LOGIN" placeholder="Введите логин *" required />
+            <input class="field__input" type="text" name="USER_LOGIN" id="USER_LOGIN" placeholder=" " aria-label="Введите логин" required />
+            <span class="field__label">Введите логин<span class="field__star">*</span></span>
           </div>
 
           <div class="field field--password">
-            <input class="field__input" type="password" name="USER_PASSWORD" id="USER_PASSWORD" placeholder="Введите пароль *" required />
+            <input class="field__input" type="password" name="USER_PASSWORD" id="USER_PASSWORD" placeholder=" " aria-label="Введите пароль" required />
+            <span class="field__label">Введите пароль<span class="field__star">*</span></span>
             <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
               <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
             </button>

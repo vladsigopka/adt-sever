@@ -10,17 +10,49 @@
     border: none;
     border-bottom: 1px solid $color-border;
     background: transparent;
-    font-size: rem(16px);
+    font-size: rem(14px);
+    font-weight: 600;
     outline: none;
     transition: border-color 0.2s;
 
     &::placeholder {
-      color: $color-muted;
+      color: transparent;
     }
 
     &:focus {
       border-color: $color-text;
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-text;
+      -webkit-box-shadow: 0 0 0 1000px $color-white inset;
+      box-shadow: 0 0 0 1000px $color-white inset;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 0;
+    top: rem(14px);
+    color: $color-muted;
+    font-size: rem(14px);
+    font-weight: 600;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  &__star {
+    color: $color-black;
+  }
+
+  &--filled &__label {
+    opacity: 0;
+  }
+
+  &__input:-webkit-autofill + &__label {
+    opacity: 0;
   }
 
   &--password &__input {
