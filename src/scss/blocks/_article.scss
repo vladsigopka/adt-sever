@@ -1,16 +1,22 @@
 @use '../base/variables' as *;
 @use '../base/functions' as *;
+@use '../base/mixins' as *;
 
 .article {
+  max-width: rem(1040px);
+  margin-inline: auto;
+  font-size: rem(16px);
+
+  > :first-child {
+    margin-top: 0;
+  }
+
   h2,
   h3,
   h4 {
     font-weight: 600;
-    margin-bottom: rem(60px);
-
-    &:not(:first-child) {
-      margin-top: rem(60px);
-    }
+    margin-top: rem(56px);
+    margin-bottom: rem(20px);
   }
 
   h2 {
@@ -27,12 +33,208 @@
 
   p {
     font-size: rem(16px);
-    line-height: 1.4;
+    line-height: 1.6;
     font-weight: 400;
-    opacity: 0.7;
+    color: rgba($color-black, 0.7);
 
     & + p {
-      margin-top: rem(48px);
+      margin-top: rem(20px);
+    }
+  }
+
+  a {
+    color: $color-black;
+    text-decoration: underline;
+    text-underline-offset: rem(3px);
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  p#{&}__lead {
+    font-size: rem(20px);
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba($color-black, 0.9);
+    margin-bottom: rem(40px);
+  }
+
+  ul,
+  ol {
+    margin-top: rem(20px);
+    padding-left: rem(22px);
+    font-size: rem(16px);
+    line-height: 1.6;
+    color: rgba($color-black, 0.7);
+
+    li + li {
+      margin-top: rem(10px);
+    }
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li::marker {
+    color: rgba($color-black, 0.4);
+  }
+
+  blockquote {
+    margin-block: rem(40px);
+    padding: rem(4px) 0 rem(4px) rem(28px);
+    border-left: 2px solid $color-black;
+
+    p {
+      font-size: rem(22px);
+      line-height: 1.4;
+      font-weight: 600;
+      color: $color-black;
+    }
+
+    cite {
+      display: block;
+      margin-top: rem(16px);
+      font-size: rem(14px);
+      font-style: normal;
+      font-weight: 600;
+      color: rgba($color-black, 0.5);
+    }
+  }
+
+  &__note {
+    margin-block: rem(40px);
+    padding: rem(28px) rem(32px);
+    border-radius: rem(16px);
+    background: $color-bg;
+    font-size: rem(16px);
+    line-height: 1.6;
+    color: rgba($color-black, 0.7);
+
+    strong {
+      color: $color-black;
+    }
+  }
+
+  &__table {
+    margin-block: rem(40px);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: rem(15px);
+  }
+
+  th,
+  td {
+    padding: rem(16px) rem(20px);
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  td {
+    color: rgba($color-black, 0.7);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  figure {
+    margin-block: rem(40px);
+  }
+
+  figure picture {
+    display: block;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    border-radius: rem(16px);
+  }
+
+  figcaption {
+    margin-top: rem(12px);
+    font-size: rem(14px);
+    text-align: center;
+    color: rgba($color-black, 0.5);
+  }
+
+  &__ref {
+    font-size: 0.7em;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  hr {
+    margin-block: rem(56px);
+    border: none;
+    border-top: 1px solid $color-border;
+  }
+
+  &__footnotes {
+    margin-top: rem(56px);
+    padding-top: rem(24px);
+    border-top: 1px solid $color-border;
+
+    ol {
+      margin-top: 0;
+      font-size: rem(13px);
+      line-height: 1.5;
+      color: rgba($color-black, 0.5);
+    }
+  }
+
+  @include upto($bp-mobile) {
+    h2 {
+      font-size: rem(26px);
+    }
+
+    h3 {
+      font-size: rem(22px);
+    }
+
+    &__note {
+      padding: rem(20px) rem(20px);
+    }
+
+    &__table {
+      overflow-x: auto;
+    }
+
+    table {
+      min-width: rem(460px);
+      font-size: rem(13px);
+    }
+
+    th,
+    td {
+      padding: rem(12px) rem(12px);
     }
   }
 }

@@ -7,7 +7,7 @@
   &__input {
     width: 100%;
     height: rem(48px);
-    padding-block: 0;
+    padding-block: rem(10px) 0;
     padding-inline: 0;
     border: none;
     border-bottom: 1px solid $color-border;
@@ -37,7 +37,7 @@
   &__label {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: calc(50% + #{rem(3px)});
     transform: translateY(-50%);
     color: $color-muted;
     font-size: rem(14px);

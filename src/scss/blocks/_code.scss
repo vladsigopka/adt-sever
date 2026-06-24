@@ -1,0 +1,62 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.code {
+  display: flex;
+  gap: rem(12px);
+
+  &__cell {
+    width: rem(54px);
+    height: rem(48px);
+    padding: 0;
+    border: 1px solid $color-black;
+    border-radius: rem(4px);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center 68%;
+    background-size: rem(10px) rem(2px);
+    text-align: center;
+    font-size: rem(20px);
+    opacity: .1;
+    font-weight: 600;
+    color: $color-black;
+    caret-color: transparent;
+    outline: none;
+    transition: opacity 0.2s ease;
+
+    &:focus {
+      opacity: 1;
+    }
+
+    &.is-filled {
+      opacity: 1;
+    }
+
+    &:focus:not(.is-filled) {
+      animation: code-caret 1s infinite;
+    }
+  }
+
+  @include upto($bp-mobile) {
+    gap: rem(10px);
+    justify-content: center;
+
+    &__cell {
+
+      min-width: 0;
+
+      height: rem(56px);
+      font-size: rem(20px);
+    }
+  }
+}
+
+@keyframes code-caret {
+  0%, 50% {
+    background-image: linear-gradient($color-black, $color-black);
+  }
+  50.01%, 100% {
+    background-image: none;
+  }
+}

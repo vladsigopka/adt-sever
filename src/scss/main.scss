@@ -4,6 +4,8 @@
 @use 'base/fonts';
 @use 'base/reset';
 @use 'base/base';
+@use 'base/lenis';
+@use 'base/reveal';
 
 @use 'blocks/header';
 @use 'blocks/footer';
@@ -13,6 +15,10 @@
 @use 'blocks/promo-card';
 @use 'blocks/doc-card';
 @use 'blocks/field';
+@use 'blocks/checkbox';
+@use 'blocks/code';
+@use 'blocks/custom-scroll';
+@use 'blocks/stub';
 @use 'blocks/auth';
 @use 'blocks/mobile-menu';
 @use 'blocks/faq';

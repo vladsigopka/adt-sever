@@ -70,7 +70,7 @@
     font-weight: 700;
     margin-bottom: rem(24px);
     line-height: 120%;
-    width: 75%;
+    width: 93%;
   }
 
   &__subtitle {
@@ -104,6 +104,7 @@
 
   &__agreement {
     margin-top: auto;
+    padding-top: rem(40px);
     font-size: rem(12px);
     font-weight: 600;
     color: rgba($color-black, 0.5);

@@ -33,7 +33,8 @@ src/
 │   ├── blocks/     БЭМ-блоки (1 файл = 1 блок)
 │   └── main.scss   точка сборки (@use)
 ├── js/
-│   ├── components/ password-toggle, mobile-menu, faq, field-label
+│   ├── components/ password-toggle, mobile-menu, faq, field-label, field-clear, field-validate, form-redirect, code-input, resend-timer, smooth-scroll, custom-scrollbar, reveal
+│   ├── vendor/     lenis.min.js (UMD-сборка плавного скролла)
 │   └── main.js
 ├── icons/          исходники SVG-иконок (currentColor) — основа спрайта
 ├── img/            картинки (akcii-image, login-bg — по .png + .webp)
@@ -46,11 +47,45 @@ src/
 |---|---|
 | `index.html` | Главная — временный список ссылок на все готовые страницы (`.startlinks`) |
 | `akcii.html` | Акции — список карточек `.promo-card` (картинка/текст, чётные — `--reverse`) |
-| `akciya-detail.html` | Детальная акция — hero `.promo-detail` + проза `.article`; колонка `container--content` |
+| `akciya-detail.html` | Детальная акция — hero `.promo-detail` + статья `.article` (полный набор типографики); колонка `container--content`, текст в читаемой колонке 820px |
 | `documents.html` | Документы — сетка карточек `.doc-card` (ведут на `document.html`) |
 | `document.html` | Документ (Политика) — двухколоночный `.doc-text` (заголовок слева, текст justify справа) |
 | `faq.html` | Ответы на вопросы — аккордеон `.faq` (анимация раскрытия + иконка плюс↔минус) |
 | `login.html` | Авторизация — отдельный layout без общих header/footer |
+| `register.html` | Регистрация — layout `.auth`, поля + чекбокс согласия `.checkbox` |
+| `verify.html` | Подтверждение почты — 6-значный код `.code` (авто-переход, paste, backspace) |
+| `recover.html` | Восстановление пароля, шаг 1 — ввод E-mail |
+| `recover-code.html` | Восстановление, шаг 2 — код `.code` (авто-сабмит при заполнении) + кнопка-таймер «отправить ещё раз» |
+| `recover-password.html` | Восстановление, шаг 3 — новый пароль ×2 (проверка совпадения) |
+
+### Типографика статьи (`.article`)
+Блок `.article` — стилизованный rich-text (как из CMS), колонка 820px по центру. Поддерживает: лид `p.article__lead`, заголовки `h2/h3/h4`, абзацы, списки `ul`/`ol`, цитату `blockquote` + `cite`, врезку `.article__note`, таблицу `table` (в обёртке `.article__table` — горизонтальный скролл на мобилке), изображение `figure` + `figcaption`, сноски (маркер `sup.article__ref` со ссылкой на `.article__footnotes`), разделитель `hr`, инлайн `a`/`strong`/`em`. Текст — `rgba($color-black, .7)` (чтобы ссылки не приглушались, грабли #3).
+
+## Плавный скролл (Lenis)
+
+Инерционный скролл всего сайта — библиотека **Lenis**, завендорена локально (`src/js/vendor/lenis.min.js`, UMD → глобальный `Lenis`), склеивается в `main.js`. Инициализация — `js/components/smooth-scroll.js`.
+
+- CSS Lenis — `scss/base/_lenis.scss` (служебные классы `.lenis-smooth`, `.lenis-stopped` и т.п.).
+- Отключается при `prefers-reduced-motion: reduce` (доступность).
+- Якорные ссылки `a[href^="#"]` перехватываются и скроллятся через `lenis.scrollTo`.
+- При открытии бургер-меню скролл фона ставится на паузу: `window.lenis.stop()` / `.start()` (см. `mobile-menu.js`).
+- Тач-скролл не трогаем (нативный) — `syncTouch` по умолчанию выключен.
+- Если на странице появится контейнер со своим скроллом (модалка, таблица) — повесить на него `data-lenis-prevent`.
+- **Битрикс:** Lenis чисто клиентский, не зависит от сборки и бэкенда — после натягивания работает как есть (файл лежит локально в `dist/js/main.js`).
+
+### Кастомный скроллбар
+Тонкий кастомный скроллбар справа — `js/components/custom-scrollbar.js` + `scss/blocks/_custom-scroll.scss`. Рисует положение скролла (работает в паре с Lenis: Lenis скроллит, бар рисует). Появляется при скролле/наведении на правую кромку, прячется через 0.5с. Перетаскивание thumb двигает страницу через `lenis.scrollTo(..., { immediate: true })`.
+- Нативный скроллбар скрыт классом `html.custom-scroll-ready` (его вешает JS).
+- Только для мыши: при `pointer: coarse` (тач) не инициализируется и нативный остаётся.
+- Прячется при открытом бургер-меню.
+
+## Анимации появления (reveal)
+
+Плавное появление при скролле — атрибут `data-reveal` на элементе (`js/components/reveal.js` + `scss/base/_reveal.scss`). Элемент стартует прозрачным со сдвигом вниз, при попадании в вьюпорт (IntersectionObserver) получает класс `.is-revealed`. Опционально стаггер — `data-reveal-delay="120"` (мс).
+- Скрытое состояние — только под `html.js-ready`: если JS не сработал, контент виден.
+- Отключается при `prefers-reduced-motion` (и в CSS, и в JS).
+- Применено на странице акций (`akcii.html`): заголовок + карточки `.promo-card`.
+- Ховер карточек (десктоп): зум картинки `scale(1.05)` + мягкая тень (`_promo-card.scss`).
 
 ## Ключевые соглашения (ВАЖНО)
 
@@ -104,13 +139,22 @@ src/
 - Скрытие лейбла при вводе — через JS-класс `.field--filled` (`field-label.js` слушает `input/change/load`). **Не использовать `:placeholder-shown`** (см. грабли).
 - Автозаполнение: лейбл скрывается по `:-webkit-autofill`, голубой фон убран box-shadow-хаком.
 
-## Авторизация — особенности (login.html)
+## Авторизация — особенности (login.html / register.html / verify.html)
 
-- Отдельный layout: фото на весь экран (`.auth__media`, `position: absolute; inset: 0`), белая панель-карточка поверх слева (`.auth__panel`, `z-index: 1`, плавающая: `margin: 24px`, `border-radius`).
+- Общий layout `.auth`: фото на весь экран (`.auth__media`, `position: absolute; inset: 0`), белая панель-карточка поверх слева (`.auth__panel`, `z-index: 1`, плавающая: `margin: 24px`, `border-radius`).
 - На фото наложен градиент (`.auth__media::after`): `linear-gradient(270deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.7) 47.12%, #0a0a0a 100%)`.
 - `object-position: 70% center` — чтобы машина не заходила под панель.
 - `.auth` имеет `display: flow-root` — чтобы margin панели не «протекал» наружу.
 - Мобилка (<1024): bottom-sheet — фото-герой сверху (`order: -1`, `34vh`), белый «лист» поднимается над ним со скруглением.
+
+### Поток и логика (базовые редиректы)
+- Регистрация: `login` → `register` → `verify` → `index`. Свитч-ссылки ведут назад (`register` → `login`, `verify` → `register`).
+- Восстановление пароля: `login` (ссылка «Восстановить пароль») → `recover` → `recover-code` → `recover-password` → `login`. Свитч на всех — «Вспомнили пароль? / Войти в аккаунт».
+- `recover-code`: код с `data-autosubmit` — при вводе 6-й цифры форма submit'ится автоматически (без кнопки подтверждения). Кнопка «отправить ещё раз» — `js-resend` + `data-resend-seconds`/`data-resend-label` (`resend-timer.js`): обратный отсчёт, по нулю становится активной, клик перезапускает таймер.
+- Редирект формы — атрибутом `data-redirect="<page>"` на `<form>`; `js/components/form-redirect.js` перехватывает submit, прогоняет валидацию и переходит по адресу. Без бэкенда (заглушка под Битрикс).
+- Валидация поля — `data-validate` на `.field`: `email` (формат) или `match` + `data-match="#id"` (совпадение, для повтора пароля). Ошибка показывается по `blur`, снимается при исправлении (`field-validate.js`).
+- Код подтверждения `.code` (6 ячеек, `[data-code]`): авто-переход, Backspace на пустой → назад, стрелки, paste распределяет цифры (`code-input.js`). Заполненная ячейка — класс `is-filled`.
+- Чекбокс согласия `.checkbox`: при попытке отправить без галочки — класс `is-invalid` (красная рамка), снимается по `change`. Галочка — иконка `icon-check`.
 
 ## Грабли (на которые уже наступали)
 
@@ -129,7 +173,11 @@ src/
 
 `.claude/launch.json` содержит конфиги `dev` (npm run dev, порт 3000) и `preview` (лёгкий статический сервер на свободном порту для скриншотов).
 
+## Страницы-заглушки
+
+Чтобы ссылки навигации не вели в 404, для ещё не готовых разделов сделаны заглушки (хедер/футер + заголовок + «Раздел в разработке») через партиал `partials/stub.html` (`@@include('partials/stub.html', { "title": "..." })`, стиль `.stub`): `catalog`, `about`, `contacts`, `reviews`, `compare`, `favorites`, `cart`. Когда раздел верстается — содержимое `<main>` заполняется вместо `@@include` заглушки.
+
 ## TODO / что дальше
 
-- Страницы: Каталог, О компании, Контакты, Отзывы (есть в навигации, ещё не свёрстаны).
+- Наполнить контентом заглушки: Каталог, О компании, Контакты, Отзывы, Сравнение, Избранное, Корзина (сейчас — `partials/stub.html`).
 - По желанию: авто-сборка спрайта (`gulp-svgstore`) вместо ручного `sprite.html`; авто-генерация webp в сборке; вынос поля формы в партиал `field.html`.

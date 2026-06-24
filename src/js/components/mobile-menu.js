@@ -8,12 +8,14 @@
     html.classList.add('menu-open');
     burger.setAttribute('aria-expanded', 'true');
     menu.setAttribute('aria-hidden', 'false');
+    if (window.lenis) window.lenis.stop();
   }
 
   function close() {
     html.classList.remove('menu-open');
     burger.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
+    if (window.lenis) window.lenis.start();
   }
 
   function toggle() {

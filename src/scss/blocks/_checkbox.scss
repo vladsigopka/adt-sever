@@ -1,0 +1,74 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(10px);
+  cursor: pointer;
+  user-select: none;
+
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__box {
+    flex: 0 0 auto;
+    width: rem(18px);
+    height: rem(18px);
+    margin-top: rem(1px);
+    border: 1px solid $color-border;
+    border-radius: rem(4px);
+    display: grid;
+    place-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  &__check {
+    color: $color-white;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  &__text {
+    font-size: rem(12px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: rgba($color-black, 0.5);
+
+    a {
+      color: rgba($color-black, 1);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: rgba($color-black, 0.7);
+      }
+    }
+  }
+
+  &:hover &__box {
+    border-color: $color-text;
+  }
+
+  &__input:checked + &__box {
+    background: $color-black;
+    border-color: $color-black;
+  }
+
+  &__input:checked + &__box &__check {
+    opacity: 1;
+  }
+
+  &__input:focus-visible + &__box {
+    border-color: $color-text;
+  }
+
+  &.is-invalid &__box {
+    border-color: $color-error;
+  }
+}

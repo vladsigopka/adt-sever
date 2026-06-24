@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Регистрация — АДТ Север" })
+</head>
+<body class="body--auth">
+  @@include('partials/sprite.html')
+  <div class="auth">
+    <div class="auth__panel">
+      <a class="auth__logo" href="index.html" aria-label="АДТ Север — на главную">
+        <svg class="auth__logo-img" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <div class="auth__form-wrap">
+        <p class="auth__switch">
+          <span class="auth__switch-text">Уже есть аккаунт?</span>
+          <a class="auth__switch-link" href="login.html">Войти в аккаунт</a>
+        </p>
+
+        <h1 class="auth__title">Регистрация в личном кабинете клиента</h1>
+        <p class="auth__subtitle">
+          Зарегистрируйтесь в единой системе, чтобы получить доступ ко всей информации
+        </p>
+
+        <form class="auth__form" action="#" method="post" novalidate data-redirect="verify.html">
+          <div class="field field--clearable" data-validate="email">
+            <input class="field__input" type="email" name="REGISTER_EMAIL" id="REGISTER_EMAIL" placeholder=" " aria-label="Введите E-mail" required />
+            <span class="field__label">Введите E-mail<span class="field__star">*</span></span>
+            <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+              <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+            </button>
+            <span class="field__error">Неверный формат электронной почты</span>
+          </div>
+
+          <div class="field field--password">
+            <input class="field__input" type="password" name="REGISTER_PASSWORD" id="REGISTER_PASSWORD" placeholder=" " aria-label="Введите пароль" required />
+            <span class="field__label">Введите пароль<span class="field__star">*</span></span>
+            <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
+              <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
+            </button>
+          </div>
+
+          <div class="field field--password" data-validate="match" data-match="#REGISTER_PASSWORD">
+            <input class="field__input" type="password" name="REGISTER_PASSWORD_CONFIRM" id="REGISTER_PASSWORD_CONFIRM" placeholder=" " aria-label="Повторите пароль" required />
+            <span class="field__label">Повторите пароль<span class="field__star">*</span></span>
+            <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
+              <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
+            </button>
+            <span class="field__error">Пароли не совпадают</span>
+          </div>
+
+          <label class="checkbox">
+            <input class="checkbox__input" type="checkbox" name="AGREE" required />
+            <span class="checkbox__box">
+              <svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg>
+            </span>
+            <span class="checkbox__text">Я подтверждаю, что соглашаюсь с <a href="#">условиями и политикой конфиденциальности</a></span>
+          </label>
+
+          <button class="btn btn--primary btn--block" type="submit">Зарегистрироваться</button>
+        </form>
+      </div>
+
+      <p class="auth__agreement">
+        Продолжая регистрацию, вы соглашаетесь
+        с <a href="#">Политикой конфиденциальности</a>, <a href="#">условиями сервиса</a>
+        и <a href="#">условиями продажи товаров</a>
+      </p>
+    </div>
+
+    <div class="auth__media">
+      @@include('partials/picture.html', { "webp": "img/login-bg.webp", "img": "img/login-bg.png", "alt": "Автомобиль TENET T7", "class": "auth__image" })
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

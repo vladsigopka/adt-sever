@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Восстановление пароля — АДТ Север" })
+</head>
+<body class="body--auth">
+  @@include('partials/sprite.html')
+  <div class="auth">
+    <div class="auth__panel">
+      <a class="auth__logo" href="index.html" aria-label="АДТ Север — на главную">
+        <svg class="auth__logo-img" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <div class="auth__form-wrap">
+        <p class="auth__switch">
+          <span class="auth__switch-text">Вспомнили пароль?</span>
+          <a class="auth__switch-link" href="login.html">Войти в аккаунт</a>
+        </p>
+
+        <h1 class="auth__title">Восстановление пароля к аккаунту</h1>
+        <p class="auth__subtitle">
+          Введите E-mail — на него будет направлен шестизначный код для сброса пароля.
+        </p>
+
+        <form class="auth__form" action="#" method="post" novalidate data-redirect="recover-code.html">
+          <div class="field field--clearable" data-validate="email">
+            <input class="field__input" type="email" name="RECOVER_EMAIL" id="RECOVER_EMAIL" placeholder=" " aria-label="Введите E-mail" required />
+            <span class="field__label">Введите E-mail<span class="field__star">*</span></span>
+            <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+              <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+            </button>
+            <span class="field__error">Неверный формат электронной почты</span>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">Отправить код доступа</button>
+          <a class="auth__recover" href="login.html">Вернуться назад</a>
+        </form>
+      </div>
+
+      <p class="auth__agreement">
+        Продолжая восстановление, вы соглашаетесь
+        с <a href="#">Политикой конфиденциальности</a>, <a href="#">условиями сервиса</a>
+        и <a href="#">условиями продажи товаров</a>
+      </p>
+    </div>
+
+    <div class="auth__media">
+      @@include('partials/picture.html', { "webp": "img/login-bg.webp", "img": "img/login-bg.png", "alt": "Автомобиль TENET T7", "class": "auth__image" })
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

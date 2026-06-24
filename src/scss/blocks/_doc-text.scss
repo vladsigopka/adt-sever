@@ -43,5 +43,10 @@
       grid-template-columns: 1fr;
       row-gap: rem(20px);
     }
+
+    &__content p {
+      line-height: 1.5;
+      text-align: left;
+    }
   }
 }

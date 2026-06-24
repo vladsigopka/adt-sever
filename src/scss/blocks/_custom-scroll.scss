@@ -1,0 +1,67 @@
+@use '../base/variables' as *;
+
+.custom-scroll-ready {
+  scrollbar-width: none;
+}
+
+.custom-scroll-ready::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.custom-scroll-global {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100vh;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 9999;
+
+  &--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &:hover .custom-scroll-thumb-global {
+    background: rgba($color-black, 0.4);
+  }
+}
+
+.custom-scroll-thumb-global {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  width: 4px;
+  border-radius: 4px;
+  background: rgba($color-black, 0.2);
+  transition:
+    background 0.2s ease,
+    width 0.2s ease;
+
+  &:active {
+    background: rgba($color-black, 0.5);
+    width: 6px;
+  }
+}
+
+.custom-scroll-hit-area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100vh;
+  background: transparent;
+  z-index: 9998;
+  pointer-events: auto;
+}
+
+.menu-open {
+  .custom-scroll-global,
+  .custom-scroll-hit-area {
+    display: none;
+  }
+}

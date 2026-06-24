@@ -1,5 +1,6 @@
 @use '../base/variables' as *;
 @use '../base/functions' as *;
+@use '../base/mixins' as *;
 
 .breadcrumbs {
   display: flex;
@@ -26,5 +27,21 @@
   &__current {
     color: $color-black;
     opacity: 1;
+  }
+
+  @include upto($bp-mobile) {
+    padding-block: rem(32px) rem(28px);
+
+    &__link,
+    &__sep {
+      flex-shrink: 0;
+    }
+
+    &__current {
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 }

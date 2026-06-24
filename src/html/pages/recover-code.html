@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Восстановление пароля — АДТ Север" })
+</head>
+<body class="body--auth">
+  @@include('partials/sprite.html')
+  <div class="auth">
+    <div class="auth__panel">
+      <a class="auth__logo" href="index.html" aria-label="АДТ Север — на главную">
+        <svg class="auth__logo-img" aria-hidden="true"><use href="#logo"></use></svg>
+      </a>
+
+      <div class="auth__form-wrap">
+        <p class="auth__switch">
+          <span class="auth__switch-text">Вспомнили пароль?</span>
+          <a class="auth__switch-link" href="login.html">Войти в аккаунт</a>
+        </p>
+
+        <h1 class="auth__title">Восстановление пароля к аккаунту</h1>
+        <p class="auth__subtitle">
+          Введите шестизначный код для сброса пароля, который пришёл на указанный e-mail.
+        </p>
+
+        <form class="auth__form" action="#" method="post" novalidate data-redirect="recover-password.html">
+          <div class="code" data-code data-autosubmit>
+            <input class="code__cell" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="Цифра 1" />
+            <input class="code__cell" type="text" inputmode="numeric" maxlength="1" aria-label="Цифра 2" />
+            <input class="code__cell" type="text" inputmode="numeric" maxlength="1" aria-label="Цифра 3" />
+            <input class="code__cell" type="text" inputmode="numeric" maxlength="1" aria-label="Цифра 4" />
+            <input class="code__cell" type="text" inputmode="numeric" maxlength="1" aria-label="Цифра 5" />
+            <input class="code__cell" type="text" inputmode="numeric" maxlength="1" aria-label="Цифра 6" />
+          </div>
+
+          <button class="btn btn--primary btn--block js-resend" type="button" data-resend-seconds="30" data-resend-label="Отправить код еще раз">Отправить код еще раз — 30 сек.</button>
+          <a class="auth__recover" href="recover.html">Вернуться назад</a>
+        </form>
+      </div>
+
+      <p class="auth__agreement">
+        Продолжая восстановление, вы соглашаетесь
+        с <a href="#">Политикой конфиденциальности</a>, <a href="#">условиями сервиса</a>
+        и <a href="#">условиями продажи товаров</a>
+      </p>
+    </div>
+
+    <div class="auth__media">
+      @@include('partials/picture.html', { "webp": "img/login-bg.webp", "img": "img/login-bg.png", "alt": "Автомобиль TENET T7", "class": "auth__image" })
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

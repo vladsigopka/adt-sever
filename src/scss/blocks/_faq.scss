@@ -1,5 +1,6 @@
 @use '../base/variables' as *;
 @use '../base/functions' as *;
+@use '../base/mixins' as *;
 
 .faq {
   border-top: 1px solid $color-border;
@@ -80,5 +81,20 @@
 
   &__item.is-open &__icon-bar--v {
     transform: rotate(0deg);
+  }
+
+  @include upto($bp-mobile) {
+    &__head {
+      gap: rem(16px);
+      padding: rem(20px) rem(4px);
+    }
+
+    &__body {
+      padding-inline: rem(4px);
+    }
+
+    &__content {
+      padding-bottom: rem(20px);
+    }
   }
 }

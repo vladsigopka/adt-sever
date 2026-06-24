@@ -1,18 +1,20 @@
 (function () {
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function getTest(type) {
-    if (type === 'email') return (v) => EMAIL.test(v);
-    return null;
-  }
-
   function validate(input) {
     const field = input.closest('.field[data-validate]');
     if (!field) return;
-    const test = getTest(field.getAttribute('data-validate'));
-    if (!test) return;
+    const type = field.getAttribute('data-validate');
     const value = input.value.trim();
-    const invalid = value !== '' && !test(value);
+    let invalid = false;
+
+    if (type === 'email') {
+      invalid = value !== '' && !EMAIL.test(value);
+    } else if (type === 'match') {
+      const target = document.querySelector(field.getAttribute('data-match'));
+      invalid = value !== '' && !!target && value !== target.value.trim();
+    }
+
     field.classList.toggle('field--error', invalid);
   }
 
