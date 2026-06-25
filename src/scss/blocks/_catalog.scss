@@ -1,0 +1,76 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.catalog {
+  &__layout {
+    display: grid;
+    grid-template-columns: rem(352px) 1fr;
+    gap: rem(18px);
+    align-items: start;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(362px), 1fr));
+    gap: rem(18px);
+  }
+
+  &__grid .car-card__badge,
+  &__grid .car-card__actions--bottom {
+    display: none;
+  }
+
+  &__grid .car-card__actions--top {
+    display: flex;
+  }
+
+  &__filters-toggle {
+    display: none;
+    align-items: center;
+    gap: rem(10px);
+    align-self: flex-start;
+    padding: rem(14px) rem(22px);
+    border: 1px solid $color-border;
+    border-radius: rem(12px);
+    background: $color-white;
+    font-size: rem(14px);
+    font-weight: 600;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      border-color: rgba($color-black, 0.3);
+    }
+  }
+
+  &__backdrop {
+    display: none;
+  }
+
+  @include upto($bp-mobile) {
+    &__layout {
+      grid-template-columns: 1fr;
+      gap: rem(20px);
+    }
+
+    &__filters-toggle {
+      display: inline-flex;
+    }
+
+    &__backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 55;
+      background: rgba($color-black, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+  }
+
+  .filters-open &__backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+}

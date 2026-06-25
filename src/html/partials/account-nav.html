@@ -1,0 +1,45 @@
+<aside class="account__sidebar">
+  <div class="account-user">
+    <span class="account-user__avatar">ИП</span>
+    <span class="account-user__info">
+      <span class="account-user__name">Иван Петров</span>
+      <span class="account-user__email">ivan.petrov@mail.ru</span>
+    </span>
+  </div>
+
+  <nav class="account-nav" data-active="@@active" aria-label="Разделы личного кабинета">
+    <ul class="account-nav__list">
+      <li class="account-nav__item account-nav__item--history">
+        <a class="account-nav__link" href="account-history.html">
+          <svg class="account-nav__icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
+          <span class="account-nav__label">История просмотров</span>
+        </a>
+      </li>
+      <li class="account-nav__item account-nav__item--orders">
+        <a class="account-nav__link" href="account-orders.html">
+          <svg class="account-nav__icon" aria-hidden="true"><use href="#icon-box"></use></svg>
+          <span class="account-nav__label">Статус заказов</span>
+          <span class="account-nav__count">3</span>
+        </a>
+      </li>
+      <li class="account-nav__item account-nav__item--profile">
+        <a class="account-nav__link" href="account-profile.html">
+          <svg class="account-nav__icon" aria-hidden="true"><use href="#icon-user"></use></svg>
+          <span class="account-nav__label">Мой профиль</span>
+        </a>
+      </li>
+      <li class="account-nav__item account-nav__item--reviews">
+        <a class="account-nav__link" href="account-reviews.html">
+          <svg class="account-nav__icon" aria-hidden="true"><use href="#icon-star"></use></svg>
+          <span class="account-nav__label">Отзывы</span>
+          <span class="account-nav__count">4</span>
+        </a>
+      </li>
+    </ul>
+
+    <a class="account-nav__logout" href="login.html">
+      <svg class="account-nav__icon" aria-hidden="true"><use href="#icon-logout"></use></svg>
+      <span class="account-nav__label">Выйти из аккаунта</span>
+    </a>
+  </nav>
+</aside>

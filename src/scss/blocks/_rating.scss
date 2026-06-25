@@ -1,0 +1,27 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+$color-star: #f5b301;
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(2px);
+  color: $color-star;
+
+  &__star {
+    width: rem(16px);
+    height: rem(16px);
+    color: inherit;
+
+    &--empty {
+      color: rgba($color-black, 0.15);
+    }
+  }
+
+  &__value {
+    font-size: rem(14px);
+    font-weight: 700;
+    color: $color-black;
+  }
+}

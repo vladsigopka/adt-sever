@@ -11,6 +11,7 @@
 @use 'blocks/footer';
 @use 'blocks/button';
 @use 'blocks/tag';
+@use 'blocks/badge';
 @use 'blocks/breadcrumbs';
 @use 'blocks/promo-card';
 @use 'blocks/doc-card';
@@ -19,6 +20,10 @@
 @use 'blocks/code';
 @use 'blocks/custom-scroll';
 @use 'blocks/stub';
+@use 'blocks/contacts';
+@use 'blocks/car-card';
+@use 'blocks/filters';
+@use 'blocks/catalog';
 @use 'blocks/auth';
 @use 'blocks/mobile-menu';
 @use 'blocks/faq';
@@ -26,3 +31,14 @@
 @use 'blocks/promo-detail';
 @use 'blocks/doc-text';
 @use 'blocks/startlinks';
+@use 'blocks/account';
+@use 'blocks/account-nav';
+@use 'blocks/chips';
+@use 'blocks/icon-btn';
+@use 'blocks/product-card';
+@use 'blocks/order-card';
+@use 'blocks/review-card';
+@use 'blocks/rating';
+@use 'blocks/modal';
+@use 'blocks/uploader';
+@use 'blocks/compare';

@@ -1,0 +1,127 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: rem(24px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba($color-black, 0.5);
+    -webkit-backdrop-filter: blur(rem(4px));
+    backdrop-filter: blur(rem(4px));
+  }
+
+  &__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(var(--modal-width, #{rem(520px)}), 100%);
+    max-height: calc(100vh - #{rem(48px)});
+    overflow: hidden auto;
+    padding: rem(32px);
+    border-radius: rem(24px);
+    background: $color-white;
+    box-shadow: 0 rem(30px) rem(80px) rgba($color-black, 0.25);
+    transform: translateY(rem(20px)) scale(0.97);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    @include upto($bp-mobile) {
+      padding: rem(24px);
+      border-radius: rem(20px);
+    }
+
+    &--sm {
+      --modal-width: #{rem(420px)};
+    }
+
+    &--md {
+      --modal-width: #{rem(560px)};
+    }
+
+    &--lg {
+      --modal-width: #{rem(760px)};
+    }
+  }
+
+  &.is-open &__dialog {
+    transform: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: rem(44px);
+    height: rem(44px);
+    border-radius: 50%;
+    background: $color-white;
+    color: $color-black;
+    will-change: transform;
+    transition: background-color 0.2s ease, transform 0.25s ease;
+
+    svg {
+      width: rem(24px);
+      height: rem(24px);
+    }
+
+    &:hover {
+      background: rgba($color-white, 0.8);
+      transform: scale(1.1);
+    }
+  }
+
+  &__header {
+    margin-bottom: rem(24px);
+  }
+
+  &__title {
+    font-size: rem(22px);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    margin-top: rem(8px);
+    font-size: rem(13px);
+    font-weight: 600;
+    color: rgba($color-black, 0.5);
+  }
+
+  &__footer {
+    display: flex;
+    gap: rem(12px);
+    margin-top: rem(28px);
+
+    .btn {
+      flex: 1;
+      min-width: 0;
+      padding-inline: rem(20px);
+    }
+
+    @include upto($bp-mobile) {
+      flex-direction: column-reverse;
+    }
+  }
+}

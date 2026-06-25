@@ -4,6 +4,7 @@
 
 .breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: rem(8px);
   font-size: rem(14px);
@@ -31,17 +32,5 @@
 
   @include upto($bp-mobile) {
     padding-block: rem(32px) rem(28px);
-
-    &__link,
-    &__sep {
-      flex-shrink: 0;
-    }
-
-    &__current {
-      min-width: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
   }
 }

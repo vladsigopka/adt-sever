@@ -8,7 +8,189 @@
   @@include('partials/header.html')
 
   <main class="main">
-    @@include('partials/stub.html', { "title": "Сравнение" })
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Сравнение</span>
+      </nav>
+
+      <section class="compare" data-compare>
+        <header class="compare__head">
+          <div>
+            <h1 class="compare__title">Сравнение автомобилей</h1>
+            <p class="compare__subtitle"><span data-compare-count>3</span> <span data-compare-word>автомобиля</span> в сравнении</p>
+          </div>
+          <div class="compare__tools">
+            <label class="switch">
+              <input class="switch__input" type="checkbox" data-compare-diff />
+              <span class="switch__track"><span class="switch__thumb"></span></span>
+              <span class="switch__label">Только отличия</span>
+            </label>
+            <button class="btn btn--outline btn--sm" type="button" data-compare-clear>
+              <svg class="btn__icon" width="18" height="18" aria-hidden="true"><use href="#icon-trash"></use></svg>
+              Очистить
+            </button>
+          </div>
+        </header>
+
+        <div class="compare__scroll">
+          <div class="compare__table">
+
+            <div class="compare__row compare__row--head">
+              <div class="compare__label"></div>
+              <div class="compare__cell" data-col="0">
+                <article class="compare-card">
+                  <div class="compare-card__media">
+                    <span class="compare-card__badge product-card__badge--muted tag">Под заказ</span>
+                    <button class="compare-card__remove js-compare-remove" data-col="0" type="button" aria-label="Убрать из сравнения">
+                      <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+                    </button>
+                    @@include('partials/picture.html', { "webp": "img/card/car-t8.webp", "img": "img/card/car-t8.png", "alt": "TENET T6" })
+                  </div>
+                  <div class="compare-card__body">
+                    <h2 class="compare-card__name">TENET T6</h2>
+                    <p class="compare-card__trim">1.5T DCT Comfort</p>
+                    <div class="compare-card__price">
+                      <span class="compare-card__price-now">1 980 000 ₽</span>
+                      <span class="compare-card__price-old">2 090 000 ₽</span>
+                    </div>
+                    <a class="btn btn--primary btn--block btn--sm compare-card__cta" href="catalog.html">Подробнее</a>
+                  </div>
+                </article>
+              </div>
+              <div class="compare__cell" data-col="1">
+                <article class="compare-card">
+                  <div class="compare-card__media">
+                    <span class="compare-card__badge tag">В наличии</span>
+                    <button class="compare-card__remove js-compare-remove" data-col="1" type="button" aria-label="Убрать из сравнения">
+                      <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+                    </button>
+                    @@include('partials/picture.html', { "webp": "img/card/car-t8.webp", "img": "img/card/car-t8.png", "alt": "TENET T7" })
+                  </div>
+                  <div class="compare-card__body">
+                    <h2 class="compare-card__name">TENET T7</h2>
+                    <p class="compare-card__trim">2.0 CVT Premium</p>
+                    <div class="compare-card__price">
+                      <span class="compare-card__price-now">2 345 000 ₽</span>
+                      <span class="compare-card__price-old">2 490 000 ₽</span>
+                    </div>
+                    <a class="btn btn--primary btn--block btn--sm compare-card__cta" href="catalog.html">Подробнее</a>
+                  </div>
+                </article>
+              </div>
+              <div class="compare__cell" data-col="2">
+                <article class="compare-card">
+                  <div class="compare-card__media">
+                    <span class="compare-card__badge tag">Хит продаж</span>
+                    <button class="compare-card__remove js-compare-remove" data-col="2" type="button" aria-label="Убрать из сравнения">
+                      <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+                    </button>
+                    @@include('partials/picture.html', { "webp": "img/card/car-t8.webp", "img": "img/card/car-t8.png", "alt": "TENET T8" })
+                  </div>
+                  <div class="compare-card__body">
+                    <h2 class="compare-card__name">TENET T8</h2>
+                    <p class="compare-card__trim">2.0T 4WD Flagship</p>
+                    <div class="compare-card__price">
+                      <span class="compare-card__price-now">3 190 000 ₽</span>
+                      <span class="compare-card__price-old">3 390 000 ₽</span>
+                    </div>
+                    <a class="btn btn--primary btn--block btn--sm compare-card__cta" href="catalog.html">Подробнее</a>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Цена</div>
+              <div class="compare__cell compare__value compare__value--best" data-col="0">1 980 000 ₽<svg class="compare__best" aria-label="Лучшее значение"><use href="#icon-check"></use></svg></div>
+              <div class="compare__cell compare__value" data-col="1">2 345 000 ₽</div>
+              <div class="compare__cell compare__value" data-col="2">3 190 000 ₽</div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Год выпуска</div>
+              <div class="compare__cell compare__value" data-col="0">2025</div>
+              <div class="compare__cell compare__value" data-col="1">2026</div>
+              <div class="compare__cell compare__value" data-col="2">2026</div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Двигатель</div>
+              <div class="compare__cell compare__value" data-col="0">1.5 турбо</div>
+              <div class="compare__cell compare__value" data-col="1">2.0 атмо</div>
+              <div class="compare__cell compare__value" data-col="2">2.0 турбо</div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Мощность</div>
+              <div class="compare__cell compare__value" data-col="0">150 л.с.</div>
+              <div class="compare__cell compare__value" data-col="1">186 л.с.</div>
+              <div class="compare__cell compare__value compare__value--best" data-col="2">245 л.с.<svg class="compare__best" aria-label="Лучшее значение"><use href="#icon-check"></use></svg></div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Разгон 0–100 км/ч</div>
+              <div class="compare__cell compare__value" data-col="0">9,8 с</div>
+              <div class="compare__cell compare__value" data-col="1">8,4 с</div>
+              <div class="compare__cell compare__value compare__value--best" data-col="2">7,1 с<svg class="compare__best" aria-label="Лучшее значение"><use href="#icon-check"></use></svg></div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Коробка передач</div>
+              <div class="compare__cell compare__value" data-col="0">Робот, 7 ст.</div>
+              <div class="compare__cell compare__value" data-col="1">Вариатор</div>
+              <div class="compare__cell compare__value" data-col="2">Автомат, 8 ст.</div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Привод</div>
+              <div class="compare__cell compare__value" data-col="0">Передний</div>
+              <div class="compare__cell compare__value" data-col="1">Полный</div>
+              <div class="compare__cell compare__value" data-col="2">Полный</div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Расход, л/100 км</div>
+              <div class="compare__cell compare__value compare__value--best" data-col="0">7,2<svg class="compare__best" aria-label="Лучшее значение"><use href="#icon-check"></use></svg></div>
+              <div class="compare__cell compare__value" data-col="1">8,1</div>
+              <div class="compare__cell compare__value" data-col="2">9,4</div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Клиренс</div>
+              <div class="compare__cell compare__value" data-col="0">190 мм</div>
+              <div class="compare__cell compare__value" data-col="1">200 мм</div>
+              <div class="compare__cell compare__value compare__value--best" data-col="2">210 мм<svg class="compare__best" aria-label="Лучшее значение"><use href="#icon-check"></use></svg></div>
+            </div>
+
+            <div class="compare__row" data-diff="true">
+              <div class="compare__label">Объём багажника</div>
+              <div class="compare__cell compare__value" data-col="0">480 л</div>
+              <div class="compare__cell compare__value" data-col="1">520 л</div>
+              <div class="compare__cell compare__value compare__value--best" data-col="2">600 л<svg class="compare__best" aria-label="Лучшее значение"><use href="#icon-check"></use></svg></div>
+            </div>
+
+            <div class="compare__row" data-diff="false">
+              <div class="compare__label">Гарантия</div>
+              <div class="compare__cell compare__value" data-col="0">5 лет / 150 000 км</div>
+              <div class="compare__cell compare__value" data-col="1">5 лет / 150 000 км</div>
+              <div class="compare__cell compare__value" data-col="2">5 лет / 150 000 км</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="compare__empty">
+          <span class="compare__empty-icon">
+            <svg aria-hidden="true"><use href="#icon-comparison"></use></svg>
+          </span>
+          <h2 class="compare__empty-title">В сравнении пока пусто</h2>
+          <p class="compare__empty-text">Добавьте автомобили из каталога, чтобы сравнить их характеристики бок о бок.</p>
+          <a class="btn btn--primary" href="catalog.html">Перейти в каталог</a>
+        </div>
+      </section>
+    </div>
   </main>
 
   @@include('partials/footer.html')

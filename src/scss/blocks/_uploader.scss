@@ -1,0 +1,90 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.uploader {
+  &__dropzone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: rem(6px);
+    padding: rem(32px) rem(24px);
+    border: rem(2px) dashed $color-border;
+    border-radius: rem(18px);
+    background: $color-bg;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+
+    &:hover {
+      border-color: rgba($color-black, 0.3);
+    }
+  }
+
+  &.is-dragover &__dropzone {
+    border-color: $color-accent;
+    background: rgba($color-accent, 0.05);
+  }
+
+  &__preview {
+    display: grid;
+    place-items: center;
+    width: rem(80px);
+    height: rem(80px);
+    margin-bottom: rem(10px);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2c2c30 0%, $color-black 100%);
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__initials {
+    color: $color-white;
+    font-size: rem(26px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  &.has-file &__initials {
+    display: none;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: rem(48px);
+    height: rem(48px);
+    border-radius: 50%;
+    background: $color-white;
+    color: $color-accent;
+    box-shadow: 0 rem(6px) rem(18px) rgba($color-black, 0.08);
+    transition: transform 0.25s ease;
+  }
+
+  &.has-file &__icon {
+    display: none;
+  }
+
+  &__dropzone:hover &__icon {
+    transform: translateY(rem(-2px));
+  }
+
+  &__text {
+    margin-top: rem(6px);
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.7);
+  }
+
+  &__link {
+    color: $color-accent;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  &__hint {
+    font-size: rem(12px);
+    font-weight: 600;
+    color: rgba($color-black, 0.4);
+  }
+}

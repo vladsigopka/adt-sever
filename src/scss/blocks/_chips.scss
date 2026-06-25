@@ -1,0 +1,74 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(10px);
+  margin-bottom: rem(28px);
+
+  @include upto($bp-mobile) {
+    gap: rem(8px);
+    margin-bottom: rem(24px);
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(8px);
+    flex-shrink: 0;
+    height: rem(40px);
+    padding-inline: rem(18px);
+    border: 1px solid $color-border;
+    border-radius: rem(40px);
+    background: $color-white;
+    font-size: rem(13px);
+    font-weight: 600;
+    color: rgba($color-black, 0.65);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      border-color: rgba($color-black, 0.3);
+      color: $color-black;
+    }
+  }
+
+  &__count {
+    font-size: rem(12px);
+    font-weight: 700;
+    color: rgba($color-black, 0.4);
+  }
+
+  &__item--active {
+    border-color: $color-black;
+    background: $color-black;
+    color: $color-white;
+
+    .chips__count {
+      color: rgba($color-white, 0.6);
+    }
+
+    &:hover {
+      border-color: $color-dark;
+      background: $color-dark;
+      color: $color-white;
+    }
+  }
+}
+
+[data-status].is-filter-in {
+  animation: chips-filter-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes chips-filter-in {
+  from {
+    opacity: 0;
+    transform: translateY(rem(12px));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

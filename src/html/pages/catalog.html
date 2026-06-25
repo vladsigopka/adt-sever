@@ -1,14 +1,160 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  @@include('partials/head.html', { "title": "Каталог — АДТ Север" })
+  @@include('partials/head.html', { "title": "Каталог автомобилей — АДТ Север" })
 </head>
 <body>
   @@include('partials/sprite.html')
   @@include('partials/header.html')
 
   <main class="main">
-    @@include('partials/stub.html', { "title": "Каталог" })
+    <div class="container">
+      <nav class="breadcrumbs breadcrumbs--center" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Каталог</span>
+      </nav>
+
+      <h1 class="page-title page-title--center" data-reveal>Каталог автомобилей</h1>
+
+      <div class="catalog__layout">
+        <button class="catalog__filters-toggle js-filters-open" type="button">
+          <svg width="20" height="20" aria-hidden="true"><use href="#icon-filter"></use></svg>
+          Фильтры
+        </button>
+
+        <aside class="filters" data-lenis-prevent>
+          <div class="filters__bar">
+            <span class="filters__bar-title">Фильтры</span>
+            <button class="filters__close js-filters-close" type="button" aria-label="Закрыть фильтры">
+              <svg width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+            </button>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Где купить<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="checkbox">
+                <input class="checkbox__input" type="checkbox" />
+                <span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span>
+                <span class="checkbox__text">У дилера</span>
+              </label>
+            </div></div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Модель<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="filters__model">
+                <input type="radio" name="model" />
+                <picture><source srcset="img/card/car-t8.webp" type="image/webp" /><img src="img/card/car-t8.png" alt="" aria-hidden="true" /></picture>
+                <span class="filters__model-info">
+                  <span class="filters__model-name">T4L</span>
+                  <span class="filters__model-desc">Всё сложится</span>
+                  <span class="filters__model-price">от 2 159 000 ₽</span>
+                </span>
+              </label>
+              <label class="filters__model">
+                <input type="radio" name="model" />
+                <picture><source srcset="img/card/car-t8.webp" type="image/webp" /><img src="img/card/car-t8.png" alt="" aria-hidden="true" /></picture>
+                <span class="filters__model-info">
+                  <span class="filters__model-name">T7</span>
+                  <span class="filters__model-desc">Комфортный и маневренный</span>
+                  <span class="filters__model-price">от 2 485 000 ₽</span>
+                </span>
+              </label>
+              <label class="filters__model">
+                <input type="radio" name="model" />
+                <picture><source srcset="img/card/car-t8.webp" type="image/webp" /><img src="img/card/car-t8.png" alt="" aria-hidden="true" /></picture>
+                <span class="filters__model-info">
+                  <span class="filters__model-name">T8</span>
+                  <span class="filters__model-desc">Новый семиместный кроссовер</span>
+                  <span class="filters__model-price">от 3 480 000 ₽</span>
+                </span>
+              </label>
+            </div></div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Цена, ₽<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner">
+              <div class="filters__price-fields">
+                <label class="filters__field"><span class="filters__field-label">от</span><input type="text" id="priceFrom" value="2 159 000" /></label>
+                <label class="filters__field"><span class="filters__field-label">до</span><input type="text" id="priceTo" value="3 735 000" /></label>
+              </div>
+              <div class="filters__range" data-range data-field-min="#priceFrom" data-field-max="#priceTo">
+                <div class="filters__range-track"><div class="filters__range-fill"></div></div>
+                <input class="filters__range-input" type="range" data-range-min min="2159000" max="3735000" step="1000" value="2159000" aria-label="Цена от" />
+                <input class="filters__range-input" type="range" data-range-max min="2159000" max="3735000" step="1000" value="3735000" aria-label="Цена до" />
+              </div>
+            </div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Комплектация<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Актив/Active 2WD</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Актив/Active 4WD</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Прайм/Prime 2WD</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Ультра/Ultra 4WD</span></label>
+            </div></div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Цвет<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="filters__color"><input type="checkbox" /><span class="filters__swatch" style="--swatch:#0A0A0A"></span><span class="filters__color-text">Глубокий чёрный</span></label>
+              <label class="filters__color"><input type="checkbox" /><span class="filters__swatch" style="--swatch:#EDEFF2"></span><span class="filters__color-text">Искрящийся белый</span></label>
+              <label class="filters__color"><input type="checkbox" /><span class="filters__swatch" style="--swatch:#0E5C8A"></span><span class="filters__color-text">Морской синий</span></label>
+              <label class="filters__color"><input type="checkbox" /><span class="filters__swatch" style="--swatch:#B9BDC1"></span><span class="filters__color-text">Серебристый</span></label>
+              <label class="filters__color"><input type="checkbox" /><span class="filters__swatch" style="--swatch:#6B7075"></span><span class="filters__color-text">Технологичный серый</span></label>
+            </div></div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Двигатель<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">1.5 Турбо</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">1.6</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">2.0</span></label>
+            </div></div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Трансмиссия<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Роботизированная</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Механическая</span></label>
+            </div></div></div>
+          </div>
+
+          <div class="filters__group">
+            <button class="filters__head" type="button">Привод<span class="filters__toggle" aria-hidden="true"></span></button>
+            <div class="filters__body"><div class="filters__body-inner"><div class="filters__list">
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Передний привод</span></label>
+              <label class="checkbox"><input class="checkbox__input" type="checkbox" /><span class="checkbox__box"><svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg></span><span class="checkbox__text">Полный привод</span></label>
+            </div></div></div>
+          </div>
+          <div class="filters__apply">
+            <button class="btn btn--primary btn--block js-filters-close" type="button">Показать</button>
+          </div>
+        </aside>
+
+        <div class="catalog__backdrop js-filters-close" aria-hidden="true"></div>
+
+        <div class="catalog__grid">
+          @@include('partials/car-card.html')
+          @@include('partials/car-card.html')
+          @@include('partials/car-card.html')
+          @@include('partials/car-card.html')
+          @@include('partials/car-card.html')
+          @@include('partials/car-card.html')
+          @@include('partials/car-card.html')
+        </div>
+      </div>
+
+      <p class="list-end">Конец списка</p>
+    </div>
   </main>
 
   @@include('partials/footer.html')

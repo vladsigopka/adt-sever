@@ -8,7 +8,27 @@
   @@include('partials/header.html')
 
   <main class="main">
-    @@include('partials/stub.html', { "title": "Избранное" })
+    <div class="container">
+      <nav class="breadcrumbs breadcrumbs--center" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Избранное</span>
+      </nav>
+
+      <h1 class="page-title page-title--center" data-reveal>Список избранного</h1>
+
+      <div class="car-grid">
+        @@include('partials/car-card.html')
+        @@include('partials/car-card.html')
+        @@include('partials/car-card.html')
+        @@include('partials/car-card.html')
+        @@include('partials/car-card.html')
+        @@include('partials/car-card.html')
+        @@include('partials/car-card.html')
+      </div>
+
+      <p class="list-end">Конец списка</p>
+    </div>
   </main>
 
   @@include('partials/footer.html')

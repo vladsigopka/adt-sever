@@ -1,0 +1,47 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(7px);
+  padding: rem(5px) rem(12px);
+  border-radius: rem(20px);
+  font-size: rem(12px);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  &__dot {
+    flex-shrink: 0;
+    width: rem(7px);
+    height: rem(7px);
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  &--success {
+    color: #1f9d45;
+    background: rgba($color-success, 0.14);
+  }
+
+  &--warning {
+    color: #b26a00;
+    background: rgba(#e89200, 0.16);
+  }
+
+  &--error {
+    color: #c20003;
+    background: rgba($color-error, 0.1);
+  }
+
+  &--neutral {
+    color: rgba($color-black, 0.6);
+    background: rgba($color-black, 0.07);
+  }
+
+  &--info {
+    color: $color-text;
+    background: rgba($color-text, 0.08);
+  }
+}

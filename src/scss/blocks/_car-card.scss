@@ -1,0 +1,336 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: rem(24px);
+
+  @include upto($bp-mobile) {
+    grid-template-columns: repeat(auto-fill, minmax(rem(260px), 1fr));
+    gap: rem(16px);
+  }
+}
+
+.car-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: rem(16px);
+  background: $color-white;
+  overflow: hidden;
+  transition: box-shadow 0.35s ease;
+
+  &:hover {
+    box-shadow: 0 rem(20px) rem(45px) rgba($color-black, 0.1);
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 45 / 28;
+    overflow: hidden;
+    background: $color-bg;
+  }
+
+  &__slider {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    height: 100%;
+  }
+
+  &__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__zones {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+  }
+
+  &__zones span {
+    flex: 1;
+  }
+
+  &__badge {
+    position: absolute;
+    top: rem(24px);
+    left: rem(24px);
+    z-index: 3;
+    padding: rem(8px) rem(16px);
+    border-radius: rem(24px);
+    background: $color-white;
+    font-size: rem(12px);
+    font-weight: 600;
+  }
+
+  &__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: rem(24px);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: rem(16px);
+
+    span {
+      width: rem(68px);
+      height: rem(3px);
+      border-radius: rem(2px);
+      background: rgba($color-white, 0.5);
+      cursor: pointer;
+    }
+
+    .is-active {
+      background: $color-white;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: rem(24px);
+  }
+
+  &__title {
+    font-size: rem(24px);
+    font-weight: 700;
+    color: $color-black;
+  }
+
+  &__subtitle {
+    margin-top: rem(20px);
+    font-size: rem(12px);
+    font-weight: 600;
+    color: rgba($color-black, 0.75);
+  }
+
+  &__specs {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12px);
+    margin-top: rem(32px);
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: rem(8px);
+      font-size: rem(12px);
+      color: rgba($color-black, 0.5);
+    }
+
+    img {
+      width: rem(16px);
+      height: rem(16px);
+      opacity: 0.5;
+    }
+  }
+
+  &__pricing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(16px);
+    margin-top: rem(40px);
+  }
+
+  &__prices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: rem(12px);
+  }
+
+  &__price {
+    font-size: rem(20px);
+    font-weight: 700;
+  }
+
+  &__price-old {
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.3);
+    text-decoration: line-through;
+  }
+
+  &__actions {
+    display: flex;
+    gap: rem(12px);
+    flex-shrink: 0;
+  }
+
+  &__icon-btn {
+    display: grid;
+    place-items: center;
+    width: rem(54px);
+    height: rem(40px);
+    border-radius: rem(12px);
+    border: 1px solid #0A0A0A1A;
+    color: $color-black;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+
+    svg {
+      width: rem(22px);
+      height: rem(22px);
+    }
+
+    &:hover {
+      transform: translateY(rem(-2px));
+    }
+
+    .car-card__ico--fill {
+      display: none;
+    }
+
+    &.is-active {
+      animation: card-pop 0.3s ease;
+    }
+
+    &.is-active .car-card__ico--line {
+      display: none;
+    }
+
+    &.is-active .car-card__ico--fill {
+      display: block;
+    }
+
+    &.js-card-like.is-active {
+      color: $color-error;
+    }
+
+    &.js-card-compare.is-active {
+      background: #F6F6F6;
+      color: $color-black;
+    }
+  }
+
+  &__cta {
+    margin-top: rem(24px);
+    gap: rem(12px);
+    border-radius: rem(12px);
+  }
+
+  &__cta-dot {
+    position: relative;
+    flex-shrink: 0;
+    width: rem(18px);
+    height: rem(18px);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: rem(6px);
+      border-radius: 50%;
+      background: currentColor;
+    }
+  }
+
+  &__cta-ring {
+    position: absolute;
+    inset: rem(4px);
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    animation: card-dot-pulse 2s ease-out infinite;
+  }
+
+  &__cta-ring:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  &__actions--top {
+    position: absolute;
+    top: rem(16px);
+    right: rem(16px);
+    z-index: 3;
+    display: none;
+  }
+
+  &__actions--top &__icon-btn {
+    width: rem(44px);
+    height: rem(44px);
+    background: rgba($color-white, 0.45);
+    border: 1px solid rgba($color-white, 0.6);
+    backdrop-filter: blur(rem(12px));
+    -webkit-backdrop-filter: blur(rem(12px));
+  }
+
+  &__actions--top &__icon-btn.is-active {
+    background: rgba($color-white, 0.75);
+  }
+
+  &--catalog {
+    .car-card__badge,
+    .car-card__actions--bottom {
+      display: none;
+    }
+
+    .car-card__actions--top {
+      display: flex;
+    }
+  }
+
+  @include upto($bp-mobile) {
+    &__title {
+      font-size: rem(20px);
+    }
+
+    &__badge {
+      top: rem(16px);
+      left: rem(16px);
+    }
+
+    &__cta {
+      padding-inline: rem(12px);
+      gap: rem(8px);
+      font-size: rem(13px);
+    }
+
+    &__pricing {
+      flex-wrap: wrap;
+      row-gap: rem(16px);
+    }
+
+    &__prices {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: rem(4px);
+    }
+  }
+}
+
+@keyframes card-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes card-dot-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}

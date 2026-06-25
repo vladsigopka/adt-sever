@@ -5,7 +5,7 @@
     if (typeof Lenis === 'undefined') return;
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.4,
       easing: function (t) {
         return Math.min(1, 1.001 - Math.pow(2, -10 * t));
       }

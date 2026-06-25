@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "История просмотров — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <a class="breadcrumbs__link" href="account-history.html">Личный кабинет</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">История просмотров</span>
+      </nav>
+
+      <div class="account">
+        @@include('partials/account-nav.html', { "active": "history" })
+
+        <section class="account__content">
+          <header class="account__head">
+            <div>
+              <h1 class="account__title">История просмотров</h1>
+              <p class="account__subtitle">8 автомобилей за последние 30 дней</p>
+            </div>
+            <button class="account__action" type="button">
+              <svg class="account__action-icon" aria-hidden="true"><use href="#icon-trash"></use></svg>
+              <span>Очистить историю</span>
+            </button>
+          </header>
+
+          <div class="account__group">
+            <h2 class="account__group-title">Сегодня</h2>
+            <div class="car-grid">
+              @@include('partials/car-card.html')
+              @@include('partials/car-card.html')
+              @@include('partials/car-card.html')
+            </div>
+          </div>
+
+          <div class="account__group">
+            <h2 class="account__group-title">Вчера</h2>
+            <div class="car-grid">
+              @@include('partials/car-card.html')
+              @@include('partials/car-card.html')
+              @@include('partials/car-card.html')
+            </div>
+          </div>
+
+          <div class="account__group">
+            <h2 class="account__group-title">Ранее</h2>
+            <div class="car-grid">
+              @@include('partials/car-card.html')
+              @@include('partials/car-card.html')
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

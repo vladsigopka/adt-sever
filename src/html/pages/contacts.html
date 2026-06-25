@@ -8,7 +8,70 @@
   @@include('partials/header.html')
 
   <main class="main">
-    @@include('partials/stub.html', { "title": "Контакты" })
+    <div class="container">
+      <nav class="breadcrumbs breadcrumbs--center" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Контакты</span>
+      </nav>
+
+      <h1 class="page-title page-title--center" data-reveal>Контактная информация</h1>
+
+      <div class="contacts">
+        <aside class="contacts__aside">
+          <section class="contacts__card" data-reveal>
+            <img class="contacts__card-icon" src="img/contacts/map.svg" width="32" height="32" alt="" aria-hidden="true" />
+            <h2 class="contacts__card-title">Адрес и контакты</h2>
+            <p class="contacts__address">Томск, ул. Мостовая, д. 28Б</p>
+            <a class="contacts__phone" href="tel:+73822607846">+ 7 (3822) 60 - 78 - 46</a>
+
+            <div class="contacts__hours">
+              <span class="contacts__hours-label">Режим работы:</span>
+              <span class="contacts__hours-value">Пн – Вс: 08:00 - 20:00</span>
+            </div>
+          </section>
+
+          <section class="contacts__card" data-reveal data-reveal-delay="100">
+            <img class="contacts__card-icon" src="img/contacts/house.svg" width="32" height="32" alt="" aria-hidden="true" />
+            <h2 class="contacts__card-title">Прочее</h2>
+
+            <p class="contacts__subtitle">Мы на маркетплейсах</p>
+            <div class="contacts__shops">
+              <a class="contacts__shop contacts__shop--wb" href="#" aria-label="Wildberries">
+                <img src="img/contacts/shop-wb.svg" alt="Wildberries" />
+              </a>
+              <a class="contacts__shop contacts__shop--ozon" href="#" aria-label="OZON">
+                <img class="contacts__shop-logo" src="img/contacts/shop-ozon.svg" alt="OZON" />
+                <img class="contacts__shop-logo contacts__shop-logo--color" src="img/contacts/shop-ozon-color.svg" alt="" aria-hidden="true" />
+              </a>
+              <a class="contacts__shop contacts__shop--mvideo" href="#" aria-label="М.Видео">
+                <img src="img/contacts/shop-mvideo.svg" alt="М.Видео" />
+              </a>
+            </div>
+
+            <p class="contacts__subtitle">Мы в соц. сетях и мессенджерах</p>
+            <div class="contacts__socials">
+              <a class="contacts__social" href="#" aria-label="Telegram">
+                <img src="img/contacts/social-telegram.svg" alt="" aria-hidden="true" />
+              </a>
+              <a class="contacts__social" href="#" aria-label="ВКонтакте">
+                <img src="img/contacts/social-vk.svg" alt="" aria-hidden="true" />
+              </a>
+              <a class="contacts__social" href="#" aria-label="WhatsApp">
+                <img src="img/contacts/social-whatsapp.svg" alt="" aria-hidden="true" />
+              </a>
+              <a class="contacts__social" href="#" aria-label="Чат">
+                <img src="img/contacts/social-chat.svg" alt="" aria-hidden="true" />
+              </a>
+            </div>
+          </section>
+        </aside>
+
+        <div class="contacts__map" data-reveal data-reveal-delay="150">
+          <div style="position:relative;overflow:hidden;"><a href="https://yandex.kz/maps/org/giper_lenta/1716876530/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Гипер Лента</a><a href="https://yandex.kz/maps/67/tomsk/category/food_hypermarket/215839062375/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Продуктовый гипермаркет в Томске</a><iframe src="https://yandex.kz/map-widget/v1/?display-text=%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B&filter=open_now%3A1&l=sat%2Cskl&ll=84.985579%2C56.497803&mode=search&oid=1716876530&ol=biz&z=18" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+        </div>
+      </div>
+    </div>
   </main>
 
   @@include('partials/footer.html')

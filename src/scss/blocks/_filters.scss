@@ -1,0 +1,331 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.filters {
+  display: flex;
+  flex-direction: column;
+
+  &__group {
+    border-top: 1px solid $color-border;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: rem(24px) 0;
+    font-size: rem(16px);
+    font-weight: 600;
+    color: $color-black;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__toggle {
+    position: relative;
+    flex-shrink: 0;
+    width: rem(16px);
+    height: rem(16px);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: rem(1.5px);
+      background: rgba($color-black, 0.6);
+      transform: translateY(-50%);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &::after {
+      transform: translateY(-50%) rotate(90deg);
+      opacity: 0;
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  &__body-inner {
+    overflow: hidden;
+    padding-inline: rem(8px);
+    margin-inline: rem(-8px);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16px);
+    padding-top: rem(6px);
+    padding-bottom: rem(28px);
+  }
+
+  &__group.is-collapsed &__body {
+    grid-template-rows: 0fr;
+  }
+
+  &__group.is-collapsed &__toggle::before {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  &__group.is-collapsed &__toggle::after {
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  &__color {
+    display: flex;
+    align-items: center;
+    gap: rem(16px);
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__swatch {
+    flex-shrink: 0;
+    width: rem(40px);
+    height: rem(40px);
+    border-radius: 50%;
+    background: var(--swatch);
+    box-shadow: inset 0 0 0 1px rgba($color-black, 0.1);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  &__color:hover &__swatch {
+    transform: scale(1.06);
+  }
+
+  &__color input:checked + &__swatch {
+    box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-black;
+  }
+
+  &__color-text {
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.7);
+  }
+
+  &__model {
+    display: grid;
+    grid-template-columns: rem(96px) 1fr;
+    align-items: center;
+    gap: rem(12px);
+    padding: rem(12px);
+    border: 1px solid $color-border;
+    border-radius: rem(12px);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    &:hover {
+      border-color: rgba($color-black, 0.3);
+    }
+  }
+
+  &__model:has(input:checked) {
+    border-color: $color-black;
+    box-shadow: 0 0 0 1px $color-black;
+  }
+
+  &__model-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__model-name {
+    font-size: rem(16px);
+    font-weight: 700;
+  }
+
+  &__model-desc {
+    margin-top: rem(2px);
+    font-size: rem(12px);
+    color: rgba($color-black, 0.5);
+  }
+
+  &__model-price {
+    margin-top: rem(8px);
+    font-size: rem(13px);
+    font-weight: 700;
+  }
+
+  &__price-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(12px);
+    margin-bottom: rem(24px);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8px);
+  }
+
+  &__field-label {
+    font-size: rem(12px);
+    text-transform: lowercase;
+    color: rgba($color-black, 0.5);
+  }
+
+  &__field input {
+    width: 100%;
+    padding: rem(14px) rem(16px);
+    border: 1px solid $color-border;
+    border-radius: rem(8px);
+    font-size: rem(14px);
+    font-weight: 600;
+    background: $color-white;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: $color-black;
+    }
+  }
+
+  &__range {
+    position: relative;
+    height: rem(20px);
+    margin-bottom: rem(28px);
+  }
+
+  &__range-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: rem(2px);
+    border-radius: rem(2px);
+    background: $color-border;
+    transform: translateY(-50%);
+  }
+
+  &__range-fill {
+    position: absolute;
+    height: 100%;
+    border-radius: rem(2px);
+    background: $color-black;
+  }
+
+  &__range-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: rem(20px);
+    margin: 0;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      pointer-events: auto;
+      width: rem(18px);
+      height: rem(18px);
+      border-radius: 50%;
+      background: $color-white;
+      border: rem(2px) solid $color-black;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      pointer-events: auto;
+      width: rem(18px);
+      height: rem(18px);
+      border-radius: 50%;
+      background: $color-white;
+      border: rem(2px) solid $color-black;
+      cursor: pointer;
+    }
+  }
+
+  &__bar,
+  &__apply {
+    display: none;
+  }
+
+  @include upto($bp-mobile) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(88%, rem(400px));
+    z-index: 60;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: $color-page;
+    padding: 0 rem(24px);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &.is-open {
+      transform: translateX(0);
+    }
+
+    &__bar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: rem(20px);
+      background: $color-page;
+    }
+
+    &__bar-title {
+      font-size: rem(20px);
+      font-weight: 700;
+    }
+
+    &__close {
+      display: grid;
+      place-items: center;
+      width: rem(40px);
+      height: rem(40px);
+      color: $color-black;
+    }
+
+    &__apply {
+      position: sticky;
+      bottom: 0;
+      display: block;
+      padding-block: rem(16px);
+      background: $color-page;
+    }
+
+    &__model {
+      grid-template-columns: rem(80px) 1fr;
+    }
+  }
+}

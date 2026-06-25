@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Отзывы — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <a class="breadcrumbs__link" href="account-history.html">Личный кабинет</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Отзывы</span>
+      </nav>
+
+      <div class="account">
+        @@include('partials/account-nav.html', { "active": "reviews" })
+
+        <section class="account__content">
+          <header class="account__head">
+            <div>
+              <h1 class="account__title">Мои отзывы</h1>
+              <p class="account__subtitle">4 отзыва · средняя оценка 4,8</p>
+            </div>
+            <a class="btn btn--primary btn--sm" href="#">
+              <svg class="btn__icon" width="20" height="20" aria-hidden="true"><use href="#icon-plus"></use></svg>
+              Написать отзыв
+            </a>
+          </header>
+
+          <div class="chips" data-chips-filter role="tablist" aria-label="Фильтр отзывов">
+            <button class="chips__item chips__item--active" type="button" role="tab" aria-selected="true" data-filter="all">
+              Все <span class="chips__count">3</span>
+            </button>
+            <button class="chips__item" type="button" role="tab" aria-selected="false" data-filter="published">
+              Опубликованные <span class="chips__count">2</span>
+            </button>
+            <button class="chips__item" type="button" role="tab" aria-selected="false" data-filter="pending">
+              На модерации <span class="chips__count">1</span>
+            </button>
+          </div>
+
+          <div class="review-list">
+
+            <article class="review-card" data-reveal data-status="published">
+              <header class="review-card__head">
+                <a class="review-card__product" href="catalog.html">
+                  <span class="review-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T7", "class": "review-card__image" })
+                  </span>
+                  <span class="review-card__product-info">
+                    <span class="review-card__product-name">TENET T7 2.0 CVT Premium</span>
+                    <span class="review-card__product-meta">Покупка · июнь 2026</span>
+                  </span>
+                </a>
+                <div class="review-card__status">
+                  <span class="badge badge--success"><span class="badge__dot"></span>Опубликован</span>
+                  <time class="review-card__date" datetime="2026-06-18">18 июня 2026</time>
+                </div>
+              </header>
+
+              <div class="review-card__rating">
+                <span class="rating" aria-label="Оценка 5 из 5">
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                </span>
+                <span class="rating__value">5,0</span>
+              </div>
+
+              <h3 class="review-card__title">Отличный автомобиль за свои деньги</h3>
+              <p class="review-card__text">
+                Брал T7 в комплектации Premium, очень доволен. Салон собран аккуратно, шумоизоляция
+                на уровне более дорогих моделей, вариатор работает плавно. Отдельное спасибо менеджеру
+                за подробную консультацию и быстрое оформление — выдали авто точно в срок.
+              </p>
+
+              <div class="review-card__reply">
+                <p class="review-card__reply-head">Ответ АДТ Север</p>
+                <p class="review-card__reply-text">
+                  Иван, благодарим за отзыв! Рады, что выбор оправдал ожидания. Ждём вас на первом
+                  бесплатном ТО — напомним заранее по SMS.
+                </p>
+              </div>
+
+              <footer class="review-card__footer">
+                <button class="account__action" type="button">
+                  <svg class="account__action-icon" aria-hidden="true"><use href="#icon-edit"></use></svg>
+                  <span>Редактировать</span>
+                </button>
+                <button class="account__action account__action--danger" type="button">
+                  <svg class="account__action-icon" aria-hidden="true"><use href="#icon-trash"></use></svg>
+                  <span>Удалить</span>
+                </button>
+              </footer>
+            </article>
+
+            <article class="review-card" data-reveal data-status="published">
+              <header class="review-card__head">
+                <a class="review-card__product" href="catalog.html">
+                  <span class="review-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T6", "class": "review-card__image" })
+                  </span>
+                  <span class="review-card__product-info">
+                    <span class="review-card__product-name">TENET T6 1.5T DCT Comfort</span>
+                    <span class="review-card__product-meta">Покупка · май 2026</span>
+                  </span>
+                </a>
+                <div class="review-card__status">
+                  <span class="badge badge--success"><span class="badge__dot"></span>Опубликован</span>
+                  <time class="review-card__date" datetime="2026-06-05">5 июня 2026</time>
+                </div>
+              </header>
+
+              <div class="review-card__rating">
+                <span class="rating" aria-label="Оценка 4 из 5">
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star rating__star--empty" aria-hidden="true"><use href="#icon-star"></use></svg>
+                </span>
+                <span class="rating__value">4,0</span>
+              </div>
+
+              <h3 class="review-card__title">Хороший городской кроссовер</h3>
+              <p class="review-card__text">
+                Машина для города отличная — компактная, экономичная, robot-коробка немного задумчива
+                на старте, но к этому быстро привыкаешь. По оснащению за свои деньги вопросов нет.
+              </p>
+
+              <footer class="review-card__footer">
+                <button class="account__action" type="button">
+                  <svg class="account__action-icon" aria-hidden="true"><use href="#icon-edit"></use></svg>
+                  <span>Редактировать</span>
+                </button>
+                <button class="account__action account__action--danger" type="button">
+                  <svg class="account__action-icon" aria-hidden="true"><use href="#icon-trash"></use></svg>
+                  <span>Удалить</span>
+                </button>
+              </footer>
+            </article>
+
+            <article class="review-card review-card--pending" data-reveal data-status="pending">
+              <header class="review-card__head">
+                <a class="review-card__product" href="catalog.html">
+                  <span class="review-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T8", "class": "review-card__image" })
+                  </span>
+                  <span class="review-card__product-info">
+                    <span class="review-card__product-name">TENET T8 2.0T 4WD Flagship</span>
+                    <span class="review-card__product-meta">Тест-драйв · июнь 2026</span>
+                  </span>
+                </a>
+                <div class="review-card__status">
+                  <span class="badge badge--warning"><span class="badge__dot"></span>На модерации</span>
+                  <time class="review-card__date" datetime="2026-06-23">23 июня 2026</time>
+                </div>
+              </header>
+
+              <div class="review-card__rating">
+                <span class="rating" aria-label="Оценка 5 из 5">
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                  <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                </span>
+                <span class="rating__value">5,0</span>
+              </div>
+
+              <h3 class="review-card__title">Флагман, который удивляет динамикой</h3>
+              <p class="review-card__text">
+                Записался на тест-драйв ради интереса — в итоге не хотелось выходить из машины.
+                Разгон уверенный, мультимедиа быстрая, посадка комфортная. Отзыв появится на сайте
+                после проверки модератором.
+              </p>
+
+              <footer class="review-card__footer">
+                <button class="account__action" type="button">
+                  <svg class="account__action-icon" aria-hidden="true"><use href="#icon-edit"></use></svg>
+                  <span>Редактировать</span>
+                </button>
+                <button class="account__action account__action--danger" type="button">
+                  <svg class="account__action-icon" aria-hidden="true"><use href="#icon-trash"></use></svg>
+                  <span>Удалить</span>
+                </button>
+              </footer>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

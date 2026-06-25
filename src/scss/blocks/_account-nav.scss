@@ -1,0 +1,177 @@
+@use 'sass:list';
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.account-nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: rem(14px);
+  border-top: 1px solid $color-border;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: rem(14px);
+    padding: rem(15px) rem(8px) rem(15px) rem(18px);
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.55);
+    transition: color 0.2s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(10px);
+      bottom: rem(10px);
+      width: rem(3px);
+      border-radius: rem(3px);
+      background: $color-accent;
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &:hover {
+      color: $color-black;
+
+      .account-nav__icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: rem(20px);
+    height: rem(20px);
+    color: inherit;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  &__label {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__count {
+    flex-shrink: 0;
+    font-size: rem(13px);
+    font-weight: 700;
+    color: rgba($color-black, 0.4);
+    transition: color 0.2s ease;
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    gap: rem(14px);
+    margin-top: rem(8px);
+    padding: rem(15px) rem(8px) rem(4px) rem(18px);
+    border-top: 1px solid $color-border;
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.45);
+    transition: color 0.2s ease;
+
+    .account-nav__icon {
+      opacity: 0.6;
+    }
+
+    &:hover {
+      color: $color-accent;
+
+      .account-nav__icon {
+        color: $color-accent;
+        opacity: 1;
+      }
+    }
+  }
+
+  $keys: history, orders, profile, reviews;
+
+  @each $key in $keys {
+    &[data-active='#{$key}'] .account-nav__item--#{$key} .account-nav__link {
+      color: $color-black;
+      font-weight: 700;
+
+      &::before {
+        transform: scale(1);
+      }
+
+      .account-nav__icon {
+        color: $color-accent;
+        opacity: 1;
+      }
+
+      .account-nav__count {
+        color: rgba($color-black, 0.55);
+      }
+
+      @include upto($bp-mobile) {
+        border-color: $color-black;
+        background: $color-black;
+        color: $color-white;
+
+        .account-nav__icon {
+          color: $color-white;
+        }
+
+        .account-nav__count {
+          color: rgba($color-white, 0.6);
+        }
+      }
+    }
+  }
+
+  @include upto($bp-mobile) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: rem(8px);
+    min-width: 0;
+    padding-top: 0;
+    border-top: none;
+
+    &__list {
+      flex: 1 1 100%;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: rem(8px);
+    }
+
+    &__link,
+    &__logout {
+      gap: rem(10px);
+      height: 100%;
+      margin: 0;
+      padding: rem(11px) rem(14px);
+      border: 1px solid $color-border;
+      border-radius: rem(14px);
+      background: $color-white;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__icon {
+      width: rem(18px);
+      height: rem(18px);
+    }
+
+    &__logout {
+      flex: 1 1 100%;
+      height: auto;
+    }
+  }
+}

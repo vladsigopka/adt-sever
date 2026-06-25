@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Мой профиль — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <a class="breadcrumbs__link" href="account-history.html">Личный кабинет</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Мой профиль</span>
+      </nav>
+
+      <div class="account">
+        @@include('partials/account-nav.html', { "active": "profile" })
+
+        <section class="account__content">
+          <header class="account__head">
+            <div>
+              <h1 class="account__title">Мой профиль</h1>
+              <p class="account__subtitle">Личные данные, контакты и настройки доступа</p>
+            </div>
+          </header>
+
+          <div class="profile-head" data-reveal>
+            <div class="profile-head__avatar">
+              <span class="profile-head__initials">ИП</span>
+              <button class="profile-head__photo" type="button" aria-label="Изменить фото" data-modal-open="photoModal">
+                <svg aria-hidden="true"><use href="#icon-camera"></use></svg>
+              </button>
+            </div>
+            <div class="profile-head__info">
+              <p class="profile-head__name">Иван Петров</p>
+              <p class="profile-head__email">ivan.petrov@mail.ru</p>
+              <p class="profile-head__since">Клиент АДТ Север с марта 2024</p>
+            </div>
+            <button class="btn btn--outline btn--sm profile-head__remove" type="button">Удалить фото</button>
+          </div>
+
+          <form class="account-form" action="#" method="post" novalidate>
+            <section class="account__section" data-reveal>
+              <h2 class="account__section-title">Личные данные</h2>
+              <div class="account__fields">
+                <div class="field field--clearable field--filled">
+                  <input class="field__input" type="text" name="FIRST_NAME" id="FIRST_NAME" value="Иван" placeholder=" " aria-label="Имя" />
+                  <span class="field__label">Имя<span class="field__star">*</span></span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                </div>
+                <div class="field field--clearable field--filled">
+                  <input class="field__input" type="text" name="LAST_NAME" id="LAST_NAME" value="Петров" placeholder=" " aria-label="Фамилия" />
+                  <span class="field__label">Фамилия<span class="field__star">*</span></span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                </div>
+                <div class="field field--clearable field--filled">
+                  <input class="field__input" type="text" name="SECOND_NAME" id="SECOND_NAME" value="Сергеевич" placeholder=" " aria-label="Отчество" />
+                  <span class="field__label">Отчество</span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                </div>
+                <div class="field field--clearable field--filled">
+                  <input class="field__input" type="text" name="BIRTHDAY" id="BIRTHDAY" value="14.03.1990" placeholder=" " aria-label="Дата рождения" />
+                  <span class="field__label">Дата рождения</span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section class="account__section" data-reveal>
+              <h2 class="account__section-title">Контактные данные</h2>
+              <div class="account__fields">
+                <div class="field field--clearable field--filled">
+                  <input class="field__input" type="tel" name="PHONE" id="PHONE" value="+7 916 245-30-11" placeholder=" " aria-label="Телефон" />
+                  <span class="field__label">Телефон<span class="field__star">*</span></span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                </div>
+                <div class="field field--clearable field--filled" data-validate="email">
+                  <input class="field__input" type="email" name="EMAIL" id="EMAIL" value="ivan.petrov@mail.ru" placeholder=" " aria-label="E-mail" />
+                  <span class="field__label">E-mail<span class="field__star">*</span></span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                  <span class="field__error">Неверный формат электронной почты</span>
+                </div>
+                <div class="field field--clearable field--filled account__field--wide">
+                  <input class="field__input" type="text" name="CITY" id="CITY" value="Москва, ул. Автозаводская, 18" placeholder=" " aria-label="Город и адрес" />
+                  <span class="field__label">Город и адрес доставки</span>
+                  <button class="field__clear js-field-clear" type="button" aria-label="Очистить поле">
+                    <svg class="field__clear-icon" width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section class="account__section" data-reveal>
+              <h2 class="account__section-title">Изменение пароля</h2>
+              <div class="account__fields">
+                <div class="field field--password">
+                  <input class="field__input" type="password" name="OLD_PASSWORD" id="OLD_PASSWORD" placeholder=" " aria-label="Текущий пароль" />
+                  <span class="field__label">Текущий пароль</span>
+                  <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
+                    <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
+                  </button>
+                </div>
+                <div class="field field--password">
+                  <input class="field__input" type="password" name="NEW_PASSWORD" id="NEW_PASSWORD" placeholder=" " aria-label="Новый пароль" />
+                  <span class="field__label">Новый пароль</span>
+                  <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
+                    <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
+                  </button>
+                </div>
+                <div class="field field--password" data-validate="match" data-match="#NEW_PASSWORD">
+                  <input class="field__input" type="password" name="NEW_PASSWORD_CONFIRM" id="NEW_PASSWORD_CONFIRM" placeholder=" " aria-label="Повторите новый пароль" />
+                  <span class="field__label">Повторите новый пароль</span>
+                  <button class="field__toggle js-password-toggle" type="button" aria-label="Показать пароль">
+                    <svg class="field__toggle-icon" width="20" height="19" aria-hidden="true"><use href="#icon-eye"></use></svg>
+                  </button>
+                  <span class="field__error">Пароли не совпадают</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="account__section" data-reveal>
+              <h2 class="account__section-title">Уведомления</h2>
+              <div class="account__checks">
+                <label class="checkbox">
+                  <input class="checkbox__input" type="checkbox" name="NOTIFY_PROMO" checked />
+                  <span class="checkbox__box">
+                    <svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg>
+                  </span>
+                  <span class="checkbox__text">Получать информацию об акциях и специальных предложениях</span>
+                </label>
+                <label class="checkbox">
+                  <input class="checkbox__input" type="checkbox" name="NOTIFY_ORDERS" checked />
+                  <span class="checkbox__box">
+                    <svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg>
+                  </span>
+                  <span class="checkbox__text">Уведомлять о смене статуса заказов по SMS</span>
+                </label>
+                <label class="checkbox">
+                  <input class="checkbox__input" type="checkbox" name="NOTIFY_NEWS" />
+                  <span class="checkbox__box">
+                    <svg class="checkbox__check" width="12" height="12" aria-hidden="true"><use href="#icon-check"></use></svg>
+                  </span>
+                  <span class="checkbox__text">Новости компании и обзоры моделей по e-mail</span>
+                </label>
+              </div>
+            </section>
+
+            <div class="account-form__actions">
+              <button class="btn btn--primary" type="submit">Сохранить изменения</button>
+              <button class="btn btn--outline" type="reset">Отменить</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal" id="photoModal" data-modal aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть окно">
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+    <div class="modal__dialog modal__dialog--md" role="dialog" aria-modal="true" aria-labelledby="photoModalTitle" data-lenis-prevent>
+      <div class="modal__header">
+        <h2 class="modal__title" id="photoModalTitle">Фото профиля</h2>
+        <p class="modal__subtitle">Загрузите изображение — оно появится в вашем профиле</p>
+      </div>
+      <div class="modal__body">
+        <div class="uploader" data-uploader>
+          <input class="uploader__input" id="photoInput" type="file" accept="image/png, image/jpeg, image/webp" hidden />
+          <label class="uploader__dropzone" for="photoInput">
+            <span class="uploader__preview" data-uploader-preview>
+              <span class="uploader__initials">ИП</span>
+            </span>
+            <span class="uploader__icon">
+              <svg width="26" height="26" aria-hidden="true"><use href="#icon-upload"></use></svg>
+            </span>
+            <span class="uploader__text">Перетащите фото сюда или <span class="uploader__link">выберите файл</span></span>
+            <span class="uploader__hint">PNG, JPG или WEBP · до 5 МБ</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--outline" type="button" data-modal-close>Отмена</button>
+        <button class="btn btn--primary" type="button" data-modal-close>Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

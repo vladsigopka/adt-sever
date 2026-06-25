@@ -1,0 +1,255 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.contacts {
+  display: grid;
+  grid-template-columns: rem(540px) 1fr;
+  gap: rem(24px);
+  align-items: stretch;
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+  }
+
+  &__card {
+    position: relative;
+    padding: rem(32px);
+    border-radius: rem(12px);
+    background: $color-white;
+  }
+
+  &__card-icon {
+    position: absolute;
+    top: rem(32px);
+    right: rem(32px);
+    width: rem(32px);
+    height: rem(32px);
+  }
+
+  &__card-title {
+    margin-bottom: rem(24px);
+    padding-right: rem(40px);
+    font-size: rem(20px);
+    font-weight: 700;
+    color: $color-black;
+    text-transform: uppercase;
+  }
+
+  &__address {
+    margin-bottom: rem(24px);
+    font-weight: 600;
+    color: rgba($color-black, 0.5);
+    font-size: rem(14px);
+  }
+
+  &__phone {
+    display: inline-block;
+    font-size: rem(14px);
+    font-weight: 600;
+    color: $color-black;
+    opacity: .5;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__hours {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20px);
+    margin-top: rem(48px);
+  }
+
+  &__hours-label {
+    display: flex;
+    align-items: center;
+    gap: rem(12px);
+    font-size: rem(14px);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-black;
+
+    &::before {
+      content: '';
+      width: rem(32px);
+      height: 1px;
+      background: rgba($color-black, 0.5);
+    }
+  }
+
+  &__hours-value {
+    padding-left: rem(44px);
+    font-size: rem(14px);
+    color: rgba($color-black, 0.5);
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    margin-bottom: rem(24px);
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.5);
+
+    &:not(:first-of-type) {
+      margin-top: rem(48px);
+    }
+  }
+
+  &__shops {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(12px);
+  }
+
+  &__shop {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(72px);
+    padding: rem(16px);
+    border-radius: rem(12px);
+    background: $color-bg;
+    overflow: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.3s ease;
+
+    img {
+      width: auto;
+      height: auto;
+      max-width: rem(96px);
+      max-height: rem(24px);
+      opacity: 0.45;
+      transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(rem(-3px));
+    }
+  }
+
+  &__shop--wb:hover {
+    background: linear-gradient(30.96deg, #6f01fb 7.22%, #ff49d7 94.15%);
+
+    img {
+      opacity: 1;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__shop--mvideo:hover {
+    background: #ed1e24;
+
+    img {
+      opacity: 1;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__shop--ozon {
+    padding: 0;
+  }
+
+  &__shop--ozon &__shop-logo {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+  }
+
+  &__shop--ozon &__shop-logo--color {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+  }
+
+  &__shop--ozon:hover &__shop-logo--color {
+    opacity: 1;
+  }
+
+  &__socials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(12px);
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(74px);
+    border-radius: rem(12px);
+    background: $color-bg;
+    transition:
+      background-color 0.3s ease,
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+    img {
+      width: auto;
+      height: auto;
+      max-width: rem(24px);
+      max-height: rem(22px);
+      opacity: 0.5;
+      transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+
+    &:hover {
+      background: $color-black;
+      transform: translateY(rem(-3px));
+
+      img {
+        opacity: 1;
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  &__map {
+    overflow: hidden;
+    min-height: rem(440px);
+    border-radius: rem(16px);
+  }
+
+  &__map > div,
+  &__map iframe {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+  }
+
+  @include upto($bp-mobile) {
+    grid-template-columns: 1fr;
+
+    &__card {
+      padding: rem(24px);
+    }
+
+    &__card-icon {
+      top: rem(24px);
+      right: rem(24px);
+    }
+
+    &__shops {
+      grid-template-columns: 1fr;
+      max-width: rem(280px);
+      margin-inline: auto;
+    }
+
+    &__socials {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__map {
+      min-height: rem(360px);
+    }
+  }
+}

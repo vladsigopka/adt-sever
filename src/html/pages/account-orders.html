@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "Статус заказов — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <a class="breadcrumbs__link" href="account-history.html">Личный кабинет</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Статус заказов</span>
+      </nav>
+
+      <div class="account">
+        @@include('partials/account-nav.html', { "active": "orders" })
+
+        <section class="account__content">
+          <header class="account__head">
+            <div>
+              <h1 class="account__title">Статус заказов</h1>
+              <p class="account__subtitle">Всего 4 заказа за всё время</p>
+            </div>
+          </header>
+
+          <div class="chips" data-chips-filter role="tablist" aria-label="Фильтр заказов">
+            <button class="chips__item chips__item--active" type="button" role="tab" aria-selected="true" data-filter="all">
+              Все <span class="chips__count">4</span>
+            </button>
+            <button class="chips__item" type="button" role="tab" aria-selected="false" data-filter="work">
+              В работе <span class="chips__count">1</span>
+            </button>
+            <button class="chips__item" type="button" role="tab" aria-selected="false" data-filter="done">
+              Выполненные <span class="chips__count">2</span>
+            </button>
+            <button class="chips__item" type="button" role="tab" aria-selected="false" data-filter="cancelled">
+              Отменённые <span class="chips__count">1</span>
+            </button>
+          </div>
+
+          <div class="order-list">
+
+            <article class="order-card" data-reveal data-status="work">
+              <header class="order-card__head">
+                <div class="order-card__heading">
+                  <h2 class="order-card__id">Заказ № 2026-1043</h2>
+                  <p class="order-card__date">Оформлен 22 июня 2026</p>
+                </div>
+                <span class="badge badge--warning"><span class="badge__dot"></span>В работе</span>
+              </header>
+
+              <ol class="order-card__steps">
+                <li class="order-card__step order-card__step--done">
+                  <span class="order-card__step-marker">
+                    <svg aria-hidden="true"><use href="#icon-check"></use></svg>
+                  </span>
+                  <span class="order-card__step-label">Оформлен</span>
+                  <span class="order-card__step-date">22 июня</span>
+                </li>
+                <li class="order-card__step order-card__step--done">
+                  <span class="order-card__step-marker">
+                    <svg aria-hidden="true"><use href="#icon-check"></use></svg>
+                  </span>
+                  <span class="order-card__step-label">Подтверждён</span>
+                  <span class="order-card__step-date">23 июня</span>
+                </li>
+                <li class="order-card__step order-card__step--current">
+                  <span class="order-card__step-marker"></span>
+                  <span class="order-card__step-label">Подготовка авто</span>
+                  <span class="order-card__step-date">в процессе</span>
+                </li>
+                <li class="order-card__step">
+                  <span class="order-card__step-marker"></span>
+                  <span class="order-card__step-label">Готов к выдаче</span>
+                  <span class="order-card__step-date">ожидается 30 июня</span>
+                </li>
+              </ol>
+
+              <ul class="order-card__items">
+                <li class="order-card__item">
+                  <span class="order-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T8", "class": "order-card__image" })
+                  </span>
+                  <div class="order-card__info">
+                    <p class="order-card__name">TENET T8 2.0T 4WD Flagship</p>
+                    <p class="order-card__config">Чёрный металлик · комплектация Flagship · 2026</p>
+                  </div>
+                  <span class="order-card__count">1 шт.</span>
+                  <span class="order-card__price">3 190 000 ₽</span>
+                </li>
+                <li class="order-card__item">
+                  <span class="order-card__thumb order-card__thumb--icon">
+                    <svg aria-hidden="true"><use href="#icon-document"></use></svg>
+                  </span>
+                  <div class="order-card__info">
+                    <p class="order-card__name">Полис КАСКО на 1 год</p>
+                    <p class="order-card__config">Дополнительная услуга</p>
+                  </div>
+                  <span class="order-card__count">1 шт.</span>
+                  <span class="order-card__price">78 000 ₽</span>
+                </li>
+              </ul>
+
+              <footer class="order-card__footer">
+                <div class="order-card__total">
+                  <span class="order-card__total-label">Итого</span>
+                  <span class="order-card__total-sum">3 268 000 ₽</span>
+                </div>
+                <div class="order-card__actions">
+                  <a class="btn btn--outline btn--sm" href="#">Документы</a>
+                  <a class="btn btn--primary btn--sm" href="#">Подробнее о заказе</a>
+                </div>
+              </footer>
+            </article>
+
+            <article class="order-card" data-reveal data-status="done">
+              <header class="order-card__head">
+                <div class="order-card__heading">
+                  <h2 class="order-card__id">Заказ № 2026-0987</h2>
+                  <p class="order-card__date">Оформлен 14 июня 2026</p>
+                </div>
+                <span class="badge badge--success"><span class="badge__dot"></span>Готов к выдаче</span>
+              </header>
+
+              <ul class="order-card__items">
+                <li class="order-card__item">
+                  <span class="order-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T7", "class": "order-card__image" })
+                  </span>
+                  <div class="order-card__info">
+                    <p class="order-card__name">TENET T7 2.0 CVT Premium</p>
+                    <p class="order-card__config">Белый перламутр · комплектация Premium · 2026</p>
+                  </div>
+                  <span class="order-card__count">1 шт.</span>
+                  <span class="order-card__price">2 345 000 ₽</span>
+                </li>
+              </ul>
+
+              <footer class="order-card__footer">
+                <div class="order-card__total">
+                  <span class="order-card__total-label">Итого</span>
+                  <span class="order-card__total-sum">2 345 000 ₽</span>
+                </div>
+                <div class="order-card__actions">
+                  <a class="btn btn--outline btn--sm" href="#">Документы</a>
+                  <a class="btn btn--primary btn--sm" href="#">Записаться на выдачу</a>
+                </div>
+              </footer>
+            </article>
+
+            <article class="order-card order-card--done" data-reveal data-status="done">
+              <header class="order-card__head">
+                <div class="order-card__heading">
+                  <h2 class="order-card__id">Заказ № 2026-0915</h2>
+                  <p class="order-card__date">Оформлен 2 июня 2026</p>
+                </div>
+                <span class="badge badge--neutral"><span class="badge__dot"></span>Выполнен</span>
+              </header>
+
+              <ul class="order-card__items">
+                <li class="order-card__item">
+                  <span class="order-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T6", "class": "order-card__image" })
+                  </span>
+                  <div class="order-card__info">
+                    <p class="order-card__name">TENET T6 1.5T DCT Comfort</p>
+                    <p class="order-card__config">Серый графит · комплектация Comfort · 2025</p>
+                  </div>
+                  <span class="order-card__count">1 шт.</span>
+                  <span class="order-card__price">1 980 000 ₽</span>
+                </li>
+                <li class="order-card__item">
+                  <span class="order-card__thumb order-card__thumb--icon">
+                    <svg aria-hidden="true"><use href="#icon-document"></use></svg>
+                  </span>
+                  <div class="order-card__info">
+                    <p class="order-card__name">Комплект зимних шин</p>
+                    <p class="order-card__config">Дополнительная услуга</p>
+                  </div>
+                  <span class="order-card__count">1 шт.</span>
+                  <span class="order-card__price">112 000 ₽</span>
+                </li>
+              </ul>
+
+              <footer class="order-card__footer">
+                <div class="order-card__total">
+                  <span class="order-card__total-label">Итого</span>
+                  <span class="order-card__total-sum">2 092 000 ₽</span>
+                </div>
+                <div class="order-card__actions">
+                  <a class="btn btn--outline btn--sm" href="account-reviews.html">Оставить отзыв</a>
+                  <a class="btn btn--primary btn--sm" href="#">Заказать снова</a>
+                </div>
+              </footer>
+            </article>
+
+            <article class="order-card order-card--cancelled" data-reveal data-status="cancelled">
+              <header class="order-card__head">
+                <div class="order-card__heading">
+                  <h2 class="order-card__id">Заказ № 2026-0902</h2>
+                  <p class="order-card__date">Оформлен 28 мая 2026</p>
+                </div>
+                <span class="badge badge--error"><span class="badge__dot"></span>Отменён</span>
+              </header>
+
+              <ul class="order-card__items">
+                <li class="order-card__item">
+                  <span class="order-card__thumb">
+                    @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "TENET T7", "class": "order-card__image" })
+                  </span>
+                  <div class="order-card__info">
+                    <p class="order-card__name">TENET T7 1.6T CVT Active</p>
+                    <p class="order-card__config">Отменён по инициативе клиента · 30 мая 2026</p>
+                  </div>
+                  <span class="order-card__count">1 шт.</span>
+                  <span class="order-card__price">2 090 000 ₽</span>
+                </li>
+              </ul>
+
+              <footer class="order-card__footer">
+                <div class="order-card__total">
+                  <span class="order-card__total-label">Итого</span>
+                  <span class="order-card__total-sum">2 090 000 ₽</span>
+                </div>
+                <div class="order-card__actions">
+                  <a class="btn btn--primary btn--sm" href="#">Повторить заказ</a>
+                </div>
+              </footer>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>
