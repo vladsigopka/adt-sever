@@ -13,10 +13,8 @@
     margin-bottom: rem(32px);
 
     @include upto($bp-mobile) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: rem(20px);
       margin-bottom: rem(24px);
+      flex-wrap: wrap;
     }
   }
 
@@ -26,7 +24,7 @@
     line-height: 1.1;
 
     @include upto($bp-mobile) {
-      font-size: rem(26px);
+      font-size: rem(24px);
     }
   }
 
@@ -37,101 +35,204 @@
     color: rgba($color-black, 0.5);
   }
 
-  &__tools {
-    display: flex;
-    flex-wrap: wrap;
+  &__clear {
+    display: inline-flex;
     align-items: center;
-    gap: rem(20px);
+    gap: rem(8px);
     flex-shrink: 0;
+    font-size: rem(13px);
+    font-weight: 600;
+    color: rgba($color-black, 0.55);
+    transition: color 0.2s ease;
 
-    @include upto($bp-mobile) {
-      width: 100%;
-      justify-content: space-between;
-      gap: rem(12px);
+    svg {
+      width: rem(18px);
+      height: rem(18px);
+    }
+
+    &:hover {
+      color: $color-error;
     }
   }
 
-  &__table {
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+    gap: rem(24px);
+    margin-bottom: rem(48px);
+
+    @include upto($bp-mobile) {
+      gap: rem(10px);
+      margin-bottom: rem(32px);
+    }
+  }
+
+  &__sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    padding: rem(10px) 24px;
+    background: rgba($color-page, 0.9);
+    -webkit-backdrop-filter: blur(rem(10px));
+    backdrop-filter: blur(rem(10px));
+    border-bottom: 1px solid $color-border;
+    box-shadow: 0 rem(6px) rem(18px) rgba($color-black, 0.05);
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &.is-visible {
+      transform: translateY(0);
+    }
+
+    @include upto($bp-mobile) {
+      padding: rem(8px) 24px;
+    }
+  }
+
+  &__sticky-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+    gap: rem(24px);
+
+    @include upto($bp-mobile) {
+      gap: rem(10px);
+    }
+  }
+
+  &__sticky-car {
+    display: flex;
+    align-items: center;
+    gap: rem(10px);
+    min-width: 0;
+
+    @include upto($bp-mobile) {
+      gap: rem(8px);
+    }
+  }
+
+  &__sticky-thumb {
+    flex-shrink: 0;
+    width: rem(50px);
+    height: rem(38px);
+    border-radius: rem(8px);
+    overflow: hidden;
+    background: $color-bg;
+
+    picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    @include upto($bp-mobile) {
+      width: rem(40px);
+      height: rem(30px);
+    }
+  }
+
+  &__sticky-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__sticky-text {
     display: flex;
     flex-direction: column;
+    min-width: 0;
+  }
+
+  &__sticky-name {
+    font-size: rem(14px);
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include upto($bp-mobile) {
+      font-size: rem(12px);
+    }
+  }
+
+  &__sticky-price {
+    font-size: rem(12px);
+    font-weight: 600;
+    color: rgba($color-black, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include upto($bp-mobile) {
+      font-size: rem(11px);
+    }
+  }
+
+  &__group {
+    & + & {
+      margin-top: rem(44px);
+    }
+  }
+
+  &__group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(20px);
+    padding-bottom: rem(16px);
+    margin-bottom: rem(6px);
+    border-bottom: 1px solid $color-border;
+
+    @include upto($bp-mobile) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__group-title {
+    font-size: rem(22px);
+    font-weight: 700;
+
+    @include upto($bp-mobile) {
+      font-size: rem(18px);
+    }
   }
 
   &__row {
     display: grid;
-    grid-template-columns: var(--compare-label, #{rem(200px)}) repeat(var(--count), minmax(#{rem(180px)}, 1fr));
-    column-gap: rem(16px);
-    align-items: stretch;
-    transition: background-color 0.25s ease;
+    grid-template-columns: repeat(var(--count), minmax(0, 1fr));
+    gap: rem(24px);
+    padding: rem(16px) 0;
+    max-height: rem(180px);
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
 
-    @include upto($bp-mobile) {
-      grid-template-columns: repeat(var(--count), minmax(0, 1fr));
-      column-gap: rem(8px);
-      row-gap: rem(8px);
+    & + & {
+      border-top: 1px solid rgba($color-black, 0.06);
     }
 
-    &:not(.compare__row--head) {
-      border-top: 1px solid $color-border;
-      max-height: rem(220px);
-      overflow: hidden;
-      transition: background-color 0.25s ease, max-height 0.4s ease, opacity 0.3s ease,
-        padding 0.4s ease;
-
-      &:hover {
-        background: rgba($color-black, 0.025);
-      }
-
-      @include upto($bp-mobile) {
-        max-height: rem(320px);
-      }
-    }
-  }
-
-  &__row--head {
-    margin-bottom: rem(10px);
-
     @include upto($bp-mobile) {
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      margin-bottom: rem(4px);
-      padding-bottom: rem(12px);
-      background: $color-page;
-      box-shadow: 0 rem(10px) rem(12px) rem(-8px) rgba($color-black, 0.14);
-
-      .compare__label {
-        display: none;
-      }
+      gap: rem(10px);
+      padding: rem(12px) 0;
     }
   }
 
   &__label {
-    display: flex;
-    align-items: center;
-    padding: rem(16px) rem(12px) rem(16px) rem(4px);
+    grid-column: 1 / -1;
+    margin-bottom: rem(4px);
     font-size: rem(13px);
     font-weight: 600;
-    color: rgba($color-black, 0.55);
-
-    @include upto($bp-mobile) {
-      grid-column: 1 / -1;
-      padding: rem(14px) 0 rem(8px);
-      font-size: rem(12px);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: rgba($color-black, 0.45);
-    }
+    color: rgba($color-black, 0.45);
   }
 
-  &__cell {
+  &__value {
     display: flex;
     align-items: center;
     gap: rem(8px);
-    padding: rem(14px) rem(14px);
-    font-size: rem(14px);
+    font-size: rem(15px);
     font-weight: 600;
 
     @include upto($bp-mobile) {
-      padding: rem(10px);
       font-size: rem(13px);
     }
 
@@ -142,27 +243,19 @@
     }
   }
 
-  &__row--head &__cell {
-    align-items: stretch;
-    padding: 0;
-  }
-
   &__value--best {
-    border-radius: rem(10px);
-    background: rgba($color-accent, 0.08);
     color: $color-accent;
     font-weight: 700;
   }
 
   &__best {
     flex-shrink: 0;
-    width: rem(16px);
-    height: rem(16px);
-    margin-left: auto;
+    width: rem(15px);
+    height: rem(15px);
     color: $color-accent;
   }
 
-  &.is-diff-only &__row[data-diff='false']:not(.compare__row--head) {
+  &.is-diff-only &__row[data-diff='false'] {
     max-height: 0;
     padding-block: 0;
     border-top-color: transparent;
@@ -206,8 +299,10 @@
   }
 
   &--empty {
-    .compare__scroll,
-    .compare__tools {
+    .compare__cards,
+    .compare__groups,
+    .compare__sticky,
+    .compare__clear {
       display: none;
     }
 
@@ -220,24 +315,12 @@
 .compare-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  border: 1px solid $color-border;
-  border-radius: rem(16px);
-  background: $color-white;
-  overflow: hidden;
-  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
-
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 rem(20px) rem(45px) rgba($color-black, 0.12);
-    transform: translateY(rem(-4px));
-  }
 
   &__media {
-    position: relative;
     aspect-ratio: 16 / 11;
-    background: $color-bg;
+    border-radius: rem(16px);
     overflow: hidden;
+    background: $color-bg;
 
     picture {
       display: block;
@@ -251,75 +334,89 @@
       object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
+    @include upto($bp-mobile) {
+      border-radius: rem(12px);
+    }
   }
 
   &:hover &__media img {
-    transform: scale(1.05);
-  }
-
-  &__badge {
-    position: absolute;
-    top: rem(14px);
-    left: rem(14px);
-    z-index: 2;
-  }
-
-  &__remove {
-    position: absolute;
-    top: rem(12px);
-    right: rem(12px);
-    z-index: 2;
-    display: grid;
-    place-items: center;
-    width: rem(36px);
-    height: rem(36px);
-    border-radius: 50%;
-    background: $color-white;
-    color: $color-black;
-    will-change: transform;
-    transition: background-color 0.2s ease, transform 0.25s ease;
-
-    svg {
-      width: rem(20px);
-      height: rem(20px);
-    }
-
-    &:hover {
-      background: rgba($color-white, 0.8);
-      transform: scale(1.1);
-    }
+    transform: scale(1.04);
   }
 
   &__body {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: rem(18px) rem(18px) rem(20px);
+    align-items: flex-start;
+    padding-top: rem(16px);
+
+    @include upto($bp-mobile) {
+      padding-top: rem(10px);
+    }
   }
 
   &__name {
-    font-size: rem(18px);
+    font-size: rem(22px);
     font-weight: 700;
+
+    @include upto($bp-mobile) {
+      font-size: rem(14px);
+      line-height: 1.15;
+    }
   }
 
   &__trim {
     margin-top: rem(4px);
-    font-size: rem(12px);
+    font-size: rem(13px);
     font-weight: 600;
     color: rgba($color-black, 0.55);
+
+    @include upto($bp-mobile) {
+      display: none;
+    }
+  }
+
+  &__status {
+    margin-top: rem(12px);
+
+    @include upto($bp-mobile) {
+      margin-top: rem(8px);
+      gap: rem(5px);
+      padding: rem(3px) rem(6px);
+      font-size: rem(10px);
+    }
   }
 
   &__price {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     gap: rem(8px);
     margin-top: rem(14px);
+
+    @include upto($bp-mobile) {
+      margin-top: rem(8px);
+    }
   }
 
   &__price-now {
     font-size: rem(20px);
     font-weight: 700;
+
+    @include upto($bp-mobile) {
+      font-size: rem(11px);
+      white-space: nowrap;
+    }
+  }
+
+  &__info {
+    width: rem(16px);
+    height: rem(16px);
+    color: rgba($color-black, 0.3);
+
+    @include upto($bp-mobile) {
+      display: none;
+    }
   }
 
   &__price-old {
@@ -327,59 +424,51 @@
     font-weight: 600;
     color: rgba($color-black, 0.3);
     text-decoration: line-through;
+
+    @include upto($bp-mobile) {
+      display: none;
+    }
   }
 
-  &__cta {
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: rem(6px);
+    margin-top: rem(12px);
+    font-size: rem(12px);
+    font-weight: 600;
+    color: rgba($color-black, 0.5);
+
+    svg {
+      flex-shrink: 0;
+      width: rem(15px);
+      height: rem(15px);
+    }
+
+    @include upto($bp-mobile) {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: rem(10px);
     margin-top: rem(16px);
+
+    @include upto($bp-mobile) {
+      display: none;
+    }
+
+    .car-card__icon-btn.js-compare-remove.is-active {
+      background: #F6F6F6;
+      color: $color-black;
+    }
   }
 
-  @include upto($bp-mobile) {
-    border-radius: rem(14px);
-
-    &__media {
-      aspect-ratio: 16 / 10;
-    }
-
-    &__badge {
-      display: none;
-    }
-
-    &__remove {
-      top: rem(8px);
-      right: rem(8px);
-      width: rem(30px);
-      height: rem(30px);
-
-      svg {
-        width: rem(16px);
-        height: rem(16px);
-      }
-    }
-
-    &__body {
-      padding: rem(10px);
-    }
-
-    &__name {
-      font-size: rem(14px);
-    }
-
-    &__trim {
-      display: none;
-    }
-
-    &__price {
-      margin-top: rem(6px);
-    }
-
-    &__price-now {
-      font-size: rem(15px);
-    }
-
-    &__price-old,
-    &__cta {
-      display: none;
-    }
+  &.is-removing {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 }
 
@@ -437,33 +526,5 @@
     font-size: rem(13px);
     font-weight: 600;
     white-space: nowrap;
-  }
-}
-
-.js-ready .compare__row {
-  animation: compare-row-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-
-@for $i from 1 through 12 {
-  .js-ready .compare__row:nth-child(#{$i}) {
-    animation-delay: #{0.04s + $i * 0.05s};
-  }
-}
-
-@keyframes compare-row-in {
-  from {
-    opacity: 0;
-    transform: translateY(rem(20px));
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .js-ready .compare__row {
-    animation: none;
   }
 }

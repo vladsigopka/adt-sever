@@ -26,7 +26,7 @@
               <h1 class="account__title">История просмотров</h1>
               <p class="account__subtitle">8 автомобилей за последние 30 дней</p>
             </div>
-            <button class="account__action" type="button">
+            <button class=" btn btn--outline " type="button">
               <svg class="account__action-icon" aria-hidden="true"><use href="#icon-trash"></use></svg>
               <span>Очистить историю</span>
             </button>
@@ -34,7 +34,7 @@
 
           <div class="account__group">
             <h2 class="account__group-title">Сегодня</h2>
-            <div class="car-grid">
+            <div class="car-grid car-grid--catalog">
               @@include('partials/car-card.html')
               @@include('partials/car-card.html')
               @@include('partials/car-card.html')
@@ -43,7 +43,7 @@
 
           <div class="account__group">
             <h2 class="account__group-title">Вчера</h2>
-            <div class="car-grid">
+            <div class="car-grid car-grid--catalog">
               @@include('partials/car-card.html')
               @@include('partials/car-card.html')
               @@include('partials/car-card.html')
@@ -52,7 +52,7 @@
 
           <div class="account__group">
             <h2 class="account__group-title">Ранее</h2>
-            <div class="car-grid">
+            <div class="car-grid car-grid--catalog">
               @@include('partials/car-card.html')
               @@include('partials/car-card.html')
             </div>

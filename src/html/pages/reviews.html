@@ -8,8 +8,205 @@
   @@include('partials/header.html')
 
   <main class="main">
-    @@include('partials/stub.html', { "title": "Отзывы" })
+    <div class="container">
+      <nav class="breadcrumbs breadcrumbs--center" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">Отзывы</span>
+      </nav>
+
+      <h1 class="page-title page-title--center" data-reveal>Отзывы о нашей компании</h1>
+
+      <div class="reviews">
+
+        <article class="review" data-modal-open="reviewModal" data-reveal>
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Антон Максимов у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Антон Максимов</span>
+              <span class="rating" aria-label="Оценка 5 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Купил TENET T7 в комплектации Premium. Менеджеры помогли с выбором, без навязывания подобрали выгодные условия по кредиту. Машину выдали ровно в обещанный срок, всё подготовили идеально — рекомендую.</p>
+            <time class="review__date" datetime="2026-03-12">12.03.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="80">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Екатерина Соколова у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Екатерина Соколова</span>
+              <span class="rating" aria-label="Оценка 5 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Брали T8 для большой семьи. Очень понравился подход: всё подробно показали, дали спокойно проехаться на тест-драйве без спешки. Оформление заняло меньше дня, спасибо команде за внимание.</p>
+            <time class="review__date" datetime="2026-03-04">04.03.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="120">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Дмитрий Орлов у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Дмитрий Орлов</span>
+              <span class="rating" aria-label="Оценка 4 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star rating__star--empty" aria-hidden="true"><use href="#icon-star-outline"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Хороший дилер, цены адекватные рынку. Немного подождал доставку нужного цвета, но менеджер постоянно держал в курсе статуса заказа. В целом покупкой доволен, машина отличная.</p>
+            <time class="review__date" datetime="2026-02-26">26.02.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="80">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Игорь Беляев у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Игорь Беляев</span>
+              <span class="rating" aria-label="Оценка 5 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Обслуживаю здесь машину уже больше года. Записаться на ТО легко, работают быстро и аккуратно, оригинальные запчасти всегда в наличии. Приятно, когда сервис держит уровень.</p>
+            <time class="review__date" datetime="2026-02-18">18.02.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="120">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Марина Зайцева у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Марина Зайцева</span>
+              <span class="rating" aria-label="Оценка 5 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Первый раз покупала автомобиль и сильно переживала, но в АДТ Север всё объяснили простым языком, без давления. Отдельное спасибо менеджеру за терпение и внимание к деталям.</p>
+            <time class="review__date" datetime="2026-02-11">11.02.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="80">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Сергей Кузнецов у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Сергей Кузнецов</span>
+              <span class="rating" aria-label="Оценка 5 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Сдавал старую машину в трейд-ин — оценили честно, по рынку. Доплата за новый T6 оказалась даже меньше, чем я рассчитывал. Всё прозрачно, без скрытых платежей. Рекомендую салон.</p>
+            <time class="review__date" datetime="2026-02-03">03.02.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="120">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Ольга Новикова у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Ольга Новикова</span>
+              <span class="rating" aria-label="Оценка 4 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star rating__star--empty" aria-hidden="true"><use href="#icon-star-outline"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">В целом очень довольна покупкой. Менеджеры вежливые, салон чистый и удобный, кофе предложили. Хотелось бы побольше слотов для тест-драйва по записи в выходные — тогда было бы идеально.</p>
+            <time class="review__date" datetime="2026-01-27">27.01.2026</time>
+          </div>
+        </article>
+
+        <article class="review" data-modal-open="reviewModal" data-reveal data-reveal-delay="80">
+          <div class="review__photo">
+            @@include('partials/picture.html', { "webp": "img/akcii-image.webp", "img": "img/akcii-image.png", "alt": "Павел Громов у автомобиля TENET", "class": "review__image" })
+          </div>
+          <div class="review__body">
+            <header class="review__head">
+              <span class="review__name">— Павел Громов</span>
+              <span class="rating" aria-label="Оценка 5 из 5">
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+                <svg class="rating__star" aria-hidden="true"><use href="#icon-star"></use></svg>
+              </span>
+            </header>
+            <p class="review__text">Отличная команда. Помогли с гарантийным вопросом без лишней волокиты, всё сделали строго по регламенту и в срок. Чувствуется, что клиентом дорожат. Обязательно буду обращаться ещё.</p>
+            <time class="review__date" datetime="2026-01-20">20.01.2026</time>
+          </div>
+        </article>
+
+      </div>
+    </div>
   </main>
+
+  <div class="modal" id="reviewModal" data-modal aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть окно">
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+    <div class="modal__dialog modal__dialog--lg" role="dialog" aria-modal="true" aria-label="Отзыв" data-lenis-prevent>
+      <div class="review-modal">
+        <div class="review-modal__photo">
+          <picture>
+            <source data-modal-webp srcset="img/akcii-image.webp" type="image/webp" />
+            <img class="review-modal__image" data-modal-img src="img/akcii-image.png" alt="" />
+          </picture>
+        </div>
+        <div class="review-modal__body">
+          <header class="review-modal__head">
+            <span class="review-modal__name" data-modal-name>— Антон Максимов</span>
+            <span class="rating" data-modal-rating aria-hidden="true"></span>
+          </header>
+          <p class="review-modal__text" data-modal-text></p>
+          <time class="review-modal__date" data-modal-date></time>
+        </div>
+      </div>
+    </div>
+  </div>
 
   @@include('partials/footer.html')
 

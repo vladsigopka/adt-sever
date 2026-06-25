@@ -14,8 +14,7 @@
   }
 
   function update() {
-    const head = compare.querySelector('.compare__row--head');
-    const count = head ? head.querySelectorAll('.compare__cell').length : 0;
+    const count = compare.querySelectorAll('.compare-card').length;
     compare.style.setProperty('--count', count || 1);
     if (countEl) countEl.textContent = count;
     if (wordEl) wordEl.textContent = plural(count, ['автомобиль', 'автомобиля', 'автомобилей']);
@@ -23,11 +22,15 @@
   }
 
   function reindex() {
+    compare.querySelectorAll('.compare-card').forEach(function (card, i) {
+      card.dataset.col = i;
+    });
+    compare.querySelectorAll('.compare__sticky-car').forEach(function (car, i) {
+      car.dataset.col = i;
+    });
     compare.querySelectorAll('.compare__row').forEach(function (row) {
-      row.querySelectorAll('.compare__cell').forEach(function (cell, i) {
-        cell.dataset.col = i;
-        const btn = cell.querySelector('.js-compare-remove');
-        if (btn) btn.dataset.col = i;
+      row.querySelectorAll('.compare__value').forEach(function (value, i) {
+        value.dataset.col = i;
       });
     });
   }
@@ -51,9 +54,11 @@
   compare.addEventListener('click', function (e) {
     const remove = e.target.closest('.js-compare-remove');
     if (remove) {
-      const col = remove.dataset.col;
+      const holder = remove.closest('[data-col]');
+      if (!holder) return;
+      const col = holder.dataset.col;
       const cells = Array.prototype.slice.call(
-        compare.querySelectorAll('.compare__cell[data-col="' + col + '"]')
+        compare.querySelectorAll('[data-col="' + col + '"]')
       );
       removeCells(cells, function () {
         reindex();
@@ -63,7 +68,7 @@
     }
 
     if (e.target.closest('[data-compare-clear]')) {
-      const all = Array.prototype.slice.call(compare.querySelectorAll('.compare__cell'));
+      const all = Array.prototype.slice.call(compare.querySelectorAll('[data-col]'));
       removeCells(all, update);
     }
   });
@@ -73,6 +78,24 @@
     diff.addEventListener('change', function () {
       compare.classList.toggle('is-diff-only', diff.checked);
     });
+  }
+
+  const cards = compare.querySelector('.compare__cards');
+  const sticky = compare.querySelector('[data-compare-sticky]');
+  if (cards && sticky) {
+    function syncSticky() {
+      const cardsBottom = cards.getBoundingClientRect().bottom;
+      const sectionBottom = compare.getBoundingClientRect().bottom;
+      const show = cardsBottom < 0 && sectionBottom > 140;
+      sticky.classList.toggle('is-visible', show);
+      sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+    }
+    window.addEventListener('scroll', syncSticky, { passive: true });
+    window.addEventListener('resize', syncSticky);
+    if (window.lenis && typeof window.lenis.on === 'function') {
+      window.lenis.on('scroll', syncSticky);
+    }
+    syncSticky();
   }
 
   update();
