@@ -1,0 +1,19 @@
+<article class="video-card" data-reveal>
+  <picture class="video-card__media">
+    <source srcset="@@webp" type="image/webp" />
+    <img src="@@img" alt="@@alt" loading="lazy" />
+  </picture>
+  <span class="video-card__num" aria-hidden="true">@@num</span>
+  <div class="video-card__body">
+    <span class="video-card__badge">
+      <svg class="video-card__badge-icon" aria-hidden="true"><use href="#icon-video"></use></svg>
+      Видеообзор
+    </span>
+    <h3 class="video-card__title">@@title</h3>
+    <p class="video-card__desc">@@desc</p>
+  </div>
+  <button class="video-card__play" type="button" aria-label="Смотреть видео">
+    <span class="video-card__play-wave" aria-hidden="true"></span>
+    <svg class="video-card__play-icon" aria-hidden="true"><use href="#icon-video"></use></svg>
+  </button>
+</article>

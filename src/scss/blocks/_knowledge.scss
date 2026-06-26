@@ -1,0 +1,109 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.knowledge {
+  margin-top: rem(120px);
+
+  &__inner {
+    display: flex;
+    gap: rem(40px);
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 rem(560px);
+  }
+
+  &__title {
+    font-size: rem(36px);
+    font-weight: 700;
+    line-height: 1;
+    color: $color-black;
+  }
+
+  &__text {
+    margin-top: rem(48px);
+    font-size: rem(14px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: rgba($color-black, 0.5);
+
+    p + p {
+      margin-top: rem(32px);
+    }
+  }
+
+  &__more {
+    align-self: flex-start;
+    margin-top: rem(48px);
+    border-radius: rem(12px);
+  }
+
+  &__caption {
+    margin-top: auto;
+    padding-top: rem(48px);
+    font-size: rem(14px);
+    font-weight: 400;
+    color: rgba($color-black, 0.5);
+  }
+
+  &__slider {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__viewport {
+    overflow: hidden;
+    border-radius: rem(24px);
+  }
+
+  &__track {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(48px);
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+
+    .video-card:nth-child(odd) {
+      margin-top: rem(117px);
+    }
+  }
+
+  @include upto($bp-mobile) {
+    margin-top: rem(64px);
+
+    &__inner {
+      flex-direction: column;
+      gap: rem(32px);
+    }
+
+    &__intro {
+      flex: none;
+    }
+
+    &__title {
+      font-size: rem(28px);
+    }
+
+    &__text {
+      margin-top: rem(24px);
+      font-size: rem(14px);
+    }
+
+    &__more {
+      margin-top: rem(24px);
+    }
+
+    &__caption {
+      margin-top: rem(24px);
+      padding-top: 0;
+    }
+
+    &__track .video-card:nth-child(odd) {
+      margin-top: 0;
+    }
+  }
+}

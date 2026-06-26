@@ -10,8 +10,15 @@ import sourcemaps from 'gulp-sourcemaps';
 import plumber from 'gulp-plumber';
 import browserSyncLib from 'browser-sync';
 import { deleteAsync } from 'del';
+import sharp from 'sharp';
+import { readdir, mkdir, copyFile, access } from 'node:fs/promises';
+import path from 'node:path';
 
 const { src, dest, watch, series, parallel } = gulp;
+
+const IMG_MAX_WIDTH = 1920;
+const WEBP_QUALITY = 80;
+const JPEG_QUALITY = 82;
 const sass = gulpSass(dartSass);
 const bs = browserSyncLib.create();
 
@@ -83,8 +90,73 @@ export function scripts() {
     .pipe(bs.stream());
 }
 
-export function images() {
-  return src(paths.images.src, { encoding: false }).pipe(dest(paths.images.dest));
+async function walkFiles(dir) {
+  let entries;
+  try {
+    entries = await readdir(dir, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+  const nested = await Promise.all(
+    entries.map((entry) => {
+      const full = path.join(dir, entry.name);
+      return entry.isDirectory() ? walkFiles(full) : Promise.resolve([full]);
+    })
+  );
+  return nested.flat();
+}
+
+async function fileExists(file) {
+  try {
+    await access(file);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function images() {
+  const srcRoot = 'src/img';
+  const destRoot = 'dist/img';
+  const files = await walkFiles(srcRoot);
+
+  await Promise.all(
+    files.map(async (file) => {
+      const rel = path.relative(srcRoot, file);
+      const out = path.join(destRoot, rel);
+      const ext = path.extname(file).toLowerCase();
+      await mkdir(path.dirname(out), { recursive: true });
+
+      if (ext === '.png' || ext === '.jpg' || ext === '.jpeg') {
+        const pipeline = sharp(file).rotate();
+        const meta = await pipeline.metadata();
+        if (meta.width && meta.width > IMG_MAX_WIDTH) {
+          pipeline.resize({ width: IMG_MAX_WIDTH, withoutEnlargement: true });
+        }
+
+        const fallback = pipeline.clone();
+        if (ext === '.png') fallback.png({ compressionLevel: 9, palette: true });
+        else fallback.jpeg({ quality: JPEG_QUALITY, mozjpeg: true });
+
+        await Promise.all([
+          fallback.toFile(out),
+          pipeline.clone().webp({ quality: WEBP_QUALITY }).toFile(out.replace(/\.(png|jpe?g)$/i, '.webp')),
+        ]);
+        return;
+      }
+
+      if (ext === '.webp') {
+        const hasRaster =
+          (await fileExists(file.replace(/\.webp$/i, '.png'))) ||
+          (await fileExists(file.replace(/\.webp$/i, '.jpg'))) ||
+          (await fileExists(file.replace(/\.webp$/i, '.jpeg')));
+        if (!hasRaster) await copyFile(file, out);
+        return;
+      }
+
+      await copyFile(file, out);
+    })
+  );
 }
 
 export function fonts() {

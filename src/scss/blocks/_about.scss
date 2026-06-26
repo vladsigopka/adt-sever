@@ -1,0 +1,183 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.about {
+  margin-top: rem(120px);
+
+  &__head {
+    max-width: rem(1040px);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__caption {
+    margin-bottom: rem(54px);
+    font-size: rem(14px);
+    font-weight: 400;
+    color: rgba($color-black, 0.5);
+  }
+
+  &__lead {
+    font-size: rem(36px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: $color-black;
+
+    .scroll-fill__word {
+      opacity: calc(0.25 + 0.8 * var(--a, 0));
+      transition: opacity 0.2s ease-out;
+    }
+  }
+
+  &__more {
+    margin-top: rem(54px);
+    border-radius: rem(12px);
+    height: rem(60px);
+  }
+
+  &__slider {
+    position: relative;
+    margin-top: rem(54px);
+    margin-inline: -24px;
+  }
+
+  &__viewport {
+    overflow: hidden;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: rem(48px);
+    transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: rem(64px);
+    height: rem(64px);
+    color: $color-white;
+    transform: translateY(-50%);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    filter: drop-shadow(0 rem(2px) rem(10px) rgba($color-black, 0.45));
+
+    svg {
+      width: rem(40px);
+      height: rem(40px);
+    }
+
+    &--prev {
+      left: rem(24px);
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--next {
+      right: rem(24px);
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-50%) scale(1.15);
+    }
+
+    &:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.about-slide {
+  position: relative;
+  flex: 0 0 80%;
+  aspect-ratio: 1556 / 772;
+  border-radius: rem(8px);
+  overflow: hidden;
+  filter: brightness(0.5);
+  transform: scale(0.85);
+  transition: filter 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+
+  &.is-prev {
+    transform: scale(0.85) translateX(8.8%);
+  }
+
+  &.is-next {
+    transform: scale(0.85) translateX(-8.8%);
+  }
+
+  &.is-active {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+}
+
+@include upto($bp-mobile) {
+  .about {
+    margin-top: rem(64px);
+
+    &__head {
+      padding-inline: rem(8px);
+    }
+
+    &__caption {
+      margin-bottom: rem(24px);
+    }
+
+    &__lead {
+      font-size: rem(22px);
+      line-height: 1.3;
+    }
+
+    &__more {
+      margin-top: rem(32px);
+    }
+
+    &__slider {
+      margin-top: rem(40px);
+    }
+
+    &__arrow {
+      width: rem(40px);
+      height: rem(40px);
+
+      svg {
+        width: rem(28px);
+        height: rem(28px);
+      }
+
+      &--prev {
+        left: rem(12px);
+      }
+
+      &--next {
+        right: rem(12px);
+      }
+    }
+  }
+
+  .about-slide {
+    flex: 0 0 84%;
+  }
+}

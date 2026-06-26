@@ -95,11 +95,11 @@
     bottom: rem(16px);
     z-index: 3;
     display: flex;
-    justify-content: center;
+    padding-inline: rem(24px);
     gap: rem(16px);
 
     span {
-      width: rem(68px);
+      flex: 1;
       height: rem(3px);
       border-radius: rem(2px);
       background: rgba($color-white, 0.5);
@@ -305,9 +305,14 @@
     }
 
     &__cta {
-      padding-inline: rem(12px);
-      gap: rem(8px);
-      font-size: rem(13px);
+      padding-inline: rem(8px);
+      gap: rem(6px);
+      font-size: rem(11px);
+    }
+
+    &__cta-dot {
+      width: rem(14px);
+      height: rem(14px);
     }
 
     &__pricing {

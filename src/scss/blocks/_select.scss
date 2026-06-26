@@ -1,0 +1,105 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.select {
+  position: relative;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(12px);
+    width: 100%;
+    height: rem(54px);
+    padding-inline: rem(20px);
+    border: 1px solid $color-border;
+    border-radius: rem(16px);
+    background: $color-white;
+    font-size: rem(12px);
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      border-color: rgba($color-black, 0.3);
+    }
+  }
+
+  &__value {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgba($color-black, 0.5);
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    width: rem(24px);
+    height: rem(24px);
+    color: rgba($color-black, 0.5);
+    transition: transform 0.25s ease;
+  }
+
+  &__dropdown {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + #{rem(6px)});
+    left: 0;
+    right: 0;
+    padding: rem(6px);
+    border: 1px solid $color-border;
+    border-radius: rem(10px);
+    background: $color-white;
+    box-shadow: 0 rem(18px) rem(40px) rgba($color-black, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(rem(-6px));
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  &__list {
+    max-height: rem(240px);
+    overflow-y: auto;
+  }
+
+  &__option {
+    padding: rem(11px) rem(14px);
+    border-radius: rem(8px);
+    font-size: rem(14px);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.18s ease;
+
+    &:hover {
+      background: $color-bg;
+    }
+
+    &.is-selected {
+      background: $color-black;
+      color: $color-white;
+    }
+  }
+
+  &--filled &__value,
+  &.is-filled &__value {
+    color: $color-black;
+  }
+
+  &.is-open {
+    .select__trigger {
+      border-color: $color-black;
+    }
+
+    .select__chevron {
+      transform: rotate(180deg);
+    }
+
+    .select__dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}

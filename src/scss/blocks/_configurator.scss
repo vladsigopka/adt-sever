@@ -1,0 +1,76 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.configurator {
+  position: absolute;
+  top: rem(32px);
+  right: rem(32px);
+  bottom: rem(32px);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  width: rem(440px);
+  padding: rem(32px) rem(24px) rem(24px) rem(24px);
+  border-radius: rem(20px);
+  background: $color-white;
+  box-shadow: 0 rem(30px) rem(70px) rgba($color-black, 0.25);
+
+  &__title {
+    margin-bottom: rem(24px);
+    font-size: rem(16px);
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__fields {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: rem(16px);
+  }
+
+  &__more {
+    height: rem(54px);
+    margin-top: rem(16px);
+    border-radius: rem(16px);
+    background: $color-bg;
+    color: rgba($color-black, 0.6);
+    font-size: rem(12px);
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: rgba($color-black, 0.08);
+      color: $color-black;
+    }
+  }
+
+  &__submit {
+    height: rem(54px);
+    margin-top: rem(16px);
+    padding-inline: rem(24px);
+    font-size: rem(16px);
+    border-radius: rem(16px);
+  }
+
+  &__submit-icon {
+    width: rem(16px);
+    height: rem(16px);
+  }
+
+  @include upto($bp-mobile) {
+    position: static;
+    width: auto;
+    margin-top: rem(24px);
+    padding: rem(24px);
+    box-shadow: 0 rem(18px) rem(40px) rgba($color-black, 0.12);
+  }
+}

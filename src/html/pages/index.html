@@ -9,15 +9,235 @@
 
   <main class="main">
     <div class="container">
-      <h1 class="page-title">Готовые страницы</h1>
-      <div class="startlinks">
-        <a class="btn btn--outline" href="akcii.html">Акции (список)</a>
-        <a class="btn btn--outline" href="akciya-detail.html">Акция (детальная)</a>
-        <a class="btn btn--outline" href="documents.html">Документы (список)</a>
-        <a class="btn btn--outline" href="document.html">Документ (Политика)</a>
-        <a class="btn btn--outline" href="faq.html">Ответы на вопросы</a>
-        <a class="btn btn--outline" href="login.html">Авторизация</a>
+      <div class="hero-block">
+        <section class="hero" data-slider data-slider-loop="false">
+        <div class="hero__viewport">
+          <div class="hero__track" data-slider-track>
+            <article class="hero__slide hero__slide--1">
+              <picture class="hero__media">
+                <source srcset="img/hero/slide-1.webp" type="image/webp" />
+                <img src="img/hero/slide-1.png" alt="TENET T7" fetchpriority="high" />
+              </picture>
+              <div class="hero__badges">
+                <span class="hero__badge hero__badge--light">Новинка</span>
+                <span class="hero__badge hero__badge--dark">от 2 345 000 ₽</span>
+              </div>
+              <div class="hero__content">
+                <h2 class="hero__title">TENET T7 за 9&nbsp;998&nbsp;₽<br />в месяц на 5 лет</h2>
+                <p class="hero__text">1.1. Вся информация, представленная на официальном сайте ООО «ТЕНЕТ РУС», в том числе сведения о ценах на автомобили, детали, дополнительное оборудование марки</p>
+                <a class="hero__cta" href="catalog.html">Смотреть</a>
+              </div>
+            </article>
+
+            <article class="hero__slide hero__slide--2">
+              <picture class="hero__media">
+                <source srcset="img/hero/slide-1.webp" type="image/webp" />
+                <img src="img/hero/slide-1.png" alt="TENET T4" loading="lazy" />
+              </picture>
+              <div class="hero__badges">
+                <span class="hero__badge hero__badge--light">Хит продаж</span>
+                <span class="hero__badge hero__badge--dark">от 1 990 000 ₽</span>
+              </div>
+              <div class="hero__content">
+                <h2 class="hero__title">TENET T4 за 7&nbsp;499&nbsp;₽<br />в месяц на 5 лет</h2>
+                <p class="hero__text">1.1. Вся информация, представленная на официальном сайте ООО «ТЕНЕТ РУС», в том числе сведения о ценах на автомобили, детали, дополнительное оборудование марки</p>
+                <a class="hero__cta" href="catalog.html">Смотреть</a>
+              </div>
+            </article>
+
+            <article class="hero__slide hero__slide--3">
+              <picture class="hero__media">
+                <source srcset="img/hero/slide-1.webp" type="image/webp" />
+                <img src="img/hero/slide-1.png" alt="TENET T9" loading="lazy" />
+              </picture>
+              <div class="hero__badges">
+                <span class="hero__badge hero__badge--light">Новинка</span>
+                <span class="hero__badge hero__badge--dark">от 2 690 000 ₽</span>
+              </div>
+              <div class="hero__content">
+                <h2 class="hero__title">TENET T9 за 12&nbsp;990&nbsp;₽<br />в месяц на 5 лет</h2>
+                <p class="hero__text">1.1. Вся информация, представленная на официальном сайте ООО «ТЕНЕТ РУС», в том числе сведения о ценах на автомобили, детали, дополнительное оборудование марки</p>
+                <a class="hero__cta" href="catalog.html">Смотреть</a>
+              </div>
+            </article>
+          </div>
+
+          <button class="hero__online" type="button" data-slider-no-swipe>
+            <span class="hero__online-ripple" aria-hidden="true"></span>
+            <span class="hero__online-ripple" aria-hidden="true"></span>
+            <span class="hero__online-dot" aria-hidden="true"></span>
+            <span class="hero__online-label">Online — покупка</span>
+          </button>
+
+          <div class="hero__nav" data-slider-no-swipe>
+            <button class="hero__arrow hero__arrow--prev" type="button" data-slider-prev aria-label="Предыдущий слайд">
+              <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+            <button class="hero__arrow hero__arrow--next" type="button" data-slider-next aria-label="Следующий слайд">
+              <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </div>
+        </section>
+
+        <aside class="configurator">
+          <h2 class="configurator__title">Конфигуратор авто</h2>
+          <form class="configurator__form" action="catalog.html">
+            <div class="configurator__fields">
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "model" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "body" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "engine" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "drive" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "gearbox" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "trim" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "color" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "year" })
+              @@include('partials/select.html', { "placeholder": "Выберите модель", "name": "price" })
+            </div>
+            <button class="configurator__more" type="button">Дополнительные поля</button>
+            <button class="btn btn--primary btn--block configurator__submit" type="submit">
+              <svg class="configurator__submit-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+              <span>Показать 128 автомобилей</span>
+            </button>
+          </form>
+        </aside>
       </div>
+
+      <section class="knowledge">
+        <div class="knowledge__inner">
+          <div class="knowledge__intro" data-reveal>
+            <h2 class="knowledge__title">Это нужно знать<br />перед покупкой Автомобиля</h2>
+            <div class="knowledge__text">
+              <p>Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить важные задания по разработке стандартных подходов. Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить</p>
+              <p>Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить важные задания по разработке стандартных подходов. Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить</p>
+            </div>
+            <a class="btn btn--outline knowledge__more" href="about.html">Подробнее о компании</a>
+            <span class="knowledge__caption">Подзаголовок про видеообзоры</span>
+          </div>
+
+          <div class="knowledge__slider" data-slider data-slider-loop="false">
+            <div class="knowledge__viewport">
+              <div class="knowledge__track" data-slider-track>
+                @@include('partials/video-card.html', { "num": "01", "title": "Как купить автомобиль", "desc": "АДТ Север — официальный дилер TENET в Томске, предлагающий продажу новых автомобилей, помощь в выборе", "img": "img/video/video-1.png", "webp": "img/video/video-1.webp", "alt": "Как купить автомобиль" })
+                @@include('partials/video-card.html', { "num": "02", "title": "Как купить автомобиль", "desc": "АДТ Север — официальный дилер TENET в Томске, предлагающий продажу новых автомобилей, помощь в выборе", "img": "img/video/video-2.png", "webp": "img/video/video-2.webp", "alt": "Как купить автомобиль" })
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="brand" data-parallax data-reveal>
+        <picture class="brand__media">
+          <source srcset="img/brand-bg.webp" type="image/webp" />
+          <img src="img/brand-bg.png" alt="" loading="lazy" />
+        </picture>
+        <span class="brand__glow" aria-hidden="true"></span>
+        <div class="brand__content">
+          <h2 class="brand__title">Автомобили в наличии</h2>
+          <p class="brand__text">АДТ Север — официальный дилер TENET в Томске, предлагающий продажу новых автомобилей, помощь в выборе комплектации, сервис и поддержку владельцев на всех этапах.</p>
+          <a class="brand__more" href="about.html">Подробнее о компании</a>
+        </div>
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 146 36"><use href="#logo"></use></svg>
+        </span>
+      </section>
+
+      <section class="about">
+        <div class="about__head">
+          <p class="about__caption">О компании Алмаз Драйв Томск</p>
+          <p class="about__lead" data-scroll-fill>Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить важные задания по разработке стандартных подходов. Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить важные задания по</p>
+          <a class="about__more btn btn--outline" href="about.html">Подробнее о компании</a>
+        </div>
+
+        <div class="about__slider" data-slider data-slider-center data-slider-loop="false" data-slider-start="1" data-slider-autoplay="4000">
+          <div class="about__viewport">
+            <div class="about__track" data-slider-track>
+              <div class="about-slide">
+                <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
+              </div>
+              <div class="about-slide">
+                <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
+              </div>
+              <div class="about-slide">
+                <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
+              </div>
+              <div class="about-slide">
+                <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
+              </div>
+            </div>
+          </div>
+          <button class="about__arrow about__arrow--prev" type="button" data-slider-prev aria-label="Предыдущий слайд">
+            <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+          <button class="about__arrow about__arrow--next" type="button" data-slider-next aria-label="Следующий слайд">
+            <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="offer">
+        <picture class="offer__bg">
+          <source srcset="img/offer-bg.webp" type="image/webp" />
+          <img src="img/offer-bg.png" alt="" loading="lazy" />
+        </picture>
+        <div class="offer__grid">
+          <div class="offer__cell"></div>
+
+          <article class="offer__cell offer__cell--text offer__cell--2" data-reveal>
+            <span class="offer__line offer__line--v offer__line--left" aria-hidden="true"></span>
+            <span class="offer__line offer__line--v offer__line--right" aria-hidden="true"></span>
+            <span class="offer__line offer__line--h offer__line--bottom" aria-hidden="true"></span>
+            <h3 class="offer__title">Официально</h3>
+            <p class="offer__text">АДТ Север — официальный дилер TENET в Томске, предлагающий продажу новых автомобилей, помощь в выборе комплектации, сервис и поддержку владельцев на всех этапах.</p>
+            <a class="offer__btn" href="contacts.html">Наши контакты</a>
+          </article>
+
+          <div class="offer__cell"></div>
+
+          <article class="offer__cell offer__cell--text offer__cell--4" data-reveal data-reveal-delay="120">
+            <span class="offer__line offer__line--h offer__line--top" aria-hidden="true"></span>
+            <span class="offer__line offer__line--v offer__line--right" aria-hidden="true"></span>
+            <h3 class="offer__title">В наличии</h3>
+            <p class="offer__text">Подберите автомобиль TENET из актуального наличия, сравните доступные комплектации и получите консультацию менеджера по характеристикам, условиям покупки, срокам оформления и дополнительным опциям.</p>
+            <a class="offer__btn" href="catalog.html">Каталог автомобилей</a>
+          </article>
+
+          <div class="offer__cell"></div>
+
+          <article class="offer__cell offer__cell--text offer__cell--6" data-reveal data-reveal-delay="240">
+            <span class="offer__line offer__line--h offer__line--top" aria-hidden="true"></span>
+            <span class="offer__line offer__line--v offer__line--left" aria-hidden="true"></span>
+            <h3 class="offer__title">Иной заголовок</h3>
+            <p class="offer__text">Запишитесь на обслуживание TENET, получите консультацию специалистов по регламентным работам и состоянию авто, чтобы сохранить уверенность в поездках.</p>
+            <a class="offer__btn" href="contacts.html">Связаться с нами</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="stock" data-slider data-slider-loop="false">
+        <span class="stock__caption">О компании Алмаз Драйв Томск</span>
+        <div class="stock__bar">
+          <h2 class="stock__title">Автомобили в наличии<span class="stock__count">128</span></h2>
+          <div class="stock__nav">
+            <button class="stock__arrow stock__arrow--prev" type="button" data-slider-prev aria-label="Назад">
+              <svg aria-hidden="true"><use href="#icon-arrow-long"></use></svg>
+            </button>
+            <button class="stock__arrow stock__arrow--next" type="button" data-slider-next aria-label="Вперёд">
+              <svg aria-hidden="true"><use href="#icon-arrow-long"></use></svg>
+            </button>
+          </div>
+        </div>
+        <div class="stock__viewport">
+          <div class="stock__track" data-slider-track>
+            @@include('partials/car-card.html')
+            @@include('partials/car-card.html')
+            @@include('partials/car-card.html')
+            @@include('partials/car-card.html')
+            @@include('partials/car-card.html')
+            @@include('partials/car-card.html')
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
