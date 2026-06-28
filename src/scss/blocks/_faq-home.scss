@@ -1,0 +1,63 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.faq-home {
+  margin-top: rem(120px);
+  max-width: rem(1280px);
+  margin-inline: auto;
+
+  &__head {
+    text-align: center;
+    margin-bottom: rem(64px);
+  }
+
+  &__caption {
+    display: inline-flex;
+    align-items: center;
+    height: rem(40px);
+    padding: rem(5px) rem(24px);
+    border: 1px solid rgba($color-black, 0.12);
+    border-radius: rem(24px);
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.4);
+  }
+
+  &__title {
+    margin-top: rem(48px);
+    font-size: rem(40px);
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__more {
+    margin-top: rem(57px);
+    text-align: center;
+  }
+
+  &__more-btn {
+    border-radius: rem(8px);
+    padding-inline: rem(32px);
+  }
+
+  @include upto($bp-mobile) {
+    margin-top: rem(64px);
+
+    &__head {
+      margin-bottom: rem(40px);
+    }
+
+    &__title {
+      font-size: rem(28px);
+    }
+  }
+}
+
+.faq-home + .contacts {
+  margin-top: rem(120px);
+
+  @include upto($bp-mobile) {
+    margin-top: rem(64px);
+  }
+}

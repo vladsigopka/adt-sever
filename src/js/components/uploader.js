@@ -5,14 +5,19 @@
     const preview = uploader.querySelector('[data-uploader-preview]');
     if (!input || !zone) return;
 
+    const nameEl = uploader.querySelector('[data-uploader-name]');
+
     function showFile(file) {
-      if (!file || file.type.indexOf('image/') !== 0) return;
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        uploader.classList.add('has-file');
-        if (preview) preview.style.backgroundImage = 'url(' + e.target.result + ')';
-      };
-      reader.readAsDataURL(file);
+      if (!file) return;
+      uploader.classList.add('has-file');
+      if (nameEl) nameEl.textContent = file.name;
+      if (preview && file.type.indexOf('image/') === 0) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.style.backgroundImage = 'url(' + e.target.result + ')';
+        };
+        reader.readAsDataURL(file);
+      }
     }
 
     input.addEventListener('change', function () {

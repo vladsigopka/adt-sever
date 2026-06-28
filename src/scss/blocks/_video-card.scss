@@ -4,7 +4,7 @@
 
 .video-card {
   position: relative;
-  flex: 0 0 calc((100% - #{rem(48px)}) / 2);
+  flex: 0 0 rem(460px);
   aspect-ratio: 460 / 647;
   border-radius: rem(24px);
   overflow: hidden;

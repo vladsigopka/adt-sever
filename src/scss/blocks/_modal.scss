@@ -90,6 +90,24 @@
       background: rgba($color-white, 0.8);
       transform: scale(1.1);
     }
+
+    @include upto($bp-mobile) {
+      top: rem(26px);
+      right: rem(26px);
+      width: rem(40px);
+      height: rem(40px);
+      background: $color-bg;
+
+      svg {
+        width: rem(20px);
+        height: rem(20px);
+      }
+
+      &:hover {
+        background: $color-bg;
+        transform: none;
+      }
+    }
   }
 
   &__header {
@@ -122,6 +140,10 @@
 
     @include upto($bp-mobile) {
       flex-direction: column-reverse;
+
+      .btn {
+        flex: 0 0 auto;
+      }
     }
   }
 }

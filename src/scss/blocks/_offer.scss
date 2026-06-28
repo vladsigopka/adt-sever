@@ -8,8 +8,7 @@
   border-radius: rem(24px);
   overflow: hidden;
   background: $color-black;
-  aspect-ratio: 3 / 2;
-  min-height: rem(800px);
+  height: rem(912px);
   isolation: isolate;
 
   &__bg {
@@ -154,7 +153,7 @@
   }
 
   @include upto($bp-mobile) {
-    aspect-ratio: auto;
+    height: auto;
 
     &__grid {
       display: flex;

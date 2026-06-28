@@ -1,0 +1,190 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.benefits {
+  margin-top: rem(120px);
+
+  &__head {
+    text-align: center;
+    margin-bottom: rem(64px);
+  }
+
+  &__caption {
+    display: inline-flex;
+    align-items: center;
+    padding: rem(5px) rem(24px);
+    border: 1px solid rgba($color-black, 0.12);
+    border-radius: rem(24px);
+    font-size: rem(14px);
+    height: rem(40px);
+    font-weight: 600;
+    color: rgba($color-black, 0.4);
+  }
+
+  &__title {
+    margin-top: rem(32px);
+    font-size: rem(40px);
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(24px);
+  }
+
+  @include upto($bp-mobile) {
+    margin-top: rem(64px);
+
+    &__title {
+      font-size: rem(28px);
+    }
+
+    &__grid {
+      gap: rem(16px);
+    }
+  }
+}
+
+.benefit-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: rem(460px);
+  padding: rem(40px);
+  border-radius: rem(16px);
+  overflow: hidden;
+  background: $color-black;
+  color: $color-white;
+
+  &:nth-child(4n + 1),
+  &:nth-child(4n) {
+    flex: 0 0 calc((100% - #{rem(24px)}) * 0.586);
+  }
+
+  &:nth-child(4n + 2),
+  &:nth-child(4n + 3) {
+    flex: 0 0 calc((100% - #{rem(24px)}) * 0.414);
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(100deg, rgba($color-black, 0.72) 0%, rgba($color-black, 0.28) 46%, rgba($color-black, 0) 76%);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 0;
+    width: 22%;
+    aspect-ratio: 1;
+    background: $color-page;
+    transform: translate(50%, 50%) rotate(45deg);
+  }
+
+  &__num {
+    position: absolute;
+    right: rem(166px);
+    bottom: rem(-30px);
+    z-index: 1;
+    font-size: rem(200px);
+    font-weight: 700;
+    line-height: 1;
+    color: rgba($color-white, 0.1);
+    pointer-events: none;
+  }
+
+  &__tag {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    height: rem(40px);
+    padding: rem(5px) rem(24px);
+    border: 1px solid rgba($color-white, 1);
+    border-radius: rem(24px);
+    font-size: rem(14px);
+    font-weight: 600;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    margin-top: rem(48px);
+    font-size: rem(32px);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(54px);
+    margin-top: auto;
+    padding-inline: rem(32px);
+    border: 1px solid rgba($color-white, 0.5);
+    border-radius: rem(12px);
+    color: $color-white;
+    font-size: rem(14px);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      background: rgba($color-white, 0.18);
+      transform: translateY(-3px);
+    }
+  }
+
+  &:hover &__media img {
+    transform: scale(1.05);
+  }
+
+  @include upto($bp-mobile) {
+    height: auto;
+    min-height: rem(380px);
+    padding: rem(28px);
+
+    &:nth-child(n) {
+      flex: 0 0 100%;
+    }
+
+    &::before {
+      width: 17%;
+    }
+
+    &__title {
+      font-size: rem(24px);
+      max-width: rem(280px);
+    }
+
+    &__num {
+      font-size: rem(150px);
+      bottom: rem(-22px);
+    }
+  }
+}

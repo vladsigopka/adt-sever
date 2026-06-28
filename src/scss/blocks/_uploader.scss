@@ -87,4 +87,17 @@
     font-weight: 600;
     color: rgba($color-black, 0.4);
   }
+
+  &__filename {
+    display: none;
+    margin-top: rem(8px);
+    font-size: rem(13px);
+    font-weight: 600;
+    color: $color-accent;
+    word-break: break-all;
+  }
+
+  &.has-file &__filename {
+    display: block;
+  }
 }

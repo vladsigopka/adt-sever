@@ -1,0 +1,50 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12px);
+  }
+
+  &__label {
+    font-size: rem(14px);
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: rem(120px);
+    padding: rem(16px) rem(20px);
+    border: 1px solid $color-border;
+    border-radius: rem(16px);
+    background: $color-white;
+    font-family: inherit;
+    font-size: rem(14px);
+    font-weight: 600;
+    line-height: 1.4;
+    color: $color-black;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: rgba($color-black, 0.4);
+      font-weight: 600;
+    }
+
+    &:hover {
+      border-color: rgba($color-black, 0.3);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-black;
+    }
+  }
+}

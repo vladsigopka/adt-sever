@@ -9,9 +9,10 @@
     display: inline-flex;
     align-items: center;
     margin-bottom: rem(48px);
-    padding: rem(10px) rem(24px);
+    padding: rem(5px) rem(24px);
     border: 1px solid rgba($color-black, 0.12);
     border-radius: rem(40px);
+    height: rem(40px);
     font-size: rem(14px);
     font-weight: 600;
     color: rgba($color-black, 0.4);
@@ -22,7 +23,7 @@
     align-items: center;
     justify-content: space-between;
     gap: rem(24px);
-    margin-bottom: rem(40px);
+    margin-bottom: rem(64px);
   }
 
   &__title {

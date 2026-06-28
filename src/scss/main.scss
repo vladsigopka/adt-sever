@@ -19,6 +19,8 @@
 @use 'blocks/about';
 @use 'blocks/offer';
 @use 'blocks/stock';
+@use 'blocks/benefits';
+@use 'blocks/faq-home';
 @use 'blocks/tag';
 @use 'blocks/badge';
 @use 'blocks/breadcrumbs';
@@ -49,6 +51,8 @@
 @use 'blocks/review-card';
 @use 'blocks/review';
 @use 'blocks/rating';
+@use 'blocks/rating-input';
 @use 'blocks/modal';
 @use 'blocks/uploader';
+@use 'blocks/review-form';
 @use 'blocks/compare';

@@ -152,4 +152,8 @@
       flex-wrap: wrap;
     }
   }
+
+  &[data-status='published'] .account__action--danger {
+    display: none;
+  }
 }

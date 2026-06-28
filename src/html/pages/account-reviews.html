@@ -26,7 +26,7 @@
               <h1 class="account__title">Мои отзывы</h1>
               <p class="account__subtitle">4 отзыва · средняя оценка 4,8</p>
             </div>
-            <a class="btn btn--primary btn--sm" href="#">
+            <a class="btn btn--primary btn--sm" href="#" data-modal-open="reviewFormModal">
               <svg class="btn__icon" width="20" height="20" aria-hidden="true"><use href="#icon-plus"></use></svg>
               Написать отзыв
             </a>
@@ -194,6 +194,58 @@
       </div>
     </div>
   </main>
+
+  <div class="modal" id="reviewFormModal" data-modal aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <button class="modal__close" type="button" data-modal-close aria-label="Закрыть окно">
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+    <div class="modal__dialog modal__dialog--lg" role="dialog" aria-modal="true" aria-labelledby="reviewFormTitle" data-lenis-prevent>
+      <div class="modal__header">
+        <h2 class="modal__title" id="reviewFormTitle">Написать отзыв</h2>
+        <p class="modal__subtitle">Поделитесь впечатлением — это поможет другим покупателям</p>
+      </div>
+      <div class="modal__body">
+        <form class="review-form" id="reviewForm">
+          <div class="review-form__group">
+            <span class="review-form__label">Ваша оценка</span>
+            <div class="rating-input" data-rating-input>
+              <input type="hidden" name="rating" value="0" data-rating-value />
+              <button class="rating-input__star" type="button" data-rating-star aria-label="Оценка 1 из 5"><svg aria-hidden="true"><use href="#icon-star"></use></svg></button>
+              <button class="rating-input__star" type="button" data-rating-star aria-label="Оценка 2 из 5"><svg aria-hidden="true"><use href="#icon-star"></use></svg></button>
+              <button class="rating-input__star" type="button" data-rating-star aria-label="Оценка 3 из 5"><svg aria-hidden="true"><use href="#icon-star"></use></svg></button>
+              <button class="rating-input__star" type="button" data-rating-star aria-label="Оценка 4 из 5"><svg aria-hidden="true"><use href="#icon-star"></use></svg></button>
+              <button class="rating-input__star" type="button" data-rating-star aria-label="Оценка 5 из 5"><svg aria-hidden="true"><use href="#icon-star"></use></svg></button>
+            </div>
+          </div>
+
+          <div class="review-form__group">
+            <label class="review-form__label" for="reviewText">Ваш отзыв</label>
+            <textarea class="review-form__textarea" id="reviewText" name="text" placeholder="Расскажите о вашем опыте: что понравилось, как прошло обслуживание…" required></textarea>
+          </div>
+
+          <div class="review-form__group">
+            <span class="review-form__label">Фото или видео</span>
+            <div class="uploader" data-uploader>
+              <input class="uploader__input" id="reviewMedia" type="file" accept="image/png, image/jpeg, image/webp, video/mp4, video/webm" hidden />
+              <label class="uploader__dropzone" for="reviewMedia">
+                <span class="uploader__icon">
+                  <svg width="26" height="26" aria-hidden="true"><use href="#icon-upload"></use></svg>
+                </span>
+                <span class="uploader__text">Перетащите фото или видео сюда или <span class="uploader__link">выберите файл</span></span>
+                <span class="uploader__hint">PNG, JPG, WEBP или MP4 · до 50 МБ</span>
+                <span class="uploader__filename" data-uploader-name></span>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--outline" type="button" data-modal-close>Отмена</button>
+        <button class="btn btn--primary" type="button" data-modal-close>Опубликовать</button>
+      </div>
+    </div>
+  </div>
 
   @@include('partials/footer.html')
 
