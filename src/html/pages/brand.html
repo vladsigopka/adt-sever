@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/head.html', { "title": "TENET — бренд — АДТ Север" })
+</head>
+<body>
+  @@include('partials/sprite.html')
+  @@include('partials/header.html')
+
+  <main class="main">
+    <div class="container container--content">
+      <nav class="breadcrumbs breadcrumbs--center" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <a class="breadcrumbs__link" href="about.html">О компании</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">TENET</span>
+      </nav>
+
+      <h1 class="page-title page-title--center page-title--md">TENET</h1>
+
+      <div class="promo-detail">
+        <div class="promo-detail__media">
+          @@include('partials/picture.html', { "webp": "img/hero/slide-1.webp", "img": "img/hero/slide-1.png", "alt": "Модельный ряд TENET", "class": "promo-detail__image" })
+        </div>
+
+        <article class="article">
+          <p class="article__lead">
+            TENET — молодой бренд, объединивший современный дизайн, проверенные технологии и доступную стоимость владения. В линейке — кроссоверы и седаны для города и дальних поездок, собранные с вниманием к деталям.
+          </p>
+
+          <h2>О бренде</h2>
+          <p>
+            Автомобили TENET создаются на базе обкатанных платформ и оснащаются турбированными двигателями, современными коробками передач и развитыми системами безопасности. Богатое базовое оснащение и продуманная эргономика делают каждую модель удобной с первого дня.
+          </p>
+          <p>
+            АДТ Север — официальный дилер TENET в Томске: мы обеспечиваем продажу новых автомобилей, гарантийное обслуживание, оригинальные запчасти и помощь в выборе комплектации.
+          </p>
+
+          <h2>Модельный ряд</h2>
+          <ul>
+            <li><strong>TENET T4</strong> — компактный городской кроссовер;</li>
+            <li><strong>TENET T7</strong> — семейный кроссовер с просторным салоном;</li>
+            <li><strong>TENET T8</strong> — флагманский кроссовер с полным приводом;</li>
+            <li><strong>TENET T9</strong> — представительский SUV с премиальным оснащением.</li>
+          </ul>
+
+          <blockquote>
+            <p>Мы подбираем автомобиль под задачи клиента, а не наоборот — поэтому консультация всегда начинается с вопросов о том, как и для чего вы планируете ездить.</p>
+            <cite>Команда АДТ Север</cite>
+          </blockquote>
+
+          <h2>Гарантия и сервис</h2>
+          <p>
+            Каждый автомобиль TENET, купленный в АДТ Север, обслуживается в собственном сервисном центре на оригинальных запчастях. Мы напоминаем о плановых ТО, ведём историю обслуживания и поддерживаем владельцев на всех этапах.
+          </p>
+
+          <hr>
+
+          <h3>Хотите узнать больше?</h3>
+          <p>
+            Посмотрите <a href="catalog.html">актуальный каталог</a> или запишитесь на тест-драйв — оставьте заявку в <a href="login.html">личном кабинете</a> или позвоните по номеру <a href="tel:+73822607846">+7 (3822) 60-78-46</a>.
+          </p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  @@include('partials/footer.html')
+
+  <script src="js/main.js"></script>
+</body>
+</html>

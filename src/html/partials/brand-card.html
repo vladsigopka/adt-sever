@@ -1,0 +1,13 @@
+<a class="brand-card" href="@@href" data-reveal data-reveal-delay="@@delay">
+  <span class="brand-card__media">
+    @@include('partials/picture.html', { "webp": "@@webp", "img": "@@img", "alt": "@@name", "class": "brand-card__image" })
+  </span>
+  <span class="brand-card__body">
+    <span class="brand-card__name">@@name</span>
+    <span class="brand-card__desc">@@desc</span>
+    <span class="brand-card__more">
+      Подробнее о бренде
+      <svg class="brand-card__more-icon" aria-hidden="true"><use href="#icon-arrow-long"></use></svg>
+    </span>
+  </span>
+</a>

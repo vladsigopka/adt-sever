@@ -8,7 +8,73 @@
   @@include('partials/header.html')
 
   <main class="main">
-    @@include('partials/stub.html', { "title": "О компании" })
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">О компании</span>
+      </nav>
+
+      <h1 class="page-title">О компании</h1>
+
+      <section class="company">
+        <div class="company__intro">
+          <div class="company__text">
+            <p class="company__lead">АДТ Север — официальный дилер автомобилей TENET в Томске: продажа новых машин, гарантийное и сервисное обслуживание, оригинальные запчасти.</p>
+            <p>Мы работаем для тех, кто ценит уверенность в каждой поездке. За годы работы команда АДТ Север помогла тысячам клиентов подобрать автомобиль под их задачи — от первого знакомства с моделью до выдачи ключей и дальнейшего обслуживания.</p>
+            <p>Собственный сервисный центр, прозрачные условия покупки и кредитования, помощь в выборе комплектации и честная консультация на каждом этапе — то, за что нам доверяют.</p>
+          </div>
+          <div class="company__media" data-reveal>
+            @@include('partials/picture.html', { "webp": "img/login-bg.webp", "img": "img/login-bg.png", "alt": "Автомобиль TENET в шоуруме АДТ Север", "class": "company__image" })
+          </div>
+        </div>
+
+        <div class="company__stats">
+          <div class="company__stat">
+            <span class="company__stat-value">10+</span>
+            <span class="company__stat-label">лет на рынке</span>
+          </div>
+          <div class="company__stat">
+            <span class="company__stat-value">5 000+</span>
+            <span class="company__stat-label">довольных клиентов</span>
+          </div>
+          <div class="company__stat">
+            <span class="company__stat-value">100%</span>
+            <span class="company__stat-label">оригинальные запчасти</span>
+          </div>
+          <div class="company__stat">
+            <span class="company__stat-value">24/7</span>
+            <span class="company__stat-label">поддержка владельцев</span>
+          </div>
+        </div>
+
+        <div class="company__gallery">
+          <span class="company__gallery-item company__gallery-item--wide" data-reveal>
+            @@include('partials/picture.html', { "webp": "img/brand-bg.webp", "img": "img/brand-bg.png", "alt": "Шоурум АДТ Север", "class": "company__image" })
+          </span>
+          <span class="company__gallery-item" data-reveal data-reveal-delay="100">
+            @@include('partials/picture.html', { "webp": "img/video/video-1.webp", "img": "img/video/video-1.png", "alt": "Зона выдачи автомобилей", "class": "company__image" })
+          </span>
+          <span class="company__gallery-item" data-reveal data-reveal-delay="200">
+            @@include('partials/picture.html', { "webp": "img/video/video-2.webp", "img": "img/video/video-2.png", "alt": "Сервисный центр", "class": "company__image" })
+          </span>
+        </div>
+      </section>
+
+      <section class="brands">
+        <header class="brands__head">
+          <h2 class="brands__title">Бренды, с которыми мы работаем</h2>
+          <p class="brands__subtitle">Официальное представительство и сервис — выберите бренд, чтобы узнать подробнее</p>
+        </header>
+
+        <div class="brand-grid">
+          @@include('partials/brand-card.html', { "name": "TENET", "desc": "Современные кроссоверы и седаны с богатым оснащением и продуманной эргономикой.", "img": "img/hero/slide-1.png", "webp": "img/hero/slide-1.webp", "href": "brand.html", "delay": "0" })
+          @@include('partials/brand-card.html', { "name": "CHERY", "desc": "Надёжные автомобили для города и путешествий с выгодной стоимостью владения.", "img": "img/card/car-t8.png", "webp": "img/card/car-t8.webp", "href": "brand.html", "delay": "100" })
+          @@include('partials/brand-card.html', { "name": "OMODA", "desc": "Смелый дизайн и цифровой салон — автомобили нового поколения.", "img": "img/offer-bg.png", "webp": "img/offer-bg.webp", "href": "brand.html", "delay": "200" })
+          @@include('partials/brand-card.html', { "name": "EXEED", "desc": "Премиальная линейка кроссоверов с акцентом на комфорт и технологии.", "img": "img/brand-bg.png", "webp": "img/brand-bg.webp", "href": "brand.html", "delay": "300" })
+        </div>
+      </section>
+    </div>
   </main>
 
   @@include('partials/footer.html')
