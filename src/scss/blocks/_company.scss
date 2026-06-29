@@ -3,48 +3,37 @@
 @use '../base/mixins' as *;
 
 .company {
-  &__intro {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) rem(520px);
-    gap: rem(56px);
+  margin-top: rem(120px);
+
+  &__head {
+    max-width: rem(1200px);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &__caption {
+    display: inline-flex;
     align-items: center;
-    margin-top: rem(16px);
+    height: rem(40px);
+    margin-bottom: rem(32px);
+    padding-inline: rem(24px);
+    border: 1px solid rgba($color-black, 0.12);
+    border-radius: rem(24px);
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.4);
   }
 
   &__lead {
-    font-size: rem(24px);
-    font-weight: 600;
-    line-height: 1.35;
+    font-size: rem(36px);
+    font-weight: 400;
+    line-height: 1.25;
     color: $color-black;
-  }
 
-  &__text {
-    p:not(.company__lead) {
-      margin-top: rem(24px);
-      font-size: rem(15px);
-      font-weight: 500;
-      line-height: 1.65;
-      color: rgba($color-black, 0.6);
+    .scroll-fill__word {
+      opacity: calc(0.2 + 0.8 * var(--a, 0));
+      transition: opacity 0.2s ease-out;
     }
-  }
-
-  &__media {
-    aspect-ratio: 4 / 3;
-    border-radius: rem(24px);
-    overflow: hidden;
-  }
-
-  &__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &__media picture,
-  &__gallery-item picture {
-    display: block;
-    height: 100%;
   }
 
   &__stats {
@@ -57,15 +46,21 @@
   &__stat {
     display: flex;
     flex-direction: column;
-    gap: rem(8px);
-    padding: rem(28px) rem(32px);
+    gap: rem(10px);
+    padding: rem(32px);
     border: 1px solid $color-border;
     border-radius: rem(20px);
     background: $color-white;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+
+    &:hover {
+      transform: translateY(rem(-4px));
+      box-shadow: 0 rem(16px) rem(40px) rgba($color-black, 0.08);
+    }
   }
 
   &__stat-value {
-    font-size: rem(40px);
+    font-size: rem(44px);
     font-weight: 700;
     line-height: 1;
     color: $color-black;
@@ -82,33 +77,49 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     gap: rem(24px);
-    height: rem(460px);
+    height: rem(520px);
     margin-top: rem(64px);
   }
 
   &__gallery-item {
+    position: relative;
     border-radius: rem(24px);
     overflow: hidden;
 
     &--wide {
       grid-row: 1 / 3;
     }
+
+    picture {
+      display: block;
+      height: 100%;
+    }
+
+    &:hover .company__image {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   @include upto($bp-mobile) {
-    &__intro {
-      grid-template-columns: 1fr;
-      gap: rem(28px);
-    }
+    margin-top: rem(64px);
 
     &__lead {
-      font-size: rem(20px);
+      font-size: rem(22px);
+      line-height: 1.35;
     }
 
     &__stats {
       grid-template-columns: repeat(2, 1fr);
       gap: rem(16px);
-      margin-top: rem(40px);
+      margin-top: rem(48px);
     }
 
     &__stat {
@@ -116,7 +127,7 @@
     }
 
     &__stat-value {
-      font-size: rem(30px);
+      font-size: rem(32px);
     }
 
     &__gallery {
@@ -125,7 +136,7 @@
       grid-auto-rows: rem(220px);
       height: auto;
       gap: rem(16px);
-      margin-top: rem(40px);
+      margin-top: rem(48px);
 
       &-item--wide {
         grid-row: auto;
@@ -138,12 +149,26 @@
   margin-top: rem(120px);
 
   &__head {
-    margin-bottom: rem(40px);
+    margin-bottom: rem(64px);
+    text-align: center;
+  }
+
+  &__caption {
+    display: inline-flex;
+    align-items: center;
+    height: rem(40px);
+    padding-inline: rem(24px);
+    border: 1px solid rgba($color-black, 0.12);
+    border-radius: rem(24px);
+    font-size: rem(14px);
+    font-weight: 600;
+    color: rgba($color-black, 0.4);
   }
 
   &__title {
+    margin-top: rem(32px);
     font-size: rem(40px);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.1;
     color: $color-black;
   }

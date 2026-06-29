@@ -1,0 +1,70 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.marquee {
+  margin-top: rem(56px);
+  margin-inline: -24px;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+
+  &__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+
+    &.is-ready {
+      animation: marquee-scroll 36s linear infinite;
+    }
+  }
+
+  &:hover &__track.is-ready {
+    animation-play-state: paused;
+  }
+
+  &__item {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: rem(56px);
+    font-size: rem(44px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: rgba($color-black, 0.22);
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      color: $color-black;
+      transform: scale(1.06);
+    }
+  }
+
+  @include upto($bp-mobile) {
+    margin-top: rem(36px);
+
+    &__item {
+      padding-inline: rem(32px);
+      font-size: rem(30px);
+    }
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track.is-ready {
+    animation: none;
+  }
+}

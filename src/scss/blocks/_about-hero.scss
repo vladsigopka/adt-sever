@@ -1,0 +1,130 @@
+@use '../base/variables' as *;
+@use '../base/functions' as *;
+@use '../base/mixins' as *;
+
+.about-hero {
+  --mx: 0.5;
+  --my: 0.5;
+
+  position: relative;
+  margin-top: rem(16px);
+  aspect-ratio: 1872 / 760;
+  min-height: rem(440px);
+  border-radius: rem(24px);
+  overflow: hidden;
+  background: $color-black;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(110deg, rgba($color-black, 0.8) 0%, rgba($color-black, 0.35) 46%, rgba($color-black, 0) 72%),
+      linear-gradient(0deg, rgba($color-black, 0.7) 0%, rgba($color-black, 0) 52%);
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.14) translate3d(calc((0.5 - var(--mx)) * 48px), calc((0.5 - var(--my)) * 48px), 0);
+      filter: brightness(0.92) saturate(1.02);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+      will-change: transform, filter;
+    }
+  }
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: soft-light;
+    background: radial-gradient(circle at calc(var(--mx) * 100%) calc(var(--my) * 100%), rgba($color-white, 0.5) 0%, rgba($color-white, 0) 34%);
+    transition: opacity 0.4s ease;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 4;
+    left: rem(64px);
+    right: rem(64px);
+    bottom: rem(64px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: rem(860px);
+    color: $color-white;
+    transform: translate3d(calc((var(--mx) - 0.5) * 14px), calc((var(--my) - 0.5) * 14px), 0);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    height: rem(36px);
+    margin-bottom: rem(24px);
+    padding-inline: rem(20px);
+    border: 1px solid rgba($color-white, 0.25);
+    border-radius: rem(24px);
+    background: rgba($color-white, 0.08);
+    backdrop-filter: blur(rem(10px));
+    -webkit-backdrop-filter: blur(rem(10px));
+    font-size: rem(13px);
+    font-weight: 600;
+  }
+
+  &__title {
+    font-size: rem(40px);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__text {
+    margin-top: rem(24px);
+    max-width: rem(620px);
+    font-size: rem(16px);
+    font-weight: 500;
+    line-height: 1.25;
+    color: rgba($color-white, 0.8);
+  }
+
+  &.is-live {
+    .about-hero__media img {
+      filter: brightness(1.04) saturate(1.12);
+    }
+
+    .about-hero__glow {
+      opacity: 1;
+    }
+  }
+
+  @include upto($bp-mobile) {
+    aspect-ratio: auto;
+    min-height: rem(500px);
+
+    &__media img {
+      transform: none;
+      filter: brightness(0.8);
+    }
+
+    &__content {
+      left: rem(24px);
+      right: rem(24px);
+      bottom: rem(32px);
+      transform: none;
+    }
+
+    &__title {
+      font-size: rem(28px);
+    }
+  }
+}
