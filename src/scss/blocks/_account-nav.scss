@@ -60,6 +60,7 @@
   &__label {
     flex: 1;
     min-width: 0;
+    white-space: nowrap;
   }
 
   &__count {
