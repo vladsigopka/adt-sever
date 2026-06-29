@@ -15,21 +15,23 @@
 
   &__sidebar {
     position: sticky;
-    top: rem(24px);
+    top: rem(96px);
     min-width: 0;
     display: flex;
     flex-direction: column;
     gap: rem(16px);
-    padding-right: rem(28px);
-    border-right: 1px solid $color-border;
+    padding: rem(24px);
+    border: 1px solid $color-border;
+    border-radius: rem(20px);
+    background: $color-white;
 
     @include upto($bp-mobile) {
       position: static;
-      gap: rem(16px);
-      padding-right: 0;
-      padding-bottom: rem(16px);
-      border-right: none;
+      padding: 0 0 rem(16px);
+      border: none;
       border-bottom: 1px solid $color-border;
+      border-radius: 0;
+      background: transparent;
     }
   }
 

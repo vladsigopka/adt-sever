@@ -63,10 +63,9 @@
     height: rem(36px);
     padding-inline: rem(12px);
     border-radius: rem(24px);
-    background: linear-gradient(180deg, rgba($color-white, 0.22) 0%, rgba($color-white, 0.08) 100%);
+    background: linear-gradient(180deg, rgba($color-white, 0.1) 0%, rgba($color-white, 0.08) 100%);
     backdrop-filter: blur(rem(18px)) saturate(160%);
     -webkit-backdrop-filter: blur(rem(18px)) saturate(160%);
-    box-shadow: 0 rem(6px) rem(20px) rgba($color-black, 0.25);
     font-size: rem(14px);
     font-weight: 600;
   }
