@@ -10,11 +10,14 @@
   z-index: 5;
   display: flex;
   flex-direction: column;
-  width: rem(440px);
+  width: rem(360px);
   padding: rem(32px) rem(24px) rem(24px) rem(24px);
   border-radius: rem(20px);
   background: $color-white;
   box-shadow: 0 rem(30px) rem(70px) rgba($color-black, 0.25);
+  overflow-y: auto;
+
+  @include custom-scrollbar;
 
   &__title {
     margin-bottom: rem(16px);

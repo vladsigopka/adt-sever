@@ -14,18 +14,23 @@
   place-items: center;
   padding: rem(24px);
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  transition: visibility 0s linear 0.35s;
 
   &.is-open {
     visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: visibility 0s;
   }
 
   &__backdrop {
     position: absolute;
     inset: 0;
+    background: rgba($color-black, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    transition: background-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease;
+  }
+
+  &.is-open &__backdrop {
     background: rgba($color-black, 0.5);
     -webkit-backdrop-filter: blur(rem(4px));
     backdrop-filter: blur(rem(4px));
@@ -41,8 +46,11 @@
     border-radius: rem(24px);
     background: $color-white;
     box-shadow: 0 rem(30px) rem(80px) rgba($color-black, 0.25);
+    opacity: 0;
     transform: translateY(rem(20px)) scale(0.97);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    @include custom-scrollbar;
 
     @include upto($bp-mobile) {
       padding: rem(24px);
@@ -60,10 +68,19 @@
     &--lg {
       --modal-width: #{rem(760px)};
     }
+
+    &--xl {
+      --modal-width: #{rem(900px)};
+    }
   }
 
   &.is-open &__dialog {
+    opacity: 1;
     transform: none;
+  }
+
+  &.is-open &__close {
+    opacity: 1;
   }
 
   &__close {
@@ -73,17 +90,18 @@
     z-index: 2;
     display: grid;
     place-items: center;
-    width: rem(44px);
-    height: rem(44px);
+    width: rem(48px);
+    height: rem(48px);
     border-radius: 50%;
     background: $color-white;
     color: $color-black;
+    opacity: 0;
     will-change: transform;
-    transition: background-color 0.2s ease, transform 0.25s ease;
+    transition: background-color 0.2s ease, transform 0.25s ease, opacity 0.3s ease;
 
     svg {
-      width: rem(24px);
-      height: rem(24px);
+      width: rem(28px);
+      height: rem(28px);
     }
 
     &:hover {
@@ -94,13 +112,13 @@
     @include upto($bp-mobile) {
       top: rem(26px);
       right: rem(26px);
-      width: rem(40px);
-      height: rem(40px);
+      width: rem(44px);
+      height: rem(44px);
       background: $color-bg;
 
       svg {
-        width: rem(20px);
-        height: rem(20px);
+        width: rem(24px);
+        height: rem(24px);
       }
 
       &:hover {
@@ -125,6 +143,10 @@
     font-size: rem(13px);
     font-weight: 600;
     color: rgba($color-black, 0.5);
+  }
+
+  &__dialog .btn {
+    border-radius: rem(12px);
   }
 
   &__footer {

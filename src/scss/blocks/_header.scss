@@ -118,6 +118,12 @@
   }
 
   &__account {
+    position: relative;
+    padding-bottom: rem(10px);
+    margin-bottom: rem(-10px);
+  }
+
+  &__account-trigger {
     display: flex;
     align-items: center;
     gap: rem(10px);
@@ -129,10 +135,126 @@
     font-weight: 600;
     font-size: rem(12px);
     white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  &__account:hover &__account-trigger,
+  &__account:focus-within &__account-trigger {
+    background: $color-border;
   }
 
   &__account-arrow {
     color: $color-text;
+    width: rem(24px);
+    height: rem(24px);
+    transition: transform 0.25s ease;
+  }
+
+  &__account:hover &__account-arrow,
+  &__account:focus-within &__account-arrow {
+    transform: rotate(180deg);
+  }
+
+  &__account-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    width: rem(264px);
+    padding: rem(8px);
+    border-radius: rem(16px);
+    background: $color-white;
+    border: 1px solid $color-border;
+    box-shadow: 0 rem(20px) rem(50px) rgba($color-black, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(rem(6px));
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.25s;
+    pointer-events: none;
+  }
+
+  &__account:hover &__account-menu,
+  &__account:focus-within &__account-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  &__account-list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(2px);
+  }
+
+  &__account-item {
+    display: flex;
+    align-items: center;
+    gap: rem(12px);
+    padding: rem(11px) rem(12px);
+    border-radius: rem(10px);
+    font-size: rem(13px);
+    font-weight: 600;
+    color: rgba($color-black, 0.6);
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $color-bg;
+      color: $color-black;
+
+      .header__account-item-icon {
+        color: $color-accent;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__account-item-icon {
+    flex-shrink: 0;
+    width: rem(18px);
+    height: rem(18px);
+    color: inherit;
+    opacity: 0.6;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+
+  &__account-item-label {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__account-item-count {
+    flex-shrink: 0;
+    font-size: rem(12px);
+    font-weight: 700;
+    color: rgba($color-black, 0.4);
+  }
+
+  &__account-logout {
+    display: flex;
+    align-items: center;
+    gap: rem(12px);
+    margin-top: rem(6px);
+    padding: rem(12px) rem(12px) rem(4px);
+    border-top: 1px solid $color-border;
+    font-size: rem(13px);
+    font-weight: 600;
+    color: rgba($color-black, 0.5);
+    transition: color 0.2s ease;
+
+    .header__account-item-icon {
+      opacity: 0.6;
+    }
+
+    &:hover {
+      color: $color-accent;
+
+      .header__account-item-icon {
+        color: $color-accent;
+        opacity: 1;
+      }
+    }
   }
 
   &__burger {
@@ -209,7 +331,7 @@
   &__link {
     position: relative;
     color: $color-black;
-    font-size: rem(12px);
+    font-size: rem(14px);
     font-weight: 600;
 
     &::after {

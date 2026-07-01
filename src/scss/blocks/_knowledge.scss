@@ -13,7 +13,8 @@
   &__intro {
     display: flex;
     flex-direction: column;
-    flex: 0 1 rem(680px);
+    padding-left: rem(48px);
+    flex: 0 1 rem(730px);
   }
 
   &__title {
@@ -40,6 +41,7 @@
     align-self: flex-start;
     margin-top: rem(48px);
     border-radius: rem(12px);
+    padding-inline: rem(32px);
   }
 
   &__caption {
@@ -48,6 +50,7 @@
     font-size: rem(14px);
     font-weight: 400;
     color: rgba($color-black, 0.5);
+    font-style: italic;
   }
 
   &__slider {

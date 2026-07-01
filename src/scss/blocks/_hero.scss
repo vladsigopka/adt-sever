@@ -5,6 +5,7 @@
 .hero-block {
   position: relative;
   margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .hero {
@@ -32,7 +33,7 @@
   &__slide {
     position: relative;
     flex: 0 0 100%;
-    min-height: rem(832px);
+    min-height: min(#{rem(960px)}, calc(100dvh - #{rem(72px)} - 48px - 1px));
     padding: rem(72px);
     padding-right: rem(504px);
     color: $color-white;
@@ -167,9 +168,9 @@
     inset: 0;
     z-index: -1;
     border: 1px solid rgba($color-white, 0.55);
-    border-radius: rem(40px);
+    border-radius: rem(999px);
     opacity: 0;
-    will-change: transform, opacity;
+    will-change: inset, opacity;
     animation: hero-online-wave 3s ease-out infinite;
   }
 
@@ -284,11 +285,11 @@
 
 @keyframes hero-online-wave {
   0% {
-    transform: scale(1, 1);
+    inset: 0;
     opacity: 0.55;
   }
   100% {
-    transform: scale(1.16, 1.69);
+    inset: rem(-18px);
     opacity: 0;
   }
 }

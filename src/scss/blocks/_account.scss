@@ -46,6 +46,10 @@
     gap: rem(24px);
     margin-bottom: rem(32px);
 
+    .btn {
+      border-radius: rem(12px);
+    }
+
     @include upto($bp-mobile) {
       flex-wrap: wrap;
       gap: rem(16px);
@@ -306,6 +310,8 @@
 
   &__remove {
     flex-shrink: 0;
+    border-radius: rem(12px);
+    font-size: rem(12px);
   }
 
   @include upto($bp-mobile) {

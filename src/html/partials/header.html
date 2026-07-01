@@ -29,13 +29,51 @@
           <span class="header__badge">2</span>
         </a>
       </div>
-      <a class="header__account" href="account-history.html">
-        <span class="header__account-icon">
-        <svg class="header__account-icon__svg" aria-hidden="true"><use href="#icon-user"></use></svg>
+      <div class="header__account">
+        <a class="header__account-trigger" href="account-history.html" aria-haspopup="true">
+          <span class="header__account-icon">
+            <svg class="header__account-icon__svg" aria-hidden="true"><use href="#icon-user"></use></svg>
           </span>
-        <span>Личный кабинет</span>
-        <svg class="header__account-arrow" width="14" height="14" aria-hidden="true"><use href="#icon-chevron"></use></svg>
-      </a>
+          <span>Личный кабинет</span>
+          <svg class="header__account-arrow" width="14" height="14" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+        </a>
+
+        <div class="header__account-menu" role="menu">
+          <ul class="header__account-list">
+            <li>
+              <a class="header__account-item" href="account-history.html" role="menuitem">
+                <svg class="header__account-item-icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                <span class="header__account-item-label">История просмотров</span>
+              </a>
+            </li>
+            <li>
+              <a class="header__account-item" href="account-orders.html" role="menuitem">
+                <svg class="header__account-item-icon" aria-hidden="true"><use href="#icon-box"></use></svg>
+                <span class="header__account-item-label">Статус заказов</span>
+                <span class="header__account-item-count">3</span>
+              </a>
+            </li>
+            <li>
+              <a class="header__account-item" href="account-profile.html" role="menuitem">
+                <svg class="header__account-item-icon" aria-hidden="true"><use href="#icon-user"></use></svg>
+                <span class="header__account-item-label">Мой профиль</span>
+              </a>
+            </li>
+            <li>
+              <a class="header__account-item" href="account-reviews.html" role="menuitem">
+                <svg class="header__account-item-icon" aria-hidden="true"><use href="#icon-star-outline"></use></svg>
+                <span class="header__account-item-label">Отзывы</span>
+                <span class="header__account-item-count">4</span>
+              </a>
+            </li>
+          </ul>
+
+          <a class="header__account-logout" href="login.html" role="menuitem">
+            <svg class="header__account-item-icon" aria-hidden="true"><use href="#icon-logout"></use></svg>
+            <span class="header__account-item-label">Выйти из аккаунта</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <button class="header__burger burger js-menu-open" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">

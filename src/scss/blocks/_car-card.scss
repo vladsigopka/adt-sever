@@ -124,7 +124,7 @@
   }
 
   &__subtitle {
-    margin-top: rem(16px);
+    margin-top: rem(12px);
     font-size: rem(12px);
     font-weight: 600;
     color: rgba($color-black, 0.75);
@@ -156,7 +156,7 @@
     align-items: center;
     justify-content: space-between;
     gap: rem(16px);
-    margin-top: rem(32px);
+    margin-top: rem(24px);
   }
 
   &__prices {
@@ -195,8 +195,8 @@
     transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 
     svg {
-      width: rem(22px);
-      height: rem(22px);
+      width: rem(18px);
+      height: rem(18px);
     }
 
     &:hover {

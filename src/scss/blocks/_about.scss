@@ -53,13 +53,6 @@
     }
   }
 
-  &__track {
-    display: flex;
-    gap: rem(48px);
-    transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
-    will-change: transform;
-  }
-
   &__arrow {
     position: absolute;
     top: 50%;
@@ -103,12 +96,13 @@
 
 .about-slide {
   position: relative;
-  flex: 0 0 80%;
+  width: 81%;
+  height: auto;
   aspect-ratio: 1556 / 772;
   border-radius: rem(8px);
   overflow: hidden;
   filter: brightness(0.5);
-  transform: scale(0.85);
+  transform: scale(0.826);
   transition: filter 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 
   img {
@@ -119,15 +113,15 @@
     -webkit-user-drag: none;
   }
 
-  &.is-prev {
-    transform: scale(0.85) translateX(8.8%);
+  &.swiper-slide-prev {
+    transform: scale(0.826) translateX(10.5%);
   }
 
-  &.is-next {
-    transform: scale(0.85) translateX(-8.8%);
+  &.swiper-slide-next {
+    transform: scale(0.826) translateX(-10.5%);
   }
 
-  &.is-active {
+  &.swiper-slide-active {
     filter: brightness(1);
     transform: scale(1);
   }
@@ -178,6 +172,6 @@
   }
 
   .about-slide {
-    flex: 0 0 84%;
+    width: 84%;
   }
 }

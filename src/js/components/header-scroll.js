@@ -13,13 +13,15 @@
 
       if (y <= headerH) {
         header.classList.remove('header--hidden');
+        lastY = y;
       } else if (y > lastY + threshold) {
         header.classList.add('header--hidden');
+        lastY = y;
       } else if (y < lastY - threshold) {
         header.classList.remove('header--hidden');
+        lastY = y;
       }
 
-      lastY = y;
       ticking = false;
     }
 

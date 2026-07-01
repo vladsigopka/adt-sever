@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <link rel="stylesheet" href="vendor/swiper.min.css" />
   @@include('partials/head.html', { "title": "АДТ Север — официальный дилер TENET" })
 </head>
 <body>
@@ -10,7 +11,7 @@
   <main class="main">
     <div class="container">
       <div class="hero-block">
-        <section class="hero" data-slider data-slider-loop="false">
+        <section class="hero" data-slider data-slider-loop="false" data-slider-autoplay="6000">
         <div class="hero__viewport">
           <div class="hero__track" data-slider-track>
             <article class="hero__slide hero__slide--1">
@@ -80,7 +81,7 @@
         </div>
         </section>
 
-        <aside class="configurator">
+        <aside class="configurator" data-lenis-prevent>
           <h2 class="configurator__title">Конфигуратор авто</h2>
           <form class="configurator__form" action="catalog.html">
             <div class="configurator__fields">
@@ -111,7 +112,6 @@
               <p>Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить важные задания по разработке стандартных подходов. Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить</p>
               <p>Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить важные задания по разработке стандартных подходов. Наше дело не так однозначно, как может показаться: граница обучения кадров позволяет выполнить</p>
             </div>
-            <a class="btn btn--outline knowledge__more" href="about.html">Подробнее о компании</a>
             <span class="knowledge__caption">Подзаголовок про видеообзоры</span>
           </div>
 
@@ -149,27 +149,27 @@
           <a class="about__more btn btn--outline" href="about.html">Подробнее о компании</a>
         </div>
 
-        <div class="about__slider" data-slider data-slider-center data-slider-loop="false" data-slider-start="1" data-slider-autoplay="4000">
-          <div class="about__viewport">
-            <div class="about__track" data-slider-track>
-              <div class="about-slide">
+        <div class="about__slider">
+          <div class="about__viewport swiper" data-about-swiper>
+            <div class="about__track swiper-wrapper">
+              <div class="about-slide swiper-slide">
                 <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
               </div>
-              <div class="about-slide">
+              <div class="about-slide swiper-slide">
                 <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
               </div>
-              <div class="about-slide">
+              <div class="about-slide swiper-slide">
                 <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
               </div>
-              <div class="about-slide">
+              <div class="about-slide swiper-slide">
                 <picture><source srcset="img/login-bg.webp" type="image/webp" /><img src="img/login-bg.png" alt="TENET T7" loading="lazy" /></picture>
               </div>
             </div>
           </div>
-          <button class="about__arrow about__arrow--prev" type="button" data-slider-prev aria-label="Предыдущий слайд">
+          <button class="about__arrow about__arrow--prev" type="button" data-about-prev aria-label="Предыдущий слайд">
             <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
           </button>
-          <button class="about__arrow about__arrow--next" type="button" data-slider-next aria-label="Следующий слайд">
+          <button class="about__arrow about__arrow--next" type="button" data-about-next aria-label="Следующий слайд">
             <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
           </button>
         </div>
@@ -297,21 +297,21 @@
                 <img class="contacts__shop-logo" src="img/contacts/shop-ozon.svg" alt="OZON" />
                 <img class="contacts__shop-logo contacts__shop-logo--color" src="img/contacts/shop-ozon-color.svg" alt="" aria-hidden="true" />
               </a>
-              <a class="contacts__shop contacts__shop--mvideo" href="#" aria-label="М.Видео">
+              <a class="contacts__shop contacts__shop--mvideo contacts__shop--soon"
+                 href="#"
+                 aria-label="М.Видео — скоро"
+                 aria-disabled="true"
+                 tabindex="-1"
+              >
                 <img src="img/contacts/shop-mvideo.svg" alt="М.Видео" />
+                <span class="contacts__shop-badge">Скоро</span>
               </a>
             </div>
 
             <p class="contacts__subtitle">Мы в соц. сетях и мессенджерах</p>
             <div class="contacts__socials">
-              <a class="contacts__social" href="#" aria-label="Telegram">
-                <img src="img/contacts/social-telegram.svg" alt="" aria-hidden="true" />
-              </a>
               <a class="contacts__social" href="#" aria-label="ВКонтакте">
                 <img src="img/contacts/social-vk.svg" alt="" aria-hidden="true" />
-              </a>
-              <a class="contacts__social" href="#" aria-label="WhatsApp">
-                <img src="img/contacts/social-whatsapp.svg" alt="" aria-hidden="true" />
               </a>
               <a class="contacts__social" href="#" aria-label="Чат">
                 <img src="img/contacts/social-chat.svg" alt="" aria-hidden="true" />

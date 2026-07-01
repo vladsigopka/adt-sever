@@ -13,3 +13,28 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@mixin custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba($color-black, 0.2) transparent;
+
+  &::-webkit-scrollbar {
+    width: rem(8px);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: rem(2px) solid transparent;
+    border-radius: rem(4px);
+    background: rgba($color-black, 0.2);
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba($color-black, 0.4);
+    background-clip: content-box;
+  }
+}

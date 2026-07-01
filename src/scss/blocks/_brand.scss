@@ -53,9 +53,9 @@
   &__content {
     position: absolute;
     z-index: 4;
-    top: rem(64px);
-    left: rem(64px);
-    max-width: rem(640px);
+    top: rem(96px);
+    left: rem(96px);
+    max-width: rem(660px);
     color: $color-white;
     transform: translate3d(calc((var(--mx) - 0.5) * 16px), calc((var(--my) - 0.5) * 16px), 0);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -70,7 +70,7 @@
 
   &__text {
     margin-top: rem(24px);
-    max-width: rem(660px);
+    max-width: rem(700px);
     font-size: rem(16px);
     font-weight: 400;
     line-height: 1.25;
